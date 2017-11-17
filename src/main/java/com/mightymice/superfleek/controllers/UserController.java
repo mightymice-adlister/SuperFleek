@@ -5,12 +5,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class UserController {
     @GetMapping("/register")
+    @ResponseBody
     public String RegisterView(){
-        return"/register";
+        return"register view";
     }
 
     @PostMapping("/register")
@@ -19,7 +21,8 @@ public class UserController {
     }
 
     @GetMapping("/{username}")
+    @ResponseBody
     public String profileView(@PathVariable String username){
-        return "/profile";
+        return "profile view";
     }
 }
