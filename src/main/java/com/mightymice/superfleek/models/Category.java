@@ -1,8 +1,16 @@
-package models;
+package com.mightymice.superfleek.models;
 
+import javax.persistence.*;
+import java.util.List;
+@Entity
+@Table(name="categories")
 public class Category {
+    @Id @GeneratedValue
     private Long id;
+    @Column(nullable = false)
     private String name;
+    @ManyToMany(mappedBy = "categories")
+    private List<Makeup> makeups;
 
     public Category() {
 

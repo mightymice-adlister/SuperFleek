@@ -1,12 +1,28 @@
-package models;
+package com.mightymice.superfleek.models;
 
+import javax.persistence.*;
 import java.util.List;
 
+import static javax.persistence.CascadeType.ALL;
+
+@Entity
+@Table(name="makeup_lists")
 public class MakeupList {
+    @Id
+    @GeneratedValue
     private Long id;
+    @ManyToOne @JoinColumn(name = "user_id")
     private User user;
+    @Column(nullable = false)
     private String title;
+    @Column
     private String description;
+    @ManyToMany(cascade = ALL)
+    @JoinTable(
+            name="makeups_on_makeup_lists",
+            joinColumns={@JoinColumn(name="makeup_list_id")},
+            inverseJoinColumns = {@JoinColumn(name="makeup_id")}
+    )
     private List<Makeup> makeups;
 
     public Long getId() {
