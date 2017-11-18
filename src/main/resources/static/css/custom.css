@@ -1,0 +1,41 @@
+body {
+    background: url('../imgs/404-img.jpeg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'PT Sans', sans-serif;
+}
+
+.oops-block {
+    position: absolute;
+    display: inline-block;
+    top: 20%;
+    left: 50%;
+}
+
+.btn-black {
+    background-color: #000;
+}
+/*h1 {*/
+    /*color: hotpink;*/
+    /*font-family: 'Pacifico', cursive;*/
+    /*font-size: 5rem;*/
+/*}*/
+
+/*h3, h5 {*/
+    /*color: #000;*/
+/*}*/
+
+/*button {*/
+    /*border: none;*/
+    /*background-color: hotpink;*/
+    /*font-family: 'PT Sans', sans-serif;*/
+    /*font-size: 0.8em;*/
+    /*line-height: 0;*/
+    /*padding: 1em;*/
+    /*height: 3em;*/
+    /*-webkit-box-shadow: 1px 1px 1px 1px rgba(150,150,150,1);*/
+    /*-moz-box-shadow: 1px 1px 1px 1px rgba(150,150,150,1);*/
+    /*box-shadow: 1px 1px 1px 1px rgba(150,150,150,1);*/
+/*}*/
