@@ -15,4 +15,9 @@ public class HelloWorldController {
 	public String helloSignup() {
 		return "sign-up";
 	}
+
+	@GetMapping("/make-profile")
+	public String helloMakeProfile() {
+		return "make-profile";
+	}
 }

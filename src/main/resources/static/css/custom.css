@@ -15,6 +15,23 @@
 }
 
 /***********************/
+/*     make profile    */
+/***********************/
+section:nth-of-type(2) {
+    background: url('https://unsplash.it/1910/1221?image=626') no-repeat center / cover;
+}
+.section {
+    text-align:center;
+    font-size: 3em;
+}
+.content{
+    margin:50px
+}
+
+.breadcrumb.active {
+    color: hotpink !important;
+}
+/***********************/
 /*    Input Fields     */
 /***********************/
 /* label color */
