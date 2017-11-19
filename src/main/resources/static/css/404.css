@@ -1,0 +1,22 @@
+body {
+    background: url('../imgs/404-img.jpeg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'PT Sans', sans-serif;
+}
+
+.oops-block {
+    position: absolute;
+    display: inline-block;
+    top: 20%;
+    left: 50%;
+}
+
+h1 {
+    color: hotpink;
+    font-family: 'Pacifico', cursive;
+    font-size: 5rem;
+}
+

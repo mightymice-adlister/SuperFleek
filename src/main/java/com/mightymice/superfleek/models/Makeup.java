@@ -1,4 +1,4 @@
-package models;
+package com.mightymice.superfleek.models;
 
 import java.util.List;
 
