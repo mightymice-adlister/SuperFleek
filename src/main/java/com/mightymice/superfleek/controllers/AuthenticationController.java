@@ -11,7 +11,7 @@ public class AuthenticationController {
     @GetMapping("/login")
     @ResponseBody
     public String showLoginForm() {
-        return "login view";
+        return "login";
     }
 
 }

@@ -31,17 +31,64 @@ section:nth-of-type(2) {
 .breadcrumb.active {
     color: hotpink !important;
 }
+
+.mp-section-content {
+    position: relative;
+    bottom: 15%;
+}
+
+.mp-section-content * {
+    margin: 0 0 24px 0;
+}
+
+.mp-skip {
+    position: relative;
+    left: 34%;
+}
+
+.mp-skip:hover {
+    color: hotpink;
+}
+
+
+.add-profile-pic {
+    display: inline-block;
+    border: 3px solid black;
+    height: 150px;
+    width: 150px;
+    padding: 25px 0 0 0;
+    margin: 0;
+}
+
+.add-profile-pic:hover{
+    background-color: darkgrey;
+    cursor: pointer;
+}
+
+.collection-bar {
+    border: 1px solid black;
+    height: 75px;
+}
+
+.mp-down-arrow {
+    position: fixed;
+    bottom: 10px;
+    left: 47%;
+    z-index: 99;
+    cursor: pointer;
+}
+
 /***********************/
 /*    Input Fields     */
 /***********************/
 /* label color */
-.input-field label {
-    color: #000;
-}
-/* label focus color */
-.input-field input[type=text]:focus + label {
-    color: #000 !important;
-}
+/*.input-field label {*/
+    /*color: #000;*/
+/*}*/
+/*!* label focus color *!*/
+/*.input-field input[type=text]:focus + label {*/
+    /*color: #000 !important;*/
+/*}*/
 /* label underline focus color */
 .input-field input[type=text]:focus {
     border-bottom: 1px solid #000 !important;
@@ -57,9 +104,10 @@ section:nth-of-type(2) {
     border-bottom: 1px solid #000;
     box-shadow: 0 1px 0 0 #000;
 }
-/* icon prefix focus color */
-.input-field .prefix.active {
-    color: #000;
+/* seaerch label underline focus color */
+.input-field input[type=search]:focus {
+    border-bottom: 1px solid #039be5 !important;
+    box-shadow: 0 1px 0 0 #000 !important;
 }
 
 /***********************/

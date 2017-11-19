@@ -1,17 +1,19 @@
 $(document).ready(function() {
   $('#fullpage').fullpage({
     anchors: ['one', 'two', 'three', 'four'],
-    sectionsColor: ['tomato', 'indigo', 'blue', 'green'],
+    // sectionsColor: ['tomato', 'indigo', 'blue', 'green'],
     menu: '#walkthrough',
     slidesNavPosition: 'bottom',
     afterRender: function(){
       var pluginContainer = $(this);
       var loader = $('.loading-wrapper');
       var wrapper = $('.page-wrapper');
-
-      // loader.fadeOut().remove();
-      // wrapper.fadeIn();
+      loader.fadeOut().remove();
+      wrapper.fadeIn();
     }
+  });
+  $(document).on('click', '.mp-down-arrow', function(){
+    $.fn.fullpage.moveSectionDown();
   });
   // $('#fullPage').fullpage({
     // controlArrows: true,

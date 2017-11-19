@@ -11,20 +11,27 @@ public class MakeupController {
     @GetMapping("/")
     @ResponseBody
     public String index(){
-        return "index page";
+        return "index";
     }
 
-    @GetMapping("/home")
-    @ResponseBody
-    public String dashboard(){
-        return "dashboard";
+    @GetMapping("/make-profile")
+    public String makeProfile(){
+        return "make-profile";
     }
 
-    @GetMapping("/category/{id}")
-    @ResponseBody
-    public String productView(@PathVariable long id){
-        return "products view page";
-    }
+
+
+//    @GetMapping("/home")
+//    @ResponseBody
+//    public String dashboard(){
+//        return "dashboard";
+//    }
+//
+//    @GetMapping("/category/{id}")
+//    @ResponseBody
+//    public String productView(@PathVariable long id){
+//        return "products view page";
+//    }
 
 
 }
