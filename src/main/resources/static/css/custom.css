@@ -60,7 +60,7 @@ section:nth-of-type(2) {
     margin: 0;
 }
 
-.add-profile-pic:hover{
+.add-profile-pic:hover {
     background-color: darkgrey;
     cursor: pointer;
 }
@@ -70,10 +70,23 @@ section:nth-of-type(2) {
     height: 75px;
 }
 
+.mp-user-choice img {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+
+.mp-user-choice img.img1:hover, .mp-user-choice img.img2:hover {
+    -webkit-filter: grayscale(0);
+    filter: grayscale(0);
+}
+
 .mp-down-arrow {
     position: fixed;
     bottom: 10px;
-    left: 47%;
+    left: 50%;
+    margin: -42px 0 0 -42px;
     z-index: 99;
     cursor: pointer;
 }
