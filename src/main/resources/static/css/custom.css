@@ -66,8 +66,18 @@ section:nth-of-type(2) {
 /*   helper classes    */
 /***********************/
 
-.custom-wrapper {
+.full-page-wrapper {
     height: 100vh;
+}
+
+.page-wrapper {
+
+}
+
+.loading-wrapper {
+    position: fixed;
+    top: 45%;
+    left: 45%;
 }
 
 .main-title {
@@ -80,4 +90,8 @@ section:nth-of-type(2) {
 
 .btn-group {
     width: 35%;
+}
+
+.hidden {
+    display: none;
 }

@@ -2,7 +2,16 @@ $(document).ready(function() {
   $('#fullpage').fullpage({
     anchors: ['one', 'two', 'three', 'four'],
     sectionsColor: ['tomato', 'indigo', 'blue', 'green'],
-    menu: '#walkthrough'
+    menu: '#walkthrough',
+    slidesNavPosition: 'bottom',
+    afterRender: function(){
+      var pluginContainer = $(this);
+      var loader = $('.loading-wrapper');
+      var wrapper = $('.page-wrapper');
+
+      // loader.fadeOut().remove();
+      // wrapper.fadeIn();
+    }
   });
   // $('#fullPage').fullpage({
     // controlArrows: true,
