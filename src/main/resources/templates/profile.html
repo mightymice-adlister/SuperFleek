@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header('Profile')">
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+<header>
+    <nav th:replace="fragments/navbar :: navbar"></nav>
+</header>
+
+<main>
+    <div class="profile-hero-img">
+        <img src="https://source.unsplash.com/375x250/?model" />
+        <div class="profile-hero-overlay">
+            <h1 class="profile-overlay-text">
+                @Pinkpony123
+            </h1>
+        </div>
+    </div>
+    <div class="profile-tab-menu">
+        <div class="profile-menu-tab">Collection</div>
+        <div class="profile-menu-tab">Looks</div>
+        <div class="profile-menu-tab">Wishlist</div>
+    </div>
+</main>
+
+<footer>
+    <div th:replace="fragments/footer :: menu-bottom"></div>
+</footer>
+<div th:replace="fragments/footer :: scripts"></div>
+</body>
+</html>
