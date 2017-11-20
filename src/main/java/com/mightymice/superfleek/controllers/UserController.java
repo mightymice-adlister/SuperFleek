@@ -2,6 +2,7 @@ package com.mightymice.superfleek.controllers;
 
 import com.mightymice.superfleek.models.User;
 import com.mightymice.superfleek.repositories.Users;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 
@@ -12,9 +13,10 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     private Users users;
     private PasswordEncoder passwordEncoder;
-
-    public UserController(Users users){
+    @Autowired
+    public UserController(Users users, PasswordEncoder passwordEncoder){
         this.users = users;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @GetMapping("/sign-up")
