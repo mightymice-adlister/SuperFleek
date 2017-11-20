@@ -107,7 +107,6 @@ section:nth-of-type(2) {
 /*    Product View     */
 /***********************/
 .menu-bottom a{
-    bottom: 3px;
     margin: -3px;
     width: 51%;
 }
@@ -133,7 +132,7 @@ section:nth-of-type(2) {
     display: flex;
     height: 50px;
     width: 100%;
-    border-bottom: 1px solid #c0c0c0;
+    border-bottom: 1px solid #e0e0e0;
 }
 
 .product-thumbnail {
@@ -159,7 +158,6 @@ section:nth-of-type(2) {
 .product-review-bar {
     display: flex;
     justify-content: center;
-    border: 1px solid hotpink;
     height: 3em;
     padding: 0.5em;
 }
@@ -182,6 +180,13 @@ section:nth-of-type(2) {
     letter-spacing: -1em;
     margin-right: 0.5em;
 }
+
+.user-review {
+    border: 1px solid crimson;
+    margin: 10%;
+    width: 75%;
+}
+
 
 /***********************/
 /*    Input Fields     */
