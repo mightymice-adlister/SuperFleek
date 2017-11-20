@@ -1,8 +1,19 @@
 package com.mightymice.superfleek.models;
 
+
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
+@Table(name="brands")
 public class Brand {
+    @Id @GeneratedValue
     private Long id;
+    @Column(nullable = false)
     private String name;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="brand")
+    private List<Makeup> makeups;
+
 
     public Brand(String name) {
         this.name = name;

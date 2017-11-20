@@ -1,16 +1,31 @@
 package com.mightymice.superfleek.models;
 
+
+import javax.persistence.*;
 import java.util.List;
 
+
+@Entity
+@Table(name="users")
 public class User {
+    @Id @GeneratedValue
     private Long id;
+    @Column(nullable = false)
     private String email;
+    @Column(nullable = false)
     private String username;
+    @Column(nullable = false)
     private String password;
+    @Column
     private String firstName;
+    @Column
     private String lastName;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<MakeupList> makeupLists;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Look> lookList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Review> reviews;
 
 
     public Long getId() {
