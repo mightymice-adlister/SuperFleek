@@ -11,6 +11,12 @@ main {
     flex: 1 0 auto;
 }
 
+.menu-bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
 /***********************/
 /*       login         */
 /***********************/
@@ -126,6 +132,7 @@ section:nth-of-type(2) {
 .profile-hero-img {
     position: relative;
     top: 0;
+    margin-top: -14px;
     height: 40vh;
 }
 
@@ -155,39 +162,21 @@ section:nth-of-type(2) {
     margin: 0.5em;
 }
 
-.profile-tab-menu {
+.collection-grid {
     display: flex;
-    justify-content: space-around;
-    flex-flow: row nowrap;
-    border: 1px solid red;
-    height: 10vh;
+    flex-flow: row wrap;
+    flex: 1 1 100%;
+    justify-content: flex-start;
+    margin: 10vw;
+    height: auto;
 }
 
-.profile-menu-tab {
-    border: 1px solid aquamarine;
-    padding: 1.5em 2.5em;
+.grid-item {
+    background: #f4f4f4;
+    height: 7em;
+    width: 7em;
+    border: 1px solid white;
 }
-
-.profile-menu-tab:hover {
-    background: #e0e0e0;
-}
-
-/*.profile-user-icon {*/
-    /*position: relative;*/
-    /*top: 50%;*/
-    /*border: 3px solid white;*/
-    /*border-radius: 25%;*/
-    /*height: 11vh;*/
-    /*width: 20vw;*/
-    /*margin: 4vh auto;*/
-    /*overflow: hidden;*/
-/*}*/
-
-/*.profile-user-icon > img {*/
-    /*width: 100%;*/
-    /*height: 100%;*/
-/*}*/
-
 /***********************/
 /*    Product View     */
 /***********************/
