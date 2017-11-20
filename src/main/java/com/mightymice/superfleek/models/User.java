@@ -10,9 +10,9 @@ import java.util.List;
 public class User {
     @Id @GeneratedValue
     private Long id;
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String email;
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String username;
     @Column(nullable = false)
     private String password;
@@ -26,6 +26,22 @@ public class User {
     private List<Look> lookList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Review> reviews;
+
+    //Default constructor (no arguments)
+    public User(){
+    }
+
+
+    // this is the copy constructor so that the security works right
+    public User(User copy){
+        id = copy.id;
+        email = copy.email;
+        username = copy.username;
+        password = copy.password;
+        firstName = copy.firstName;
+        lastName = copy.lastName;
+
+    }
 
 
     public Long getId() {
