@@ -19,9 +19,8 @@ public class UserController {
         return "redirect:/login";
     }
 
-//    @GetMapping("/{username}")
-//    @ResponseBody
-//    public String profileView(@PathVariable String username){
-//        return "profile";
-//    }
+    @GetMapping("/profile/{username}")
+    public String profileView(@PathVariable String username){
+        return "profile";
+    }
 }
