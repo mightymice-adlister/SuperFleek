@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header('Make your profile')">
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+
+<div class="loading-wrapper">
+    <div class="preloader-wrapper active">
+        <div class="spinner-layer spinner-red-only">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-wrapper hidden">
+    <div class="navbar-fixed">
+        <nav class="grey darken-4 center-align">
+            <div class="nav-wrapper">
+                <div class="col s12" id="walkthrough">
+                    <a data-menuanchor="one" href="#one" class="breadcrumb">First</a>
+                    <a data-menuanchor="two" href="#two" class="breadcrumb">Second</a>
+                    <a data-menuanchor="three" href="#three" class="breadcrumb">Third</a>
+                    <a data-menuanchor="four" href="#four" class="breadcrumb">Four</a>
+                    <a class="mp-skip" href="#">Skip for now</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div id="fullpage">
+        <div class="section">
+            <div class="mp-section-content">
+                <div class="row">
+                    <div class="col s12">
+                        <h2 class="main-title">Upload a profile picture</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <h6 class="sub-title">Lorem ipsum...</h6>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <div class="add-profile-pic">
+                            <i class="large material-icons">add</i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="mp-section-content">
+                <div class="row">
+                    <h2 class="main-title">Start your collection</h2>
+                </div>
+                <div class="row">
+                    <h6 class="sub-title">Here is where you enter the products you already own</h6>
+                </div>
+                <div class="row">
+                    <div class="col s12 offset-m3 m6">
+                        <nav>
+                            <div class="nav-wrapper light-blue darken-1">
+                                <form>
+                                    <div class="input-field">
+                                        <input id="search" type="search" required="required" />
+                                        <label class="label-icon"
+                                               for="search"><i class="material-icons">search</i></label>
+                                        <i class="material-icons">close</i>
+                                    </div>
+                                </form>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 offset-m3 m6">
+                        <div class="collection-bar"></div>
+                    </div>
+                </div>
+            </div><!-- end section content -->
+        </div><!-- end section -->
+        <div class="section">
+            <div class="content">
+                    <div class="row">
+                        <h2 class="main-title">Choose one</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col s12">
+                            <label for="preferences">
+                                <select id="preferences" multiple="multiple" class="image-picker show-labels">
+                                    <option
+                                            class="responsive-img"
+                                            data-img-src='https://cdn.dribbble.com/users/329207/screenshots/3608590/bemocs_rei_4th_of_july_dribbble_1x.jpg'
+                                            value='1'>Makeup</option>
+
+                                    <option
+                                            data-img-src='https://cdn.dribbble.com/users/329207/screenshots/3395174/bemocs_radio_flyer_dribbble_1x.jpg'
+                                            value='2'>Mens</option>
+
+                                    <option
+                                            data-img-src='https://cdn.dribbble.com/users/329207/screenshots/3740082/bemocs_2002_smokeybear_dribbble_1x.jpg'
+                                            value='3'>Skin care</option>
+                                    <option
+                                            data-img-src='https://cdn.dribbble.com/users/329207/screenshots/3364859/bemocs_rei_end_of_season_dribbble_1x.jpg'
+                                            value='4'>Appliances</option>
+                                </select>
+                            </label>
+                        </div>
+
+                    </div>
+
+
+                        <!--<div class="col s6 m6 mp-user-choice">-->
+                            <!--<img-->
+                                    <!--class="img1 responsive-img"-->
+                                    <!--src="https://cdn.dribbble.com/users/329207/screenshots/3608590/bemocs_rei_4th_of_july_dribbble_1x.jpg" alt="" />-->
+                        <!--</div>-->
+                        <!--<div class="col s6 m6 mp-user-choice">-->
+                            <!--<img-->
+                                    <!--class="img2 responsive-img" src="https://cdn.dribbble.com/users/329207/screenshots/3395174/bemocs_radio_flyer_dribbble_1x.jpg" alt="" />-->
+                        <!--</div>-->
+                        <!--<div class="col s6 m6 mp-user-choice">-->
+                            <!--<img-->
+                                    <!--class="img2 responsive-img" src="https://cdn.dribbble.com/users/329207/screenshots/3395174/bemocs_radio_flyer_dribbble_1x.jpg" alt="" />-->
+                        <!--</div>-->
+                        <!--<div class="col s6 m6 mp-user-choice">-->
+                            <!--<img-->
+                                    <!--class="img2 responsive-img" src="https://cdn.dribbble.com/users/329207/screenshots/3395174/bemocs_radio_flyer_dribbble_1x.jpg" alt="" />-->
+                        <!--</div>-->
+            </div><!-- end content -->
+        </div><!-- end section -->
+        <div class="section">
+            <div class="content">
+                <div class="mp-section-content">
+                    <h2 class="main-title">Welcome!</h2>
+                    <a href="#" class="btn waves-effect waves-light grey darken-4">Finish</a>
+                 </div>
+            </div>
+        </div>
+    </div> <!-- end full page -->
+    <i class="mp-down-arrow large material-icons animated pulse infinite">keyboard_arrow_down</i>
+</div> <!-- end page wrapper -->
+
+
+
+
+
+
+<div th:replace="fragments/footer :: scripts"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.6.6/jquery.fullPage.min.js"></script>
+<script src="/js/fullpage.js"></script>
+</body>
+</html>
