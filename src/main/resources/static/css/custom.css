@@ -11,6 +11,12 @@ main {
     flex: 1 0 auto;
 }
 
+.menu-bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
 /***********************/
 /*       login         */
 /***********************/
@@ -154,27 +160,6 @@ section:nth-of-type(2) {
     top: 80%;
     font-size: 2em;
     margin: 0.5em;
-}
-
-.profile-tab-menu {
-    display: flex;
-    justify-content: space-around;
-    flex-flow: row nowrap;
-    border-bottom: 1px solid #c0c0c0;
-    height: 10vh;
-}
-
-.profile-menu-tab {
-    /*border: 1px solid aquamarine;*/
-    padding: 1.8em 2.5em;
-}
-
-.profile-menu-tab:hover {
-    background: #e0e0e0;
-}
-
-.collection-container {
-
 }
 
 .collection-grid {
