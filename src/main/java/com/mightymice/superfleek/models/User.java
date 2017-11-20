@@ -27,6 +27,10 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Review> reviews;
 
+    //Default constructor (no arguments)
+    public User(){
+    }
+
 
     // this is the copy constructor so that the security works right
     public User(User copy){
