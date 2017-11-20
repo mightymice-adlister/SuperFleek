@@ -1,5 +1,6 @@
 package com.mightymice.superfleek.models;
 
+
 import javax.persistence.*;
 import java.util.List;
 

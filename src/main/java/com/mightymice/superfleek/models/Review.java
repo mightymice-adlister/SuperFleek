@@ -1,5 +1,6 @@
 package com.mightymice.superfleek.models;
 
+
 import javax.persistence.*;
 
 @Entity
@@ -20,4 +21,5 @@ public class Review {
     private String body;
     @Column(nullable = false)
     private int rating;
+
 }

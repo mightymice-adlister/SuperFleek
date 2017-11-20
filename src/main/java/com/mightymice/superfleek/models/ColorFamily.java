@@ -1,5 +1,6 @@
 package com.mightymice.superfleek.models;
 
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -12,4 +13,5 @@ public class ColorFamily {
     private String name;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "colorFamily")
     private List<Makeup> makeups;
+
 }

@@ -1,5 +1,6 @@
 package com.mightymice.superfleek.models;
 
+
 import javax.persistence.*;
 import java.util.List;
 @Entity
@@ -26,4 +27,5 @@ public class Look {
     private String description;
     @Column(nullable = false)
     private boolean isProfilePic;
+
 }

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header('Sign up')">
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+<div class="container">
+    <div class="full-page-wrapper">
+        <div class="row">
+            <h1 class="main-title center-align">Sign up</h1>
+            <h6 class="sub-title center-align">Lorem ipsum...</h6>
+        </div>
+        <div class="row">
+            <div class="login-form center-align">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="username" class="validate" type="text" />
+                        <label for="username">Username</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="password" class="validate" type="text" />
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="confirm_password" class="validate" type="text" />
+                        <label for="confirm_password">Confirm Password</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" class="validate" type="text" />
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <a class="btn-group btn waves-effect waves-light grey darken-4">Sign up</a>
+                </div>
+                <div class="row">
+                    <h6>Already have an account? <a href="#" class="login-link">Login</a></h6>
+                </div>
+            </div>
+        </div> <!-- end form row -->
+    </div> <!-- end wrapper -->
+</div>
+
+<div th:replace="fragments/footer :: scripts"></div>
+</body>
+</html>

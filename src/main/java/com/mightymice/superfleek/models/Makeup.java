@@ -1,5 +1,6 @@
 package com.mightymice.superfleek.models;
 
+
 import javax.persistence.*;
 import java.util.List;
 @Entity
@@ -32,4 +33,4 @@ public class Makeup {
     private List<Look> looks;
     @ManyToMany(mappedBy = "makeups")
     private List<MakeupList> makeupLists;
-}
+
