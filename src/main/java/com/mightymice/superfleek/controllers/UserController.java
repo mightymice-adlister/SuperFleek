@@ -1,5 +1,7 @@
 package com.mightymice.superfleek.controllers;
 
+import com.mightymice.superfleek.repositories.Users;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +11,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class UserController {
+    private Users users;
+    private PasswordEncoder passwordEncoder;
+
     @GetMapping("/sign-up")
     public String RegisterView(){
         return"sign-up";
