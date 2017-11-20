@@ -126,6 +126,7 @@ section:nth-of-type(2) {
 .profile-hero-img {
     position: relative;
     top: 0;
+    margin-top: -14px;
     height: 40vh;
 }
 
@@ -159,35 +160,38 @@ section:nth-of-type(2) {
     display: flex;
     justify-content: space-around;
     flex-flow: row nowrap;
-    border: 1px solid red;
+    border-bottom: 1px solid #c0c0c0;
     height: 10vh;
 }
 
 .profile-menu-tab {
-    border: 1px solid aquamarine;
-    padding: 1.5em 2.5em;
+    /*border: 1px solid aquamarine;*/
+    padding: 1.8em 2.5em;
 }
 
 .profile-menu-tab:hover {
     background: #e0e0e0;
 }
 
-/*.profile-user-icon {*/
-    /*position: relative;*/
-    /*top: 50%;*/
-    /*border: 3px solid white;*/
-    /*border-radius: 25%;*/
-    /*height: 11vh;*/
-    /*width: 20vw;*/
-    /*margin: 4vh auto;*/
-    /*overflow: hidden;*/
-/*}*/
+.collection-container {
 
-/*.profile-user-icon > img {*/
-    /*width: 100%;*/
-    /*height: 100%;*/
-/*}*/
+}
 
+.collection-grid {
+    display: flex;
+    flex-flow: row wrap;
+    flex: 1 1 100%;
+    justify-content: flex-start;
+    margin: 10vw;
+    height: auto;
+}
+
+.grid-item {
+    background: #f4f4f4;
+    height: 7em;
+    width: 7em;
+    border: 1px solid white;
+}
 /***********************/
 /*    Product View     */
 /***********************/
