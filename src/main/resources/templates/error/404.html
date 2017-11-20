@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>404</title>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans|Pacifico" rel="stylesheet" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css" />
+    <link rel="stylesheet" href="/css/404.css" />
+</head>
+<body>
+
+<div class="oops-block">
+    <h1>Oops!</h1>
+    <h3>We can't seem to find the page you're looking for</h3>
+    <h5>Error code: 404</h5>
+    <a class="waves-effect waves-light btn grey darken-4">Back to home</a>
+</div>
+
+<div th:replace="fragments/footer :: scripts"></div>
+</body>
+</html>
