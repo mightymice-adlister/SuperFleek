@@ -92,42 +92,62 @@
         </div><!-- end section -->
         <div class="section">
             <div class="content">
-                <div>
                     <div class="row">
                         <h2 class="main-title">Choose one</h2>
                     </div>
                     <div class="row">
-                        <div class="col s6 m6 mp-user-choice">
-                            <img
-                                    class="img1 responsive-img"
-                                    src="https://cdn.dribbble.com/users/329207/screenshots/3608590/bemocs_rei_4th_of_july_dribbble_1x.jpg" alt="" />
+                        <div class="col s12">
+                            <label for="preferences">
+                                <select id="preferences" multiple="multiple" class="image-picker show-labels">
+                                    <option
+                                            class="responsive-img"
+                                            data-img-src='https://cdn.dribbble.com/users/329207/screenshots/3608590/bemocs_rei_4th_of_july_dribbble_1x.jpg'
+                                            value='1'>Makeup</option>
+
+                                    <option
+                                            data-img-src='https://cdn.dribbble.com/users/329207/screenshots/3395174/bemocs_radio_flyer_dribbble_1x.jpg'
+                                            value='2'>Mens</option>
+
+                                    <option
+                                            data-img-src='https://cdn.dribbble.com/users/329207/screenshots/3740082/bemocs_2002_smokeybear_dribbble_1x.jpg'
+                                            value='3'>Skin care</option>
+                                    <option
+                                            data-img-src='https://cdn.dribbble.com/users/329207/screenshots/3364859/bemocs_rei_end_of_season_dribbble_1x.jpg'
+                                            value='4'>Appliances</option>
+                                </select>
+                            </label>
                         </div>
-                        <div class="col s6 m6 mp-user-choice">
-                            <img
-                                    class="img2 responsive-img" src="https://cdn.dribbble.com/users/329207/screenshots/3395174/bemocs_radio_flyer_dribbble_1x.jpg" alt="" />
-                        </div>
-                        <div class="col s6 m6 mp-user-choice">
-                            <img
-                                    class="img2 responsive-img" src="https://cdn.dribbble.com/users/329207/screenshots/3395174/bemocs_radio_flyer_dribbble_1x.jpg" alt="" />
-                        </div>
-                        <div class="col s6 m6 mp-user-choice">
-                            <img
-                                    class="img2 responsive-img" src="https://cdn.dribbble.com/users/329207/screenshots/3395174/bemocs_radio_flyer_dribbble_1x.jpg" alt="" />
-                        </div>
-                    </div>
-                </div>
 
                     </div>
-                </div>
+
+
+                        <!--<div class="col s6 m6 mp-user-choice">-->
+                            <!--<img-->
+                                    <!--class="img1 responsive-img"-->
+                                    <!--src="https://cdn.dribbble.com/users/329207/screenshots/3608590/bemocs_rei_4th_of_july_dribbble_1x.jpg" alt="" />-->
+                        <!--</div>-->
+                        <!--<div class="col s6 m6 mp-user-choice">-->
+                            <!--<img-->
+                                    <!--class="img2 responsive-img" src="https://cdn.dribbble.com/users/329207/screenshots/3395174/bemocs_radio_flyer_dribbble_1x.jpg" alt="" />-->
+                        <!--</div>-->
+                        <!--<div class="col s6 m6 mp-user-choice">-->
+                            <!--<img-->
+                                    <!--class="img2 responsive-img" src="https://cdn.dribbble.com/users/329207/screenshots/3395174/bemocs_radio_flyer_dribbble_1x.jpg" alt="" />-->
+                        <!--</div>-->
+                        <!--<div class="col s6 m6 mp-user-choice">-->
+                            <!--<img-->
+                                    <!--class="img2 responsive-img" src="https://cdn.dribbble.com/users/329207/screenshots/3395174/bemocs_radio_flyer_dribbble_1x.jpg" alt="" />-->
+                        <!--</div>-->
+            </div><!-- end content -->
+        </div><!-- end section -->
         <div class="section">
-    <div class="content">
-        <div class="mp-section-content">
-            <h2 class="main-title">Welcome!</h2>
-            <a href="#" class="btn waves-effect waves-light grey darken-4">Finish</a>
+            <div class="content">
+                <div class="mp-section-content">
+                    <h2 class="main-title">Welcome!</h2>
+                    <a href="#" class="btn waves-effect waves-light grey darken-4">Finish</a>
+                 </div>
+            </div>
         </div>
-
-    </div>
-</div>
     </div> <!-- end full page -->
     <i class="mp-down-arrow large material-icons animated pulse infinite">keyboard_arrow_down</i>
 </div> <!-- end page wrapper -->
@@ -137,7 +157,8 @@
 
 
 
-
 <div th:replace="fragments/footer :: scripts"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.6.6/jquery.fullPage.min.js"></script>
+<script src="/js/fullpage.js"></script>
 </body>
 </html>

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class UserController {
     @GetMapping("/sign-up")
-    @ResponseBody
     public String RegisterView(){
         return"sign-up";
     }
@@ -20,9 +19,9 @@ public class UserController {
         return "redirect:/login";
     }
 
-    @GetMapping("/{username}")
-    @ResponseBody
-    public String profileView(@PathVariable String username){
-        return "profile";
-    }
+//    @GetMapping("/{username}")
+//    @ResponseBody
+//    public String profileView(@PathVariable String username){
+//        return "profile";
+//    }
 }

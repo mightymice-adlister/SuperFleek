@@ -27,11 +27,10 @@ public class MakeupController {
 //        return "dashboard";
 //    }
 //
-//    @GetMapping("/category/{id}")
-//    @ResponseBody
-//    public String productView(@PathVariable long id){
-//        return "products view page";
-//    }
+    @GetMapping("/product/{id}")
+    public String productView(@PathVariable long id){
+        return "product";
+    }
 
 
 }
