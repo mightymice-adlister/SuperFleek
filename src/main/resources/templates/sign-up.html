@@ -6,10 +6,11 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
     <title></title>
 </head>
 <body>
+<nav class="show-on-med-and-up" th:include="fragments/navbar :: navbar"></nav>
 <div class="container">
     <div class="full-page-wrapper">
-
-        <form th:method="post" th:action="@{/sign-up}" th:object="${user}">
+        <div class="content-wrapper">
+            <form th:method="post" th:action="@{/sign-up}" th:object="${user}">
 
             <div class="row">
                 <h1 class="main-title center-align">Sign up</h1>
@@ -46,15 +47,16 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
                     </div>
                     <div class="row">
 
-                        <button th:type="submit" class="btn-group btn waves-effect waves-light grey darken-4">Sign up</button>
+                            <button th:type="submit" class="btn-group btn waves-effect waves-light grey darken-4">Sign up</button>
 
+                        </div>
+                        <div class="row">
+                            <h6>Already have an account? <a href="#" class="login-link">Login</a></h6>
+                        </div>
                     </div>
-                    <div class="row">
-                        <h6>Already have an account? <a href="#" class="login-link">Login</a></h6>
-                    </div>
-                </div>
-            </div> <!-- end form row -->
-        </form>
+                </div> <!-- end form row -->
+            </form>
+        </div>
     </div> <!-- end wrapper -->
 </div>
 
