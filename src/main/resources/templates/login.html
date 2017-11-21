@@ -6,42 +6,41 @@
 </head>
 <body>
 <nav class="show-on-med-and-up" th:include="fragments/navbar :: navbar"></nav>
-<div class="login-img-container">
-    <div class="hide-on-med-and-up">
-        <img src="https://source.unsplash.com/1600x900/?makeup" />
-    </div>
+<div class="login-img-container hide-on-med-and-up">
+        <!--<img src="https://source.unsplash.com/1600x900/?makeup" />-->
 </div>
 <div class="container">
     <div class="full-page-wrapper">
-        <div class="row">
-            <h1 class="main-title center-align">Login</h1>
-            <h6 class="sub-title center-align">Lorem ipsum...</h6>
-        </div>
-        <form th:method="post" th:action="@{/login}">
+        <div class="content-wrapper">
             <div class="row">
-                <div class="login-form center-align">
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="username" name="username" class="validate" type="text" th:object="${username}" />
-                            <label for="username">Username</label>
+                <h1 class="main-title center-align">Login</h1>
+                <h6 class="sub-title center-align">Lorem ipsum...</h6>
+            </div>
+            <form th:method="post" th:action="@{/login}">
+                <div class="row">
+                    <div class="login-form center-align">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="username" name="username" class="validate" type="text" th:object="${username}" />
+                                <label for="username">Username</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="password" class="validate" type="password" name="password"/>
+                                <label for="password">Password</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <button class="btn-group btn waves-effect waves-light grey darken-4">Login</button>
+                        </div>
+                        <div class="row">
+                            <a  href="/sign-up" class="btn-group btn waves-effect waves-light grey darken-4">Sign up</a>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="password" class="validate" type="password" name="password"/>
-                            <label for="password">Password</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <button class="btn-group btn waves-effect waves-light grey darken-4">Login</button>
-                    </div>
-                    <div class="row">
-                        <a  href="/sign-up" class="btn-group btn waves-effect waves-light grey darken-4">Sign up</a>
-                    </div>
-                </div>
-            </div><!-- end form row-->
-        </form>
-
+                </div><!-- end form row-->
+            </form>
+        </div>
     </div><!-- end wrapper -->
 </div>
 

@@ -49,8 +49,10 @@ main {
     top: 15%;
 }
 
+
 .login-img-container {
-    background-color: #e0e0e0;
+    background: #e0e0e0 url('https://source.unsplash.com/1600x900/?makeup') no-repeat center center fixed;
+    background-size: cover;
     position: relative;
     height: 0;
     padding-bottom: 56.25%;
@@ -325,6 +327,10 @@ section:nth-of-type(2) {
 
 .full-page-wrapper {
     height: 100vh;
+}
+
+.content-wrapper {
+    margin-top: 10%;
 }
 
 .page-wrapper {
