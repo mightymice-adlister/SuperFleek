@@ -74,8 +74,13 @@ main {
 /***********************/
 /*     make profile    */
 /***********************/
+
 section:nth-of-type(2) {
     background: url('https://unsplash.it/1910/1221?image=626') no-repeat center / cover;
+}
+
+.fp-tableCell {
+    vertical-align: center;
 }
 .section {
     text-align:center;
@@ -124,10 +129,6 @@ section:nth-of-type(2) {
 .add-profile-pic:hover {
     background-color: darkgrey;
     cursor: pointer;
-}
-
-.collection-bar {
-    border: 1px solid black;
 }
 
 .mp-user-choice img {
@@ -185,21 +186,6 @@ section:nth-of-type(2) {
     top: 80%;
     font-size: 2em;
     margin: 0.5em;
-}
-
-.collection-grid {
-    display: flex;
-    flex-flow: row wrap;
-    flex: 1 1 100%;
-    justify-content: center;
-    margin: 4vw;
-}
-
-.grid-item {
-    background: #f4f4f4;
-    height: 60px;
-    width: 60px;
-    border: 1px solid white;
 }
 /***********************/
 /*    Product View     */
@@ -354,4 +340,19 @@ section:nth-of-type(2) {
 
 .hidden {
     display: none;
+}
+
+.collection-grid {
+    display: flex;
+    flex-flow: row wrap;
+    flex: 1 1 100%;
+    justify-content: center;
+    margin: 1rem;
+}
+
+.grid-item {
+    background: #f4f4f4;
+    height: 7rem;
+    width: 7rem;
+    border: 1px solid white;
 }
