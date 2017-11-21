@@ -12,10 +12,10 @@ import java.util.List;
 public class User {
     @Id @GeneratedValue
     private Long id;
-    @NotBlank(message ="Users must have an email address")
+    @NotBlank(message ="You must enter an email address")
     @Column(nullable = false, unique = true)
     private String email;
-    @NotBlank(message ="Users must have a username")
+    @NotBlank(message ="You must enter a username")
     @Column(nullable = false, unique = true)
     private String username;
     @NotBlank(message ="You must enter a password")

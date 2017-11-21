@@ -34,5 +34,10 @@ public class Makeup {
     private List<Look> looks;
     @ManyToMany(mappedBy = "makeups")
     private List<MakeupList> makeupLists;
+    @ManyToOne
+    @JoinColumn(name = "type_id")
+    private MakeupType type;
+
+
 
 }
