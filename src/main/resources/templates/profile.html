@@ -11,9 +11,10 @@
 
 <main>
     <div class="profile-hero-img">
+        <!--will insert user's profile image in the src-->
         <img src="https://source.unsplash.com/375x250/?model" />
         <div class="profile-hero-overlay">
-            <h1 class="profile-overlay-text">
+            <h1 th:text="${'@'+user.username}" class="profile-overlay-text">
                 @Pinkpony123
             </h1>
         </div>
@@ -28,6 +29,7 @@
     <div class="card-content">
         <div id="collection">
                 <div class="collection-grid">
+                    <!--add for each through collection list-->
                     <div class="red lighten-4 grid-item"></div>
                     <div class="red lighten-4 grid-item"></div>
                     <div class="red lighten-4 grid-item"></div>
@@ -39,6 +41,7 @@
         </div>
         <div id="looks">
                 <div class="collection-grid">
+                    <!--for each for looks(pictures)-->
                     <div class="purple lighten-4 grid-item"></div>
                     <div class="purple lighten-4 grid-item"></div>
                     <div class="purple lighten-4 grid-item"></div>
@@ -50,6 +53,7 @@
         </div>
         <div id="wishlist">
             <div class="collection-grid">
+                <!--for each for wishlist-->
                 <div class="blue lighten-4 grid-item"></div>
                 <div class="blue lighten-4 grid-item"></div>
                 <div class="blue lighten-4 grid-item"></div>

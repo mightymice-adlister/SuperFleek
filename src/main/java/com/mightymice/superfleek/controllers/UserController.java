@@ -50,7 +50,8 @@ public class UserController {
     }
 
     @GetMapping("/profile/{username}")
-    public String profileView(@PathVariable String username){
+    public String profileView(@PathVariable String username, Model viewModel){
+        viewModel.addAttribute("user", users.findByUsername(username));
         return "profile";
     }
     @GetMapping("/profile")
