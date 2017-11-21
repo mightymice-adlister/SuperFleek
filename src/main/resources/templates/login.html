@@ -19,14 +19,17 @@
                 <div class="login-form center-align">
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="username" name="username" class="validate" type="text" th:object="${username}" />
+                            <span th:if="${param.logout}"  class="error">You have been logged out</span>
+                            <input id="username" name="username" class="validate" type="text" />
                             <label for="username">Username</label>
+
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="password" class="validate" type="password" name="password"/>
                             <label for="password">Password</label>
+                            <span th:if="${param.error}" class="error">Invalid Username or Password</span>
                         </div>
                     </div>
                     <div class="row">

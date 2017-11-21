@@ -26,12 +26,19 @@ public class UserController {
     @GetMapping("/sign-up")
     public String RegisterView(Model viewModel){
         User user = new User();
+        String confirmPassword = "";
+        viewModel.addAttribute("confirmPassword", confirmPassword);
         viewModel.addAttribute("user", user);
         return"sign-up";
     }
 
     @PostMapping("/sign-up")
-    public String RegisterUser(@Valid User user, Errors validation, Model viewModel){
+    public String RegisterUser(@Valid User user, Errors validation, Model viewModel, @ModelAttribute String confirmPassword){
+        if(!confirmPassword.equals(user.getPassword())){
+            validation.rejectValue("password", "user.password", "Passwords don't match");
+
+        }
+
         if(validation.hasErrors()){
             viewModel.addAttribute("errors", validation);
             viewModel.addAttribute("user", user);
