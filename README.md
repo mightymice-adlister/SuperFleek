@@ -25,13 +25,13 @@ and here: https://github.com/CodeupClassroom
 Photos and background images courtesy of https://unsplash.com
 
 ## Features List
-[ ] User sign up
-[ ] User can register
-[ ] User can create their profile [profile img, bio, collection]
-[ ] User can upload images
-[ ] User can edit their profile
-[ ] User can search a product and view its details
-[ ] User can add a product to a list viewable on their profile [wishlist, collection, custom]
-[ ] User can delete a produc list
-[ ] User can edit a product list
-[ ] User can read and post product reviews
+- [ ] User sign up
+- [ ] User can register
+- [ ] User can create their profile [profile img, bio, collection]
+- [ ] User can upload images
+- [ ] User can edit their profile
+- [ ] User can search a product and view its details
+- [ ] User can add a product to a list viewable on their profile [wishlist, collection, custom]
+- [ ] User can delete a produc list
+- [ ] User can edit a product list
+- [ ] User can read and post product reviews
