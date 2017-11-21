@@ -1,11 +1,5 @@
-/*max-width: 599px*/
-
 body {
-    background: url('../imgs/404-img.jpeg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    background: #f4f2f0 url('../imgs/404-crop.jpg');
     font-family: 'PT Sans', sans-serif;
 }
 
