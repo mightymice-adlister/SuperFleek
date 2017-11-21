@@ -1,6 +1,8 @@
 package com.mightymice.superfleek.models;
 
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -10,10 +12,13 @@ import java.util.List;
 public class User {
     @Id @GeneratedValue
     private Long id;
+    @NotBlank(message ="Users must have an email address")
     @Column(nullable = false, unique = true)
     private String email;
+    @NotBlank(message ="Users must have a username")
     @Column(nullable = false, unique = true)
     private String username;
+    @NotBlank(message ="You must enter a password")
     @Column(nullable = false)
     private String password;
     @Column
