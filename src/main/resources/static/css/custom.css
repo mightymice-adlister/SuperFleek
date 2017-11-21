@@ -5,6 +5,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    /*box-sizing: border-box;*/
 }
 
 main {
@@ -15,6 +16,28 @@ main {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+/***********************/
+/*       Index         */
+/***********************/
+.home-search-bar {
+    display: inline-block;
+    position: relative;
+    left: 60%;
+    height: 40px;
+    width: 320px;
+    margin: 13px;
+    color: #000;
+    border-radius: 2px;
+}
+
+.home-search-bar input[type=search] {
+    border: none;
+    position: absolute;
+    height: 100%;
+    width: 95%;
+    padding: 0 0.5em 0 0.5em;
 }
 
 /***********************/

@@ -5,8 +5,11 @@
     <title></title>
 </head>
 <body>
+<nav class="show-on-med-and-up" th:include="fragments/navbar :: navbar"></nav>
 <div class="login-img-container">
-    <img src="https://source.unsplash.com/1600x900/?makeup" />
+    <div class="hide-on-med-and-up">
+        <img src="https://source.unsplash.com/1600x900/?makeup" />
+    </div>
 </div>
 <div class="container">
     <div class="full-page-wrapper">
