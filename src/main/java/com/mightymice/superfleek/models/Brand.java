@@ -9,7 +9,7 @@ import java.util.List;
 public class Brand {
     @Id @GeneratedValue
     private Long id;
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String name;
     @OneToMany(cascade = CascadeType.ALL, mappedBy="brand")
     private List<Makeup> makeups;
