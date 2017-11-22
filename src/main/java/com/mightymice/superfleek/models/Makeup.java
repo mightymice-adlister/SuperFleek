@@ -37,6 +37,7 @@ public class Makeup {
     @ManyToOne
     @JoinColumn(name = "type_id")
     private MakeupType type;
+    private String thumbnailUrl;
 
 
 

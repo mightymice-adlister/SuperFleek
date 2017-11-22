@@ -36,6 +36,12 @@ public class User {
     public User(){
     }
 
+    public User(CreateUser cUser){
+        this.username = cUser.getUsername();
+        this.email = cUser.getEmail();
+        this.password = cUser.getPassword();
+    }
+
 
     // this is the copy constructor so that the security works right
     public User(User copy){

@@ -1,5 +1,6 @@
 package com.mightymice.superfleek.controllers;
 
+import com.mightymice.superfleek.models.CreateUser;
 import com.mightymice.superfleek.models.User;
 import com.mightymice.superfleek.repositories.Users;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,27 +26,28 @@ public class UserController {
 
     @GetMapping("/sign-up")
     public String RegisterView(Model viewModel){
-        User user = new User();
-        String confirmPassword = "";
-        viewModel.addAttribute("confirmPassword", confirmPassword);
+        CreateUser user = new CreateUser();
         viewModel.addAttribute("user", user);
         return"sign-up";
     }
 
     @PostMapping("/sign-up")
-    public String RegisterUser(@Valid User user, Errors validation, Model viewModel, @ModelAttribute String confirmPassword){
-        if(!confirmPassword.equals(user.getPassword())){
+    public String RegisterUser(@Valid CreateUser user, Errors validation, Model viewModel){
+
+        System.out.println(user.getConfirmPassword());
+        if(!user.getConfirmPassword().equals(user.getPassword())){
             validation.rejectValue("password", "user.password", "Passwords don't match");
 
         }
 
-        if(validation.hasErrors()){
+        if(validation.hasErrors()||validation.hasFieldErrors()){
             viewModel.addAttribute("errors", validation);
             viewModel.addAttribute("user", user);
             return"/sign-up";
         }
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        users.save(user);
+        User realUser = new User(user);
+        realUser.setPassword(passwordEncoder.encode(user.getPassword()));
+        users.save(realUser);
         return "redirect:/login";
     }
 
