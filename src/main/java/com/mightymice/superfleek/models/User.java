@@ -32,6 +32,7 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Review> reviews;
     @NotBlank(message = "You must confirm your password")
+    @Transient
     private String confirmPassword;
 
     public List<Review> getReviews() {

@@ -45,9 +45,9 @@ public class UserController {
             viewModel.addAttribute("user", user);
             return"/sign-up";
         }
-        User realUser = new User(user);
-        realUser.setPassword(passwordEncoder.encode(user.getPassword()));
-        users.save(realUser);
+//        user.setConfirmPassword("");
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        users.save(user);
         return "redirect:/login";
     }
 
