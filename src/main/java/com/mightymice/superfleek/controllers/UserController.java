@@ -1,6 +1,5 @@
 package com.mightymice.superfleek.controllers;
 
-import com.mightymice.superfleek.models.CreateUser;
 import com.mightymice.superfleek.models.User;
 import com.mightymice.superfleek.repositories.Users;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,21 +25,22 @@ public class UserController {
 
     @GetMapping("/sign-up")
     public String RegisterView(Model viewModel){
-        CreateUser user = new CreateUser();
+
+        User user = new User();
         viewModel.addAttribute("user", user);
         return"sign-up";
     }
 
     @PostMapping("/sign-up")
-    public String RegisterUser(@Valid CreateUser user, Errors validation, Model viewModel){
+    public String RegisterUser(@Valid User user, Errors validation, Model viewModel){
 
-        System.out.println(user.getConfirmPassword());
+
         if(!user.getConfirmPassword().equals(user.getPassword())){
-            validation.rejectValue("password", "user.password", "Passwords don't match");
+            validation.rejectValue("confirmPassword", "user.confirmPassword", "Passwords don't match");
 
         }
 
-        if(validation.hasErrors()||validation.hasFieldErrors()){
+        if(validation.hasErrors()){
             viewModel.addAttribute("errors", validation);
             viewModel.addAttribute("user", user);
             return"/sign-up";
@@ -58,7 +58,7 @@ public class UserController {
     }
     @GetMapping("/profile")
     public String forwardUserToProfileView(){
-        String username = "";
+        String username;
         if(SecurityContextHolder.getContext().getAuthentication().getPrincipal() != null){
             username = ((User)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
         return "redirect:/profile/"+username;

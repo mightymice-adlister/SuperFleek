@@ -21,28 +21,28 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
                         <div class="input-field col s12">
                             <input id="username" class="validate" type="text" th:field="*{username}" />
                             <label for="username">Username</label>
-                            <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="error"></span>
+                            <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" ></span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="password" class="validate" type="password" th:field="*{password}" />
                             <label for="password">Password</label>
-                            <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error"></span>
+                            <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" ></span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
                             <input th:field="*{confirmPassword}" id="confirm_password" class="validate" type="password" />
                             <label for="confirm_password">Confirm Password</label>
-                            <span th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}" class="error"></span>
+                            <span th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}" ></span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="email" class="validate" type="text" th:field="*{email}"/>
                             <label for="email">Email</label>
-                            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error"></span>
+                            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
                         </div>
                     </div>
                     <div class="row">
