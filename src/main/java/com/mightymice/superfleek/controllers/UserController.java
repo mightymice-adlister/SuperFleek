@@ -25,25 +25,27 @@ public class UserController {
 
     @GetMapping("/sign-up")
     public String RegisterView(Model viewModel){
+
         User user = new User();
-        String confirmPassword = "";
-        viewModel.addAttribute("confirmPassword", confirmPassword);
         viewModel.addAttribute("user", user);
         return"sign-up";
     }
 
     @PostMapping("/sign-up")
-    public String RegisterUser(@Valid User user, Errors validation, Model viewModel, @ModelAttribute String confirmPassword){
-//        if(!confirmPassword.equals(user.getPassword())){
-//            validation.rejectValue("password", "user.password", "Passwords don't match");
-//
-//        }
+    public String RegisterUser(@Valid User user, Errors validation, Model viewModel){
+
+
+        if(!user.getConfirmPassword().equals(user.getPassword())){
+            validation.rejectValue("confirmPassword", "user.confirmPassword", "Passwords don't match");
+
+        }
 
         if(validation.hasErrors()){
             viewModel.addAttribute("errors", validation);
             viewModel.addAttribute("user", user);
             return"/sign-up";
         }
+//        user.setConfirmPassword("");
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         users.save(user);
         return "redirect:/login";
@@ -56,7 +58,7 @@ public class UserController {
     }
     @GetMapping("/profile")
     public String forwardUserToProfileView(){
-        String username = "";
+        String username;
         if(SecurityContextHolder.getContext().getAuthentication().getPrincipal() != null){
             username = ((User)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
         return "redirect:/profile/"+username;
