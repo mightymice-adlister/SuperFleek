@@ -31,10 +31,30 @@ public class User {
     private List<Look> lookList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Review> reviews;
+    @NotBlank(message = "You must confirm your password")
+    @Transient
+    private String confirmPassword;
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
 
     //Default constructor (no arguments)
     public User(){
     }
+
 
 
     // this is the copy constructor so that the security works right
