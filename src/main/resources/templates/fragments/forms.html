@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Forms</title>
+</head>
+<body>
+
+<!--Login form-->
+    <form th:fragment="login-form" th:method="post" th:action="@{/login}">
+        <div class="row">
+            <div class="login-form">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <span th:if="${param.logout}"  class="error">You have been logged out</span>
+                        <input id="username" name="username" class="validate" type="text" />
+                        <label for="username">Username</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="password" class="validate" type="password" name="password"/>
+                        <label for="password">Password</label>
+                        <span th:if="${param.error}" class="error">Invalid Username or Password</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <button class="btn-group btn waves-effect waves-light grey darken-4">Login</button>
+                </div>
+                <div class="row">
+                    <h6>Don't already have an account with us? <a href="/sign-up" alt="sign up">Sign up</a></h6>
+                </div>
+            </div>
+        </div>
+    </form>
+<!--End login form-->
+</body>
+</html>
