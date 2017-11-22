@@ -25,6 +25,7 @@ public class UserController {
 
     @GetMapping("/sign-up")
     public String RegisterView(Model viewModel){
+
         User user = new User();
         viewModel.addAttribute("user", user);
         return"sign-up";
@@ -32,23 +33,32 @@ public class UserController {
 
     @PostMapping("/sign-up")
     public String RegisterUser(@Valid User user, Errors validation, Model viewModel){
+
+
+        if(!user.getConfirmPassword().equals(user.getPassword())){
+            validation.rejectValue("confirmPassword", "user.confirmPassword", "Passwords don't match");
+
+        }
+
         if(validation.hasErrors()){
             viewModel.addAttribute("errors", validation);
             viewModel.addAttribute("user", user);
             return"/sign-up";
         }
+//        user.setConfirmPassword("");
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         users.save(user);
         return "redirect:/login";
     }
 
     @GetMapping("/profile/{username}")
-    public String profileView(@PathVariable String username){
+    public String profileView(@PathVariable String username, Model viewModel){
+        viewModel.addAttribute("user", users.findByUsername(username));
         return "profile";
     }
     @GetMapping("/profile")
     public String forwardUserToProfileView(){
-        String username = "";
+        String username;
         if(SecurityContextHolder.getContext().getAuthentication().getPrincipal() != null){
             username = ((User)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
         return "redirect:/profile/"+username;

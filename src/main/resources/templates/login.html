@@ -5,11 +5,13 @@
     <title></title>
 </head>
 <body>
-<div class="login-img-container">
-    <img src="https://source.unsplash.com/1600x900/?makeup" />
+<nav class="show-on-med-and-up" th:include="fragments/navbar :: navbar"></nav>
+<div class="login-img-container hide-on-med-and-up">
+        <!--<img src="https://source.unsplash.com/1600x900/?makeup" />-->
 </div>
 <div class="container">
     <div class="full-page-wrapper">
+        <div class="content-wrapper">
         <div class="row">
             <h1 class="main-title center-align">Login</h1>
             <h6 class="sub-title center-align">Lorem ipsum...</h6>
@@ -19,14 +21,17 @@
                 <div class="login-form center-align">
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="username" name="username" class="validate" type="text" th:object="${username}" />
+                            <span th:if="${param.logout}"  class="error">You have been logged out</span>
+                            <input id="username" name="username" class="validate" type="text" />
                             <label for="username">Username</label>
+
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="password" class="validate" type="password" name="password"/>
                             <label for="password">Password</label>
+                            <span th:if="${param.error}" class="error">Invalid Username or Password</span>
                         </div>
                     </div>
                     <div class="row">
@@ -38,7 +43,7 @@
                 </div>
             </div><!-- end form row-->
         </form>
-
+        </div>
     </div><!-- end wrapper -->
 </div>
 
