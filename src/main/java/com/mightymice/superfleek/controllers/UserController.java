@@ -34,10 +34,10 @@ public class UserController {
 
     @PostMapping("/sign-up")
     public String RegisterUser(@Valid User user, Errors validation, Model viewModel, @ModelAttribute String confirmPassword){
-        if(!confirmPassword.equals(user.getPassword())){
-            validation.rejectValue("password", "user.password", "Passwords don't match");
-
-        }
+//        if(!confirmPassword.equals(user.getPassword())){
+//            validation.rejectValue("password", "user.password", "Passwords don't match");
+//
+//        }
 
         if(validation.hasErrors()){
             viewModel.addAttribute("errors", validation);
