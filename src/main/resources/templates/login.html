@@ -12,7 +12,27 @@
 
     <main>
         <div class="container">
-            <div class="row">
+            <!-- mobile layout -->
+            <div class="login-mobile-wrapper hide-on-med-and-up">
+                <img src="/imgs/carnival-640.jpeg" />
+                <div class="login-mobile-panel center-align">
+                    <div class="row">
+                        <h1 class="main-title">Login</h1>
+                        <h6 class="sub-title">Lorem ipsum...</h6>
+                    </div>
+                    <div class="row">
+                        <div class="col offset-s2 s8">
+                            <form th:replace="fragments/forms :: login-form"></form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h6 class="center-align hide-on-med-and-up">Already have an account?
+                <a href="/sign-up" class="signup-link">Sign up</a></h6>
+
+
+
+            <div class="row hide-on-small-only">
                 <div class="full-page-wrapper valign-wrapper center-align">
                     <div class="col m12">
                         <a href="/sign-up" class="signup-btn btn btn-large grey darken-4">Sign-up</a>

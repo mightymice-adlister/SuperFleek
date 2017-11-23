@@ -45,6 +45,7 @@ main {
     background: -webkit-linear-gradient(to right, #EC6EAD, #3494E6);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #EC6EAD, #3494E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
 .login-form {
 }
 
@@ -65,9 +66,34 @@ main {
     font-family: 'Poppins', sans-serif;
 }
 
+.signup-link {
+    color: #EC6EAD;
+    cursor: pointer;
+}
+
 .login-card {
     max-height: 354px;
 }
+
+.card-image img {
+    height: 100%;
+}
+
+.login-mobile-wrapper img{
+    height: 100%;
+    width: 100%;
+}
+
+.login-mobile-panel {
+    background: rgba(255, 255, 255, 0.9);
+    height: 50vh;
+    border-radius: 4px;
+}
+
+.login-mobile-panel h1, .login-mobile-panel h6, .login-mobile-panel p {
+    color: #000;
+}
+
 
 
 /***********************/
