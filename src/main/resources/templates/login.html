@@ -13,9 +13,9 @@
     <main>
         <div class="container">
             <!-- mobile layout -->
-            <div class="login-mobile-wrapper hide-on-med-and-up">
-                <img src="/imgs/carnival-640.jpeg" />
+            <div class="login-mobile-wrapper z-depth-2 hide-on-large-only">
                 <div class="login-mobile-panel center-align">
+                    <img src="/imgs/vanity-bouquet-640.jpeg" />
                     <div class="row">
                         <h1 class="main-title">Login</h1>
                         <h6 class="sub-title">Lorem ipsum...</h6>
@@ -23,22 +23,23 @@
                     <div class="row">
                         <div class="col offset-s2 s8">
                             <form th:replace="fragments/forms :: login-form"></form>
+                            <h6 class="center-align hide-on-large-only">Already have an account?
+                                <a href="/sign-up" class="signup-link">Sign up</a></h6>
                         </div>
                     </div>
                 </div>
             </div>
-            <h6 class="center-align hide-on-med-and-up">Already have an account?
-                <a href="/sign-up" class="signup-link">Sign up</a></h6>
 
 
 
-            <div class="row hide-on-small-only">
+
+            <div class="row show-on-large hidden">
                 <div class="full-page-wrapper valign-wrapper center-align">
                     <div class="col m12">
                         <a href="/sign-up" class="signup-btn btn btn-large grey darken-4">Sign-up</a>
-                        <div class="card horizontal z-depth-5 login-card">
+                        <div class="card horizontal z-depth-2 login-card">
                             <div class="card-image">
-                                <img src="/imgs/carnival-640.jpeg" />
+                                <img src="/imgs/vanity-bouquet-640.jpeg" />
                             </div>
                             <div class="card-stacked">
                                 <div class="card-content">

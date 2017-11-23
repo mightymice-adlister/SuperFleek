@@ -41,12 +41,15 @@ main {
 /*       login         */
 /***********************/
 #login {
-    background: #3494E6;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #EC6EAD, #3494E6);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #EC6EAD, #3494E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: url('https://i.pinimg.com/originals/7f/b2/35/7fb23512240b8c7f8ea0771279fe344d.jpg') center center fixed;
+    background-size: cover;
+    /*background: #3494E6;  !* fallback for old browsers *!*/
+    /*background: -webkit-linear-gradient(to right, #EC6EAD, #3494E6);  !* Chrome 10-25, Safari 5.1-6 *!*/
+    /*background: linear-gradient(to right, #EC6EAD, #3494E6); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
 }
 
-.login-form {
+.login-form h6 {
+    margin-top: 2em;
 }
 
 .signup-btn {
@@ -72,7 +75,8 @@ main {
 }
 
 .login-card {
-    max-height: 354px;
+    /*max-height: 354px;*/
+    background: rgba(255, 255, 255, 0.8);
 }
 
 .card-image img {
@@ -85,8 +89,7 @@ main {
 }
 
 .login-mobile-panel {
-    background: rgba(255, 255, 255, 0.9);
-    height: 50vh;
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 4px;
 }
 
@@ -99,8 +102,24 @@ main {
 /***********************/
 /*       sign-up       */
 /***********************/
+#signup {
+    background: url('https://i.pinimg.com/originals/7f/b2/35/7fb23512240b8c7f8ea0771279fe344d.jpg') no-repeat center center fixed;
+    background-size: cover;
+    /*background: #3494E6;  !* fallback for old browsers *!*/
+    /*background: -webkit-linear-gradient(to right, #EC6EAD, #3494E6);  !* Chrome 10-25, Safari 5.1-6 *!*/
+    /*background: linear-gradient(to right, #EC6EAD, #3494E6); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
+}
+
 .login-link {
     color: #009cff;
+}
+
+.content-panel {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 5em;
+    border-radius: 4px;
+    max-height: 85%;
+    margin-top: 5vw;
 }
 
 /***********************/
@@ -416,16 +435,16 @@ section:nth-of-type(2) {
 
 h1 {
     font-family: 'Poppins', sans-serif;
-    font-size: 3vh;
+    font-size: 3rem;
     margin: 0.2em 0;
 }
 
 h2 {
-    font-size: 2vh;
+    font-size: 2rem;
     margin: 0.3em 0;
 }
 
 p {
-    font-size: 1vh;
+    font-size: 1rem;
     margin: 0.2em 0;
 }
