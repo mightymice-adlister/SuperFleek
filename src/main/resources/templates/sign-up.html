@@ -7,14 +7,14 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 </head>
 <body>
 <header>
-    <nav class="show-on-med-and-up" th:include="fragments/navbar :: navbar"></nav>
+    <nav th:replace="fragments/navbar :: navbar"></nav>
 </header>
 
 <main>
     <div class="container">
         <div class="row">
-            <div class="content-wrapper center-align">
-                <div class="col s12 offset-m2 m8 offset-l4 l6">
+            <div class="full-page-wrapper valign-wrapper center-align">
+                <div class="col s12 offset-m4 m8 offset-l3 l6">
                     <div class="row">
                         <div class="col s12">
                             <h1 class="main-title">Sign up</h1>

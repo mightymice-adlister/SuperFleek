@@ -40,10 +40,33 @@ main {
 /***********************/
 /*       login         */
 /***********************/
-
+#login {
+    background: #3494E6;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #EC6EAD, #3494E6);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #EC6EAD, #3494E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 .login-form {
+}
+
+.signup-btn {
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 3em;
+    left: 32vw;
+    letter-spacing: 0.2em;
     position: relative;
-    top: 15%;
+    top: 5vh;
+    transform: rotate(23deg);
+    z-index: 99;
+}
+.login-btn {
+    font-family: 'Poppins', sans-serif;
+}
+
+.login-card {
+    max-height: 354px;
 }
 
 
@@ -66,8 +89,8 @@ section:nth-of-type(2) {
     vertical-align: center;
 }
 .section {
-    text-align:center;
     font-size: 3em;
+    text-align:center;
 }
 .content{
     margin:50px
@@ -101,8 +124,8 @@ section:nth-of-type(2) {
 
 
 .add-profile-pic {
-    display: inline-block;
     border: 3px solid black;
+    display: inline-block;
     height: 150px;
     width: 150px;
     padding: 25px 0 0 0;
@@ -274,15 +297,24 @@ section:nth-of-type(2) {
 /*    Input Fields     */
 /***********************/
 /* label color */
-/*.input-field label {*/
-    /*color: #000;*/
-/*}*/
+.input-field label {
+    color: #000;
+}
 /*!* label focus color *!*/
-/*.input-field input[type=text]:focus + label {*/
-    /*color: #000 !important;*/
-/*}*/
+.input-field input[type=text]:focus + label {
+    color: #000 !important;
+}
 /* label underline focus color */
 .input-field input[type=text]:focus {
+    border-bottom: 1px solid #000 !important;
+    box-shadow: 0 1px 0 0 #000 !important;
+}
+/*!* label focus color *!*/
+.input-field input[type=password]:focus + label {
+    color: #000 !important;
+}
+/* label underline focus color */
+.input-field input[type=password]:focus {
     border-bottom: 1px solid #000 !important;
     box-shadow: 0 1px 0 0 #000 !important;
 }
@@ -296,7 +328,7 @@ section:nth-of-type(2) {
     border-bottom: 1px solid #000;
     box-shadow: 0 1px 0 0 #000;
 }
-/* seaerch label underline focus color */
+/* search label underline focus color */
 .input-field input[type=search]:focus {
     border-bottom: 1px solid #039be5 !important;
     box-shadow: 0 1px 0 0 #000 !important;
@@ -311,7 +343,7 @@ section:nth-of-type(2) {
 }
 
 .content-wrapper {
-    margin: 20% 5%;
+    height: 100vh;
 }
 
 .profile-wrapper {
@@ -337,10 +369,6 @@ section:nth-of-type(2) {
 
 }
 
-.btn-group {
-    width: 35%;
-}
-
 .hidden {
     display: none;
 }
@@ -361,6 +389,7 @@ section:nth-of-type(2) {
 }
 
 h1 {
+    font-family: 'Poppins', sans-serif;
     font-size: 3vh;
     margin: 0.2em 0;
 }
