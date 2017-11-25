@@ -222,19 +222,25 @@ section:nth-of-type(2) {
 }
 
 .profile-hero-img {
-    position: relative;
-    top: 0;
-    margin-top: -14px;
-    height: 40vh;
+    height: 20vh;
+    width: 100%;
 }
 
 .profile-hero-img > img {
-    position: absolute;
-    top: 0;
-    left: 0;
+    opacity: 0.5;
     height: 100%;
     width: 100%;
 }
+
+.profile-user-avatar {
+    height: 100%;
+    width: 100%;
+}
+
+/*.profile-user-avatar img {*/
+    /*height: 100%;*/
+    /*width: 100%;*/
+/*}*/
 
 .profile-hero-overlay {
     position: relative;
@@ -253,6 +259,22 @@ section:nth-of-type(2) {
     font-size: 2em;
     margin: 0.5em;
 }
+
+.tab a.active {
+    color:rgb(0, 0, 0)!important;
+    /*background-color:#448AFF!important;*/
+}
+/*.tabs .tab a:hover {*/
+    /*background-color: #bcaaa4!important;*/
+    /*color:#FFFFFF!important;*/
+/*}*/
+.tabs .tab a {
+    color: #000!important;
+}
+.tabs .indicator{
+    background-color:#000!important;
+}
+
 /***********************/
 /*    Product View     */
 /***********************/
