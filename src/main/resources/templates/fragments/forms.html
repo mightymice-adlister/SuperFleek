@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Forms</title>
+</head>
+<body>
+
+<!--Login form-->
+    <form th:fragment="login-form" th:method="post" th:action="@{/login}">
+        <div class="row">
+            <div class="login-form">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <span th:if="${param.logout}"  class="error">You have been logged out</span>
+                        <input id="username" name="username" class="validate" type="text" />
+                        <label for="username">Username</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="password" class="validate" type="password" name="password"/>
+                        <label for="password">Password</label>
+                        <span th:if="${param.error}" class="error">Invalid Username or Password</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <button class="login-btn btn waves-effect waves-light grey darken-4">Login</button>
+                </div>
+            </div>
+        </div>
+    </form>
+<!-- End login form -->
+
+
+<!-- Sign up form -->
+<form th:fragment="signup-form" th:method="post" th:action="@{/sign-up}" th:object="${user}">
+    <div class="row">
+        <div class="login-form">
+            <!-- Input username -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="username" class="validate" type="text" th:field="*{username}" />
+                    <label for="username">Username</label>
+                    <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" ></span>
+                </div>
+            </div>
+            <!-- Input email -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="email" class="validate" type="text" th:field="*{email}"/>
+                    <label for="email">Email</label>
+                    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+                </div>
+            </div>
+            <!-- Input password -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="password" class="validate" type="password" th:field="*{password}" />
+                    <label for="password">Password</label>
+                    <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" ></span>
+                </div>
+            </div>
+            <!-- Input confirm password -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <input th:field="*{confirmPassword}" id="confirm_password" class="validate" type="password" />
+                    <label for="confirm_password">Confirm Password</label>
+                    <span th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}" ></span>
+                </div>
+            </div>
+            <!-- Exit links -->
+            <div class="row">
+                <button th:type="submit" class="btn-group btn waves-effect waves-light grey darken-4">Sign up</button>
+            </div>
+            <div class="row">
+                <h6>Already have an account? <a href="#" class="login-link">Login</a></h6>
+            </div>
+        </div>
+    </div>
+</form>
+<!-- End sign up form -->
+</body>
+</html>
