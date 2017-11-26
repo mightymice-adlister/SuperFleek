@@ -14,4 +14,30 @@ public class ColorFamily {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "colorFamily")
     private List<Makeup> makeups;
 
+    public ColorFamily() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Makeup> getMakeups() {
+        return makeups;
+    }
+
+    public void setMakeups(List<Makeup> makeups) {
+        this.makeups = makeups;
+    }
 }
