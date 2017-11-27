@@ -2,6 +2,7 @@ package com.mightymice.superfleek.controllers;
 
 import com.mightymice.superfleek.models.Look;
 import com.mightymice.superfleek.models.User;
+import com.mightymice.superfleek.repositories.Looks;
 import com.mightymice.superfleek.repositories.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -19,10 +20,12 @@ import java.util.List;
 public class UserController {
     private Users users;
     private PasswordEncoder passwordEncoder;
+    private Looks looks;
     @Autowired
-    public UserController(Users users, PasswordEncoder passwordEncoder){
+    public UserController(Users users, PasswordEncoder passwordEncoder, Looks looks){
         this.users = users;
         this.passwordEncoder = passwordEncoder;
+        this.looks = looks;
     }
 
     @GetMapping("/sign-up")
@@ -96,7 +99,9 @@ public class UserController {
             System.out.println("get bio is null");
         }
         signedInUser.setHasLoggedIn(true);
-//        ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).setHasLoggedIn(true);
+        ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).setHasLoggedIn(true);
+        signedInUser.setConfirmPassword(signedInUser.getPassword());
+        looks.save(signedInUser.getLookList());
         users.save(signedInUser);
         return "redirect:/profile";
 
