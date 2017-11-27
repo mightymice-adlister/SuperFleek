@@ -17,7 +17,7 @@ public class ColorFamily {
     @Column
     private String hex;
     @ManyToMany( mappedBy = "colorFamily")
-  
+    @JsonBackReference
     private List<Makeup> makeups;
 
     public ColorFamily() {

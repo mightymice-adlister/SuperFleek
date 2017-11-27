@@ -34,7 +34,7 @@ public class Makeup {
             joinColumns = {@JoinColumn(name = "makeup_id")},
             inverseJoinColumns = {@JoinColumn(name = "color_family_id")}
     )
-  
+    @JsonManagedReference
     private List<ColorFamily> colorFamily;
     @Column
     private String finish;
