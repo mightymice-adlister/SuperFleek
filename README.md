@@ -25,8 +25,8 @@ and here: https://github.com/CodeupClassroom
 Photos and background images courtesy of https://unsplash.com
 
 ## Features List
-- [ ] User sign up
-- [ ] User can register
+- [x] User sign up
+- [x] User can register
 - [ ] User can create their profile [profile img, bio, collection]
 - [ ] User can upload images
 - [ ] User can edit their profile

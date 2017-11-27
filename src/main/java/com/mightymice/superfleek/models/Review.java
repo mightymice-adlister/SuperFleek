@@ -1,6 +1,8 @@
 package com.mightymice.superfleek.models;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -14,6 +16,7 @@ public class Review {
     private User user;
     @ManyToOne
     @JoinColumn(name="makeup_id")
+    @JsonBackReference
     private Makeup makeup;
     @Column(nullable = false)
     private String title;

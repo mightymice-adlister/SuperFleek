@@ -1,5 +1,7 @@
 package com.mightymice.superfleek.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import javax.persistence.Id;
 import java.util.List;
@@ -12,6 +14,7 @@ public class MakeupType {
     @Column(unique = true)
     private String name;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "type")
+    @JsonBackReference
     private List<Makeup> makeupsWithType;
 
     public MakeupType() {

@@ -1,6 +1,8 @@
 package com.mightymice.superfleek.models;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -11,9 +13,11 @@ public class ColorFamily {
     private Long id;
     @Column(nullable = false)
     private String name;
+
     @Column
     private String hex;
     @ManyToMany( mappedBy = "colorFamily")
+  
     private List<Makeup> makeups;
 
     public ColorFamily() {

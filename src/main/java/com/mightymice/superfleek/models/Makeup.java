@@ -1,6 +1,8 @@
 package com.mightymice.superfleek.models;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 @Entity
@@ -17,29 +19,37 @@ public class Makeup {
             joinColumns = {@JoinColumn(name = "makeup_id")},
             inverseJoinColumns = {@JoinColumn(name = "category_id")}
     )
+    @JsonManagedReference
     private List<Category> categories;
     @ManyToOne
     @JoinColumn(name = "brand_id")
+    @JsonManagedReference
     private Brand brand;
     @Column
     private String colorName;
+  
     @ManyToMany
     @JoinTable(
             name = "makeup_color_family",
             joinColumns = {@JoinColumn(name = "makeup_id")},
             inverseJoinColumns = {@JoinColumn(name = "color_family_id")}
     )
+  
     private List<ColorFamily> colorFamily;
     @Column
     private String finish;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "makeup")
+    @JsonManagedReference
     private List<Review> reviews;
     @ManyToMany(mappedBy = "makeups")
+    @JsonManagedReference
     private List<Look> looks;
     @ManyToMany(mappedBy = "makeups")
+    @JsonManagedReference
     private List<MakeupList> makeupLists;
     @ManyToOne
     @JoinColumn(name = "type_id")
+    @JsonManagedReference
     private MakeupType type;
     private String thumbnailUrl;
 
