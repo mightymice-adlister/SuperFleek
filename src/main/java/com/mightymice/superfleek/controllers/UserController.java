@@ -59,6 +59,7 @@ public class UserController {
 
     @GetMapping("/profile/{username}")
     public String profileView(@PathVariable String username, Model viewModel){
+        viewModel.addAttribute("profilePic", getProfilePic(users.findByUsername(username)));
         viewModel.addAttribute("user", users.findByUsername(username));
         return "profile";
     }
@@ -108,5 +109,14 @@ public class UserController {
         users.save(signedInUser);
         return "redirect:/profile";
 
+    }
+
+    public Look getProfilePic(User user){
+        for(Look look:looks.findAllByUser(user)){
+            if (look.isProfilePic()){
+                return look;
+            }
+        }
+        return null;
     }
 }
