@@ -6,7 +6,7 @@
     <title></title>
 </head>
 <body>
-
+<form th:method="post" th:action="#" th:name="make-profile">
 <div class="loading-wrapper">
     <div class="preloader-wrapper active">
         <div class="spinner-layer spinner-red-only">
@@ -46,6 +46,13 @@
                 <div class="add-profile-pic">
                     <i class="large material-icons">add</i>
                 </div>
+
+
+            <!-- profile input -->
+            <input th:type="hidden" id="profile-input" value="" />
+
+
+
         </div>
         <div class="section">
             <h2 class="main-title">Start your collection</h2>
@@ -55,9 +62,13 @@
                     <div class="col s12 offset-m3 m6">
                         <nav>
                             <div class="nav-wrapper light-blue darken-1">
-                                <form method="post" action="#">
+                                <form>
                                     <div class="input-field">
+
+                                        <!-- collection input -->
                                         <input id="search" type="search" required="required" />
+
+
                                         <label class="label-icon"
                                                for="search"><i class="material-icons">search</i></label>
                                         <i class="material-icons">close</i>
@@ -95,7 +106,13 @@
                             <form class="col s12">
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <textarea id="textarea1" class="materialize-textarea"></textarea>
+
+
+                                        <!-- bio input -->
+                                        <input th:type="textarea" id="textarea1" class="materialize-textarea" />
+
+
+
                                         <label for="textarea1">Bio...</label>
                                     </div>
                                 </div>
@@ -108,9 +125,9 @@
             <div class="content">
                 <div class="mp-section-content">
                     <h2 class="main-title">Welcome!</h2>
-                    <form method="post" action="#">
-                        <button href="#" class="btn waves-effect waves-light grey darken-4">Finish</button>
-                    </form>
+
+                        <button class="btn waves-effect waves-light grey darken-4">Finish</button>
+
 
                  </div>
             </div>
@@ -120,7 +137,7 @@
 </div> <!-- end page wrapper -->
 
 
-
+</form> <!-- end of form -->
 
 
 

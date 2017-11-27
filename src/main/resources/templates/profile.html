@@ -4,13 +4,12 @@
     <meta charset="UTF-8" />
     <title></title>
 </head>
-<body>
+<body id="profile">
 <header>
     <nav th:replace="fragments/navbar :: navbar"></nav>
 </header>
 
 <main>
-
     <div class="container">
         <div class="row">
             <!-- main column sizing-->
@@ -21,9 +20,12 @@
                     </div>
                 </div>
                 <div class="row">
+                    <!-- User info sizing -->
+                    <div class="col offset-s2 s4">
+                        <img class="profile-user-avatar" src="https://source.unsplash.com/375x250/?model" />
+                    </div>
+                    <div class="col s1"></div>
                     <div class="col s4">
-                        <img class="profile-user-avatar" src="https://source.unsplash.com/375x250/?model" /></div>
-                    <div class="col s8">
                         <h2 th:text="${'@'+user.username}">
                         @Pinkpony123
                         </h2>
@@ -42,7 +44,7 @@
                     <div class="card-content">
                         <div id="collection">
 
-                            <div class="col s4">
+                            <div class="col s12 m6 l4">
                                 <div class="card small">
                                 <div class="card-image waves-effect waves-block waves-light">
                                     <img class="activator" src="https://source.unsplash.com/375x250/?model" />
@@ -57,7 +59,7 @@
                                 </div>
                                 </div>
                             </div>
-                            <div class="col s4">
+                            <div class="col s12 m6 l4">
                                 <div class="card small">
                                 <div class="card-image waves-effect waves-block waves-light">
                                     <img class="activator" src="https://source.unsplash.com/375x250/?model" />
@@ -72,7 +74,7 @@
                                 </div>
                                 </div>
                             </div>
-                            <div class="col s4">
+                            <div class="col s12 m6 l4">
                                 <div class="card small">
                                 <div class="card-image waves-effect waves-block waves-light">
                                     <img class="activator" src="https://source.unsplash.com/375x250/?model" />
@@ -87,73 +89,16 @@
                                 </div>
                                 </div>
                             </div>
-                           
-
-
-
-
-
-
-                            <!--<div class="collection-grid">-->
-                                <!--add for each through collection list-->
-                                <!--<a class="red lighten-4 grid-item" href="#modal1"></a>-->
-                                <!--<div class="red lighten-4 grid-item"></div>-->
-                                <!--<div class="red lighten-4 grid-item"></div>-->
-                                <!--<div class="red lighten-4 grid-item"></div>-->
-                                <!--<div class="red lighten-4 grid-item"></div>-->
-                                <!--<div class="red lighten-4 grid-item"></div>-->
-                                <!--<div class="red lighten-4 grid-item"></div>-->
-                            <!--</div>-->
                         </div>
                         <div id="looks">
-                            <!--<div class="collection-grid">-->
-                                <!--&lt;!&ndash;for each for looks(pictures)&ndash;&gt;-->
-                                <!--<div class="purple lighten-4 grid-item"></div>-->
-                                <!--<div class="purple lighten-4 grid-item"></div>-->
-                                <!--<div class="purple lighten-4 grid-item"></div>-->
-                                <!--<div class="purple lighten-4 grid-item"></div>-->
-                                <!--<div class="purple lighten-4 grid-item"></div>-->
-                                <!--<div class="purple lighten-4 grid-item"></div>-->
-                                <!--<div class="purple lighten-4 grid-item"></div>-->
-                            <!--</div>-->
+                            <!-- look cards here -->
                         </div>
                         <div id="wishlist">
-                            <!--<div class="collection-grid">-->
-                                <!--&lt;!&ndash;for each for wishlist&ndash;&gt;-->
-                                <!--<div class="blue lighten-4 grid-item"></div>-->
-                                <!--<div class="blue lighten-4 grid-item"></div>-->
-                                <!--<div class="blue lighten-4 grid-item"></div>-->
-                                <!--<div class="blue lighten-4 grid-item"></div>-->
-                                <!--<div class="blue lighten-4 grid-item"></div>-->
-                                <!--<div class="blue lighten-4 grid-item"></div>-->
-                                <!--<div class="blue lighten-4 grid-item"></div>-->
-                            <!--</div>-->
+                            <!-- wishlist cards here -->
                         </div>
                     </div>
                 </div>
-
             </div>
-        </div>
-    </div>
-    <div id="modal1" class="modal">
-        <div class="modal-content">
-            <h4>Title</h4>
-            <div class="row">
-                <div class="col s12 m6">
-                    <div class="row">
-                        <p>img</p>
-                    </div>
-                    <div class="row">
-                        <p>tags</p>
-                    </div>
-                </div>
-                <div class="col s12 m6">
-                    <p>description</p>
-                </div>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
         </div>
     </div>
 </main>

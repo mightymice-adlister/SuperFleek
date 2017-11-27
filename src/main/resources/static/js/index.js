@@ -3,5 +3,5 @@ $(document).ready(function() {
   $(".button-collapse").sideNav();
   console.log("hello");
 
-  $('.modal').modal();
+  $("#profile-input").val()
 });
