@@ -1,6 +1,8 @@
 package com.mightymice.superfleek.models;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -24,6 +26,7 @@ public class MakeupList {
             joinColumns={@JoinColumn(name="makeup_list_id")},
             inverseJoinColumns = {@JoinColumn(name="makeup_id")}
     )
+    @JsonBackReference
     private List<Makeup> makeups;
 
     public MakeupList() {

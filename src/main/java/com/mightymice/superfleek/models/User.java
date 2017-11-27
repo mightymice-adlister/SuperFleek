@@ -1,6 +1,7 @@
 package com.mightymice.superfleek.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
@@ -20,6 +21,7 @@ public class User {
     private String username;
     @NotBlank(message ="You must enter a password")
     @Column(nullable = false)
+    @JsonIgnore
     private String password;
     @Column
     private String firstName;
@@ -35,6 +37,7 @@ public class User {
     private List<Review> reviews;
     @NotBlank(message = "You must confirm your password")
     @Transient
+    @JsonIgnore
     private String confirmPassword;
 
     private boolean hasLoggedIn;
