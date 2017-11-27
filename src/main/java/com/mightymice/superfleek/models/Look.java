@@ -1,6 +1,8 @@
 package com.mightymice.superfleek.models;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.List;
 @Entity
@@ -20,6 +22,7 @@ public class Look {
             joinColumns = {@JoinColumn(name="look_id")},
             inverseJoinColumns = {@JoinColumn(name="makeup_id")}
     )
+    @JsonBackReference
     private List<Makeup> makeups;
     @Column(nullable = false)
     private String title;
