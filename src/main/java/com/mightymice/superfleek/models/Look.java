@@ -23,9 +23,75 @@ public class Look {
     private List<Makeup> makeups;
     @Column(nullable = false)
     private String title;
+
     @Column
     private String description;
     @Column(nullable = false)
     private boolean isProfilePic;
+
+
+
+    public Look(){};
+
+
+
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public String getPictureFilePath() {
+        return pictureFilePath;
+    }
+
+    public void setPictureFilePath(String pictureFilePath) {
+        this.pictureFilePath = pictureFilePath;
+    }
+
+    public List<Makeup> getMakeups() {
+        return makeups;
+    }
+
+    public void setMakeups(List<Makeup> makeups) {
+        this.makeups = makeups;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public boolean isProfilePic() {
+        return isProfilePic;
+    }
+
+    public void setProfilePic(boolean profilePic) {
+        isProfilePic = profilePic;
+    }
+
 
 }

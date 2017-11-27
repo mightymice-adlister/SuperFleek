@@ -26,6 +26,9 @@ public class MakeupList {
     )
     private List<Makeup> makeups;
 
+    public MakeupList() {
+    }
+
     public Long getId() {
         return id;
     }

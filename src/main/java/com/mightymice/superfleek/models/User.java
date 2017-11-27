@@ -25,6 +25,8 @@ public class User {
     private String firstName;
     @Column
     private String lastName;
+    @Column(columnDefinition = "text")
+    private String bio;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<MakeupList> makeupLists;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
@@ -34,6 +36,16 @@ public class User {
     @NotBlank(message = "You must confirm your password")
     @Transient
     private String confirmPassword;
+
+    private boolean hasLoggedIn;
+
+    public boolean isHasLoggedIn() {
+        return hasLoggedIn;
+    }
+
+    public void setHasLoggedIn(boolean hasLoggedIn) {
+        this.hasLoggedIn = hasLoggedIn;
+    }
 
     public List<Review> getReviews() {
         return reviews;
@@ -65,6 +77,8 @@ public class User {
         password = copy.password;
         firstName = copy.firstName;
         lastName = copy.lastName;
+        bio = copy.bio;
+        lookList = copy.lookList;
 
     }
 
@@ -131,5 +145,13 @@ public class User {
 
     public void setLookList(List<Look> lookList) {
         this.lookList = lookList;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
     }
 }

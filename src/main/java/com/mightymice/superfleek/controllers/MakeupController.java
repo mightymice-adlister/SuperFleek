@@ -1,9 +1,13 @@
 package com.mightymice.superfleek.controllers;
 
+import com.mightymice.superfleek.models.Look;
+import com.mightymice.superfleek.models.User;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 public class MakeupController {
@@ -14,10 +18,7 @@ public class MakeupController {
         return "index";
     }
 
-    @GetMapping("/make-profile")
-    public String makeProfile(){
-        return "make-profile";
-    }
+
 
 
 
