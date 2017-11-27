@@ -11,6 +11,8 @@ public class ColorFamily {
     private Long id;
     @Column(nullable = false)
     private String name;
+    @Column
+    private String hex;
     @ManyToMany( mappedBy = "colorFamily")
     private List<Makeup> makeups;
 
@@ -39,5 +41,13 @@ public class ColorFamily {
 
     public void setMakeups(List<Makeup> makeups) {
         this.makeups = makeups;
+    }
+
+    public String getHex() {
+        return hex;
+    }
+
+    public void setHex(String hex) {
+        this.hex = hex;
     }
 }

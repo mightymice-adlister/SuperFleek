@@ -1,0 +1,26 @@
+USE fleek_db;
+
+INSERT INTO color_family (name, hex) SELECT * FROM (SELECT 'Black','#000000') AS tmp WHERE NOT EXISTS(SELECT name FROM color_family WHERE name = 'Black') LIMIT 1;
+INSERT INTO color_family (name, hex) SELECT * FROM (SELECT 'Chocolate','#2B1705') AS tmp WHERE NOT EXISTS(SELECT name FROM color_family WHERE name = 'Chocolate') LIMIT 1;
+INSERT INTO color_family (name, hex) SELECT * FROM (SELECT 'Espresso','#8C5117') AS tmp WHERE NOT EXISTS(SELECT name FROM color_family WHERE name = 'Espresso') LIMIT 1;
+INSERT INTO color_family (name, hex) SELECT * FROM (SELECT 'Cocoa','#A96E1C') AS tmp WHERE NOT EXISTS(SELECT name FROM color_family WHERE name = 'Cocoa') LIMIT 1;
+INSERT INTO color_family (name, hex) SELECT * FROM (SELECT 'Chestnut','#B56F26') AS tmp WHERE NOT EXISTS(SELECT name FROM color_family WHERE name = 'Chestnut') LIMIT 1;
+INSERT INTO color_family (name, hex) SELECT * FROM (SELECT 'Honey','#F7EFE3') AS tmp WHERE NOT EXISTS(SELECT name FROM color_family WHERE name = 'Honey') LIMIT 1;
+INSERT INTO color_family (name, hex) SELECT * FROM (SELECT 'Warm Beige','#E4B474') AS tmp WHERE NOT EXISTS(SELECT name FROM color_family WHERE name = 'Warm Beige') LIMIT 1;
+INSERT INTO color_family (name, hex) SELECT * FROM (SELECT 'Beige','#CA8F3D') AS tmp WHERE NOT EXISTS(SELECT name FROM color_family WHERE name = 'Beige') LIMIT 1;
+INSERT INTO color_family (name, hex) SELECT * FROM (SELECT 'Sand','#E0BB8A') AS tmp WHERE NOT EXISTS(SELECT name FROM color_family WHERE name = 'Sand') LIMIT 1;
+INSERT INTO color_family (name, hex) SELECT * FROM (SELECT 'Warm Ivory','#E2A969') AS tmp WHERE NOT EXISTS(SELECT name FROM color_family WHERE name = 'Warm Ivory') LIMIT 1;
+INSERT INTO color_family (name, hex) SELECT * FROM (SELECT 'Ivory','#F3D0A3') AS tmp WHERE NOT EXISTS(SELECT name FROM color_family WHERE name = 'Ivory') LIMIT 1;
+INSERT INTO color_family (name, hex) SELECT * FROM (SELECT 'Porcelain','#E8CB94') AS tmp WHERE NOT EXISTS(SELECT name FROM color_family WHERE name = 'Porcelain') LIMIT 1;
+INSERT INTO color_family (name, hex) SELECT * FROM (SELECT 'Pale','#CAE2EA') AS tmp WHERE NOT EXISTS(SELECT name FROM color_family WHERE name = 'Pale') LIMIT 1;
+INSERT INTO color_family (name, hex) SELECT * FROM (SELECT 'White','#000000') AS tmp WHERE NOT EXISTS(SELECT name FROM color_family WHERE name = 'White') LIMIT 1;
+INSERT INTO color_family (name, hex) SELECT * FROM (SELECT 'Red','#FF0000') AS tmp WHERE NOT EXISTS(SELECT name FROM color_family WHERE name = 'Red') LIMIT 1;
+INSERT INTO color_family (name, hex) SELECT * FROM (SELECT 'Orange','#FF8700') AS tmp WHERE NOT EXISTS(SELECT name FROM color_family WHERE name = 'Orange') LIMIT 1;
+INSERT INTO color_family (name, hex) SELECT * FROM (SELECT 'Yellow','#FFFF00') AS tmp WHERE NOT EXISTS(SELECT name FROM color_family WHERE name = 'Yellow') LIMIT 1;
+INSERT INTO color_family (name, hex) SELECT * FROM (SELECT 'Blue','#0000FF') AS tmp WHERE NOT EXISTS(SELECT name FROM color_family WHERE name = 'Blue') LIMIT 1;
+INSERT INTO color_family (name, hex) SELECT * FROM (SELECT 'Aqua','#00FFFF') AS tmp WHERE NOT EXISTS(SELECT name FROM color_family WHERE name = 'Aqua') LIMIT 1;
+INSERT INTO color_family (name, hex) SELECT * FROM (SELECT 'Magenta','#FF00FF') AS tmp WHERE NOT EXISTS(SELECT name FROM color_family WHERE name = 'Magenta') LIMIT 1;
+INSERT INTO color_family (name, hex) SELECT * FROM (SELECT 'Purple','#800080') AS tmp WHERE NOT EXISTS(SELECT name FROM color_family WHERE name = 'Purple') LIMIT 1;
+INSERT INTO color_family (name, hex) SELECT * FROM (SELECT 'Silver','#C0C0C0') AS tmp WHERE NOT EXISTS(SELECT name FROM color_family WHERE name = 'Silver') LIMIT 1;
+INSERT INTO color_family (name, hex) SELECT * FROM (SELECT 'Mixed',NULL) AS tmp WHERE NOT EXISTS(SELECT name FROM color_family WHERE name = 'Mixed') LIMIT 1;
+INSERT INTO color_family (name, hex) SELECT * FROM (SELECT 'None', NULL) AS tmp WHERE NOT EXISTS(SELECT name FROM color_family WHERE name = 'None') LIMIT 1;
