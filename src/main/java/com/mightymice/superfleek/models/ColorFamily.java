@@ -11,7 +11,7 @@ public class ColorFamily {
     private Long id;
     @Column(nullable = false)
     private String name;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "colorFamily")
+    @ManyToMany( mappedBy = "colorFamily")
     private List<Makeup> makeups;
 
     public ColorFamily() {
