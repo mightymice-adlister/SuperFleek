@@ -27,10 +27,15 @@ public class Makeup {
     private Brand brand;
     @Column
     private String colorName;
-    @ManyToOne
-    @JoinColumn(name = "color_family_id")
-    @JsonManagedReference
-    private ColorFamily colorFamily;
+  
+    @ManyToMany
+    @JoinTable(
+            name = "makeup_color_family",
+            joinColumns = {@JoinColumn(name = "makeup_id")},
+            inverseJoinColumns = {@JoinColumn(name = "color_family_id")}
+    )
+  
+    private List<ColorFamily> colorFamily;
     @Column
     private String finish;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "makeup")
@@ -91,11 +96,11 @@ public class Makeup {
         this.colorName = colorName;
     }
 
-    public ColorFamily getColorFamily() {
+    public List<ColorFamily> getColorFamily() {
         return colorFamily;
     }
 
-    public void setColorFamily(ColorFamily colorFamily) {
+    public void setColorFamily(List<ColorFamily> colorFamily) {
         this.colorFamily = colorFamily;
     }
 
