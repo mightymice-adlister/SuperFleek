@@ -6,5 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface Looks extends CrudRepository<Look, Long> {
     Look findAllByUser(User user);
-    Look findByUserAndProfilePic(User user, Boolean isProfilePic);
+//    Look findByUserAndProfilePic(User user, Boolean isProfilePic);
 }

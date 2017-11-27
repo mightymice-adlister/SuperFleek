@@ -17,9 +17,13 @@ $(document).ready(function() {
         console.log(response);
       }
       handleFilestack(response);
+      $("#profile-input").val(response.filesUploaded[0].url);
+      console.log(response.filesUploaded[0].url);
     });
   }
 
   $(".add-profile-pic").on("click", openPicker);
+
+
 
 });
