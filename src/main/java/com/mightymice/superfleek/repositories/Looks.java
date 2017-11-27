@@ -4,7 +4,9 @@ import com.mightymice.superfleek.models.Look;
 import com.mightymice.superfleek.models.User;
 import org.springframework.data.repository.CrudRepository;
 
+import java.util.List;
+
 public interface Looks extends CrudRepository<Look, Long> {
-    Look findAllByUser(User user);
-//    Look findByUserAndProfilePic(User user, Boolean isProfilePic);
+    List<Look> findAllByUser(User user);
+//    Look findAllByUserAndProfilePicIsTrue(User user);
 }
