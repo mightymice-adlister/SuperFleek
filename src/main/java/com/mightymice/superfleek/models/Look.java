@@ -21,7 +21,7 @@ public class Look {
             inverseJoinColumns = {@JoinColumn(name="makeup_id")}
     )
     private List<Makeup> makeups;
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String title;
 
     @Column

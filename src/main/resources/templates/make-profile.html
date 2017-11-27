@@ -7,8 +7,12 @@
 </head>
 <body>
 
+<div class="add-profile-pic">
+<i class="large material-icons">add</i>
+</div>
 <form th:method="post" th:name="make-profile" th:action="@{/make-profile}" th:object="${user}">
     <input th:field="*{bio}" th:type="text"/>
+    <input th:field="*{lookList[0].pictureFilePath}" th:type="hidden" id="profile-input" value="" />
     <button>Submit</button>
 </form>
 <!--<div class="loading-wrapper">-->
@@ -143,7 +147,7 @@
 
 
 
-<!--<div th:replace="fragments/footer :: scripts"></div>-->
+<div th:replace="fragments/footer :: scripts"></div>
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.6.6/jquery.fullPage.min.js"></script>-->
 <!--<script src="/js/fullpage.js"></script>-->
 </body>

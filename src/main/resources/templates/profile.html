@@ -16,13 +16,13 @@
             <div class="col s12 offset-m1 m10">
                 <div class="row">
                     <div class="col s12">
-                        <div class="profile-hero-img"><img src="https://source.unsplash.com/375x250/?model" /></div>
+                        <div class="profile-hero-img"><img th:src="${user.lookList[0].pictureFilePath}" /></div>
                     </div>
                 </div>
                 <div class="row">
                     <!-- User info sizing -->
                     <div class="col offset-s2 s4">
-                        <img class="profile-user-avatar" src="https://source.unsplash.com/375x250/?model" />
+                        <img class="profile-user-avatar" th:src="${user.lookList[0].pictureFilePath}" />
                     </div>
                     <div class="col s1"></div>
                     <div class="col s4">

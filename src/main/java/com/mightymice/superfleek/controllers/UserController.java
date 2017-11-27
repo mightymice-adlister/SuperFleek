@@ -87,9 +87,12 @@ public class UserController {
     public String makeProfile(@ModelAttribute User user){
         User signedInUser = users.findByUsername(((User)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername());
         if(user.getLookList()!=null){
+
             List<Look> newLooks = user.getLookList();
+            newLooks.get(0).setUser(signedInUser);
             newLooks.get(0).setProfilePic(true);
             signedInUser.getLookList().add(newLooks.get(0));
+            looks.save(newLooks.get(0));
         } else {
             System.out.println("getLookList is null");
         }
@@ -101,7 +104,7 @@ public class UserController {
         signedInUser.setHasLoggedIn(true);
         ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).setHasLoggedIn(true);
         signedInUser.setConfirmPassword(signedInUser.getPassword());
-        looks.save(signedInUser.getLookList());
+
         users.save(signedInUser);
         return "redirect:/profile";
 
