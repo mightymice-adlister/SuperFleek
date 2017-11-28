@@ -37,34 +37,21 @@ $(document).ready(function() {
         var results = document.getElementById("results");
         // console.log(products);
         results.innerHTML = ! value ? '' : products
-          .filter(product => product[key].toLowerCase().indexOf(value.toLowerCase()) !== -1)
-      .map(({name, brand, type}) => `<div>${name}, ${brand.name} (${type.name})</div>`)
+          .filter(product => {
+
+            if(key == "brand" || key == "type") {
+
+              return product[key]['name'].toLowerCase().indexOf(value.toLowerCase()) !== -1;
+
+            } else {
+
+              return product[key].toLowerCase().indexOf(value.toLowerCase()) !== -1;
+
+            }
+          })
+      .map(({id, name, brand, type}) => `<p><a href="/product/${id}">${name}, ${brand.name} (${type.name})</a></p>`)
       .reduce((html, template) => html + template, '')
       };
-
-      // Search functions
-      //   if($("#results").html() === "" || $("#results").html() !== !value) {
-      //     var search = function() {
-      //       var key = $("#filter").val().toLowerCase();
-      //       var value = $.trim($("#query").val().toLowerCase());
-      //       // console.log(value);
-      //
-      //       products.filter(function (product) {
-      //         return product[key].indexOf(value) !== -1;
-      //       })
-      //         .map(function (product) {
-      //           // console.log(product);
-      //           var html = " <div>" +
-      //             product.name + " " + product.brand.name +
-      //             "</div>";
-      //           return html;
-      //         })
-      //         .reduce(function (html, template) {
-      //           console.log(html);
-      //           return html + template;
-      //         }, " ");
-      //     };
-        // }
 
       $("#query").on("input", search);
       $("#filter").on("change", search);
