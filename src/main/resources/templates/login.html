@@ -4,45 +4,67 @@
     <meta charset="UTF-8" />
     <title></title>
 </head>
-<body>
-<div class="login-img-container">
-    <img src="https://source.unsplash.com/1600x900/?makeup" />
-</div>
-<div class="container">
-    <div class="full-page-wrapper">
-        <div class="row">
-            <h1 class="main-title center-align">Login</h1>
-            <h6 class="sub-title center-align">Lorem ipsum...</h6>
-        </div>
-        <form th:method="post" th:action="@{/login}">
-            <div class="row">
-                <div class="login-form center-align">
+<body id="login">
+
+    <header>
+        <nav class="show-on-small" th:replace="fragments/navbar :: navbar"></nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- mobile layout -->
+            <div class="login-mobile-wrapper z-depth-2 hide-on-large-only">
+                <div class="login-mobile-panel center-align">
+                    <img src="/imgs/vanity-bouquet-640.jpeg" />
                     <div class="row">
-                        <div class="input-field col s12">
-                            <input id="username" name="username" class="validate" type="text" th:object="${username}" />
-                            <label for="username">Username</label>
+                        <h1 class="main-title">Login</h1>
+                        <h6 class="sub-title">Lorem ipsum...</h6>
+                    </div>
+                    <div class="row">
+                        <div class="col offset-s2 s8">
+                            <form th:replace="fragments/forms :: login-form"></form>
+                            <h6 class="center-align hide-on-large-only">Already have an account?
+                                <a href="/sign-up" class="signup-link">Sign up</a></h6>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="password" class="validate" type="password" name="password"/>
-                            <label for="password">Password</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <button class="btn-group btn waves-effect waves-light grey darken-4">Login</button>
-                    </div>
-                    <div class="row">
-                        <a  href="/sign-up" class="btn-group btn waves-effect waves-light grey darken-4">Sign up</a>
                     </div>
                 </div>
-            </div><!-- end form row-->
-        </form>
+            </div>
 
-    </div><!-- end wrapper -->
-</div>
 
-<div th:replace="fragments/footer :: scripts"></div>
+
+
+            <div class="row show-on-large hidden">
+                <div class="full-page-wrapper valign-wrapper center-align">
+                    <div class="col m12">
+                        <a href="/sign-up" class="signup-btn btn btn-large grey darken-4">Sign-up</a>
+                        <div class="card horizontal z-depth-2 login-card">
+                            <div class="card-image">
+                                <img src="/imgs/vanity-bouquet-640.jpeg" />
+                            </div>
+                            <div class="card-stacked">
+                                <div class="card-content">
+                                    <div class="col s12 offset-m4 m8 offset-l3 l6">
+                                        <div class="row">
+                                            <div class="col s12">
+                                                <h1 class="main-title">Login</h1>
+                                                <h6 class="sub-title">Lorem ipsum...</h6>
+                                            </div>
+                                            <form th:replace="fragments/forms :: login-form"></form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div th:replace="fragments/footer :: scripts"></div>
+    </footer>
+
 </body>
 </html>
 

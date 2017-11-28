@@ -1,33 +1,23 @@
 package com.mightymice.superfleek.models;
 
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
+import javax.persistence.Id;
 import java.util.List;
+
 @Entity
-@Table(name="categories")
-public class Category {
-    @Id @GeneratedValue
+public class MakeupType {
+    @Id
+    @GeneratedValue
     private Long id;
-    @Column(nullable = false)
+    @Column(unique = true)
     private String name;
-    @ManyToMany(mappedBy = "categories")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "type")
     @JsonBackReference
-    private List<Makeup> makeups;
+    private List<Makeup> makeupsWithType;
 
-
-    public Category() {
-
-    }
-
-    public Category(Long id) {
-        this.id = id;
-    }
-
-    public Category(Long id, String name) {
-        this.id = id;
-        this.name = name;
+    public MakeupType() {
     }
 
     public Long getId() {
@@ -44,5 +34,13 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Makeup> getMakeupsWithType() {
+        return makeupsWithType;
+    }
+
+    public void setMakeupsWithType(List<Makeup> makeupsWithType) {
+        this.makeupsWithType = makeupsWithType;
     }
 }

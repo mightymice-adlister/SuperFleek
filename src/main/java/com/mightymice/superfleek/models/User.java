@@ -1,6 +1,7 @@
 package com.mightymice.superfleek.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
@@ -12,29 +13,63 @@ import java.util.List;
 public class User {
     @Id @GeneratedValue
     private Long id;
-    @NotBlank(message ="Users must have an email address")
+    @NotBlank(message ="You must enter an email address")
     @Column(nullable = false, unique = true)
     private String email;
-    @NotBlank(message ="Users must have a username")
+    @NotBlank(message ="You must enter a username")
     @Column(nullable = false, unique = true)
     private String username;
     @NotBlank(message ="You must enter a password")
     @Column(nullable = false)
+    @JsonIgnore
     private String password;
     @Column
     private String firstName;
     @Column
     private String lastName;
+    @Column(columnDefinition = "text")
+    private String bio;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<MakeupList> makeupLists;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Look> lookList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Review> reviews;
+    @NotBlank(message = "You must confirm your password")
+    @Transient
+    @JsonIgnore
+    private String confirmPassword;
+
+    private boolean hasLoggedIn;
+
+    public boolean isHasLoggedIn() {
+        return hasLoggedIn;
+    }
+
+    public void setHasLoggedIn(boolean hasLoggedIn) {
+        this.hasLoggedIn = hasLoggedIn;
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
 
     //Default constructor (no arguments)
     public User(){
     }
+
 
 
     // this is the copy constructor so that the security works right
@@ -45,6 +80,8 @@ public class User {
         password = copy.password;
         firstName = copy.firstName;
         lastName = copy.lastName;
+        bio = copy.bio;
+        lookList = copy.lookList;
 
     }
 
@@ -111,5 +148,13 @@ public class User {
 
     public void setLookList(List<Look> lookList) {
         this.lookList = lookList;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
     }
 }
