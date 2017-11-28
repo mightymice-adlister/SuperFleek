@@ -74,7 +74,7 @@
                 <li class="collection-item avatar" th:each="review : ${makeup.reviews}">
                     <img th:src="${review.user.getProfilePicUrl()}" alt="" class="circle" />
                     <span th:text="${review.title}" class="title">This lipstick is lit!!!</span>
-                    <p th:text="${review.user.username}"></p>
+                    <p th:text="${'@'+review.user.username}"></p>
                     <p th:text="${review.body}">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut tortor pretium viverra suspendisse potenti nullam ac tortor. Sit amet nulla facilisi morbi tempus iaculis urna id volutpat. Facilisi cras fermentum odio eu feugiat pretium nibh ipsum. Viverra ipsum nunc aliquet bibendum enim.
                     </p>
