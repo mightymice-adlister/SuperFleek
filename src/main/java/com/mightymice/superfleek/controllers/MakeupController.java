@@ -44,5 +44,10 @@ public class MakeupController {
         return "product";
     }
 
+    @GetMapping("/search")
+    public String searchProducts() {
+        return "search";
+    }
+
 
 }
