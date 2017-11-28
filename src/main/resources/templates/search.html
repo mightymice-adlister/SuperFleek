@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header('Search products')">
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body id="search">
+
+<header>
+    <nav class="show-on-small" th:replace="fragments/navbar :: navbar"></nav>
+</header>
+
+<main>
+    <nav>
+        <div class="nav-wrapper">
+            <form>
+                <div class="input-field">
+                    <input id="search" type="search" required="required" />
+                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                    <i class="material-icons">close</i>
+                </div>
+            </form>
+        </div>
+    </nav>
+</main>
+
+<footer>
+    <div th:replace="fragments/footer :: scripts"></div>
+</footer>
+
+</body>
+</html>
