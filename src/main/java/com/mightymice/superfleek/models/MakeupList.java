@@ -32,7 +32,7 @@ public class MakeupList {
     public MakeupList() {
     }
     public MakeupList(String title){
-        this.title=
+        this.title=title;
     }
 
     public Long getId() {

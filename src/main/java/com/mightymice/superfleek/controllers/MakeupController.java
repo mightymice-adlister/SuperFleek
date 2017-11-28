@@ -24,10 +24,6 @@ public class MakeupController {
     @ResponseBody
     public String index(){
 
-        Makeup makeupToDisplay = makeups.findOne(1L);
-        makeupToDisplay.setName(
-                makeupToDisplay.getName().replace(
-                 makeupToDisplay.getBrand().getName(), ""));
         return "index";
     }
 
