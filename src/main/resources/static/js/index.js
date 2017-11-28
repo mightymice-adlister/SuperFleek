@@ -25,5 +25,74 @@ $(document).ready(function() {
   $(".add-profile-pic").on("click", openPicker);
 
 
+  // User can search for products
+
+  (function($) {
+
+    // debounce is used to delay search queries
+    debounce = function(func, delay) {
+      var inDebounce;
+      inDebounce = undefined;
+      return function() {
+        var args, context;
+        clearTimeout(inDebounce);
+        context = this;
+        args = arguments;
+        return inDebounce = setTimeout(function() {
+          return func.apply(context, arguments);
+        }, delay);
+      };
+    };
+
+
+    var request = $.ajax({'url': '/makeup.json'});
+    request.done(function (products){
+
+      const search = () => {
+        var key = $("#filter").val();
+        var value = $.trim($("#query").val());
+        var results = document.getElementById("results");
+        // console.log(products);
+        results.innerHTML = ! value ? '' : products
+          .filter(product => {
+            if(key == "brand" || key == "type") {
+
+              return product[key]['name'].toLowerCase().indexOf(value.toLowerCase()) !== -1;
+
+            } else {
+
+              return product["name"].toLowerCase().indexOf(value.toLowerCase()) !== -1;
+
+            }
+          })
+      .map(({id, name, brand, type, thumbnailUrl}) =>
+        `
+          <ul class="collection">
+              <a href="/product/${id}"><li class="collection-item avatar">
+                <img src="${thumbnailUrl}" alt="" class="circle">
+                <span class="title">${name}</span>
+                <p>${brand.name} <br>
+                   ${type.name}
+                </p>
+                <a href="/product/${id}" class="secondary-content"><i class="material-icons">send</i></a>
+              </li></a>
+           </ul>
+        `)
+      .reduce((html, template) => html + template, '')
+      };
+
+      $("#query").on("input", debounce(search, 300));
+      $("#filter").on("change", search);
+
+    })
+  })(jQuery);
+
+
+
+  $('select').material_select();
+
 
 });
+
+
+// <p><a href="/product/${id}">${name}, ${brand.name} (${type.name})</a></p>

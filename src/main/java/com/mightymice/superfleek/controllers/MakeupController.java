@@ -29,6 +29,7 @@ public class MakeupController {
     @GetMapping("/")
     @ResponseBody
     public String index(){
+
         return "index";
     }
 
@@ -56,6 +57,7 @@ public class MakeupController {
         return "product";
     }
 
+
     @PostMapping("/product/{id}")
     public String postReview(@ModelAttribute Review review, @ModelAttribute Makeup makeup, @PathVariable long id){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -63,6 +65,32 @@ public class MakeupController {
         review.setMakeup(makeups.findOne(id));
         reviews.save(review);
         return "redirect:/product/"+id;
+
+    @GetMapping("/search")
+    public String searchProducts() {
+        return "search";
+    }
+
+    private Makeup makeupBrandToUpperCase(Makeup makeup){
+        String brandName = makeup.getBrand().getName();
+
+        makeup.getBrand().setName(brandName.substring(0, 1).toUpperCase()+brandName.substring(1));
+        return makeup;
+    }
+    private Makeup removeBrandFromMakeupName(Makeup makeup){
+        String brandName = makeup.getBrand().getName();
+        String makeupName = makeup.getName();
+        if(makeupName.contains(brandName)){
+            makeupName = makeupName.replace(brandName, "");
+            makeup.setName(makeupName);
+        }
+        return makeup;
+    }
+    private Makeup prepareMakeup(Makeup makeup){
+        makeup = makeupBrandToUpperCase(makeup);
+        makeup = removeBrandFromMakeupName(makeup);
+        return makeup;
+
     }
 
 
