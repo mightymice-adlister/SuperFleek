@@ -33,7 +33,21 @@ $(document).ready(function() {
   (function($) {
     var request = $.ajax({'url': '/makeup.json'});
     request.done(function (products){
-      console.log(products);
+      // Search functions
+      var search = function () {
+        var key = filter.val();
+        var value = query.trim().val();
+        console.log(products);
+        if (results.html() !== value) {
+          results.html("");
+        } else {
+          products
+            .filter(function (product) {
+            return product.key.toLowerCase().indexOf(value.toLowerCase()) !== -1;
+          })
+            .map(function ())
+        }
+      }
     })
   })(jQuery);
 
