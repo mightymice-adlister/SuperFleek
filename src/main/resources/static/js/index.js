@@ -26,11 +26,18 @@ $(document).ready(function() {
 
 
   // User can search for products
+  var query = $("#query");
+  var filter = $("#filter");
+  var results = $("#results");
+
   (function($) {
     var request = $.ajax({'url': '/makeup.json'});
     request.done(function (products){
       console.log(products);
     })
   })(jQuery);
+
+  $('select').material_select();
+
 
 });
