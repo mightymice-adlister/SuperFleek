@@ -17,13 +17,32 @@
                 <img class="responsive-img" src="https://source.unsplash.com/1600x900/?makeup" />
             </div>
             <div class="product-info-banner-mobile">
-                <img class="left product-thumbnail responsive-img" src="/imgs/lipstick-thumbnail.jpeg" />
-                <div class="product-caption">
-                    <h5 class="product-brand">Nars</h5>
-                    <h6 class="product-title">Audacious Lipstick</h6>
-                </div>
-                <h6 class="right product-price">$32.00</h6>
-            </div>
+                <div class="row">
+                    <div class="col s2">
+                        <!-- thumbnail -->
+                        <img class="responsive-img" th:src="${makeup.thumbnailUrl}" />
+                    </div>
+                    <div class="col s10">
+                        <!-- product info text -->
+                        <div class="row">
+                            <div class="col s6">
+                                <!-- product brand -->
+                                <h5 class="product-brand" th:text="${makeup.brand.name}"></h5>
+                            </div>
+                            <div class="col s6">
+                                <!-- product price -->
+                                <p>$32.00</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+                                <!-- product title -->
+                                <h6 class="product-title" th:text="${makeup.name}"></h6>
+                            </div>
+                        </div>
+                    </div> <!-- product info text -->
+                </div> <!-- main product info row -->
+            </div> <!-- product info banner -->
             <div class="product-review-bar">
                 <div class="star-board">
                     <i class="material-icons tiny ratings">grade</i>
@@ -34,6 +53,15 @@
                 <h6 class="review-number">57 reviews</h6>
                 <h6 class="review-score">Overwhelmingly positive</h6>
             </div>
+        <div><!-- form div -->
+            <form class="form" th:action="@{/product/{id}(id=${makeup.id})}" th:method="post" th:object="${review}">
+                <input th:field="*{rating}" th:type="radio" name="rating" value="1" id="positive" /><label for="positive">poppin!</label>
+                <input th:field="*{rating}" th:type="radio" name="rating" value="-1" id="negative" /><label for="negative">nah</label>
+                <input th:field="*{title}" th:name="title" />
+                <textarea th:name="body" th:field="*{body}"></textarea>
+                <input th:type="submit" th:value="Submit" />
+            </form>
+        </div><!-- review -->
             <ul class="collection">
                 <li class="collection-item avatar">
                     <img src="https://source.unsplash.com/45x45/?model" alt="" class="circle" />
@@ -42,6 +70,17 @@
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut tortor pretium viverra suspendisse potenti nullam ac tortor. Sit amet nulla facilisi morbi tempus iaculis urna id volutpat. Facilisi cras fermentum odio eu feugiat pretium nibh ipsum. Viverra ipsum nunc aliquet bibendum enim.
                     </p>
                     <a href="#!" class="secondary-content"><i class="material-icons green-text">thumb_up</i></a>
+                </li>
+                <li class="collection-item avatar" th:each="review : ${makeup.reviews}">
+                    <img th:src="${review.user.getProfilePicUrl()}" alt="" class="circle" />
+                    <span th:text="${review.title}" class="title">This lipstick is lit!!!</span>
+                    <p th:text="${review.user.username}"></p>
+                    <p th:text="${review.body}">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut tortor pretium viverra suspendisse potenti nullam ac tortor. Sit amet nulla facilisi morbi tempus iaculis urna id volutpat. Facilisi cras fermentum odio eu feugiat pretium nibh ipsum. Viverra ipsum nunc aliquet bibendum enim.
+                    </p>
+                    <a th:if="${review.rating} == 1" href="#!" class="secondary-content"><i class="material-icons green-text">thumb_up</i></a>
+                    <a th:if="${review.rating} == -1" href="#!" class="secondary-content"><i class="material-icons green-text">thumb_down</i></a>
+
                 </li>
             </ul>
         </div>

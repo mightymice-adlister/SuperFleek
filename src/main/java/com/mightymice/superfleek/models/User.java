@@ -40,6 +40,18 @@ public class User {
     @JsonIgnore
     private String confirmPassword;
 
+//    public String getProfilePicUrl() {
+//        return profilePicUrl;
+//    }
+//
+//    public void setProfilePicUrl(String profilePicUrl) {
+//        this.profilePicUrl = profilePicUrl;
+//    }
+//
+//    @Transient
+//    @JsonIgnore
+//    private String profilePicUrl = getProfilePic().getPictureFilePath();
+
     private boolean hasLoggedIn;
 
     public boolean isHasLoggedIn() {
@@ -156,5 +168,19 @@ public class User {
 
     public void setBio(String bio) {
         this.bio = bio;
+    }
+    public Look getProfilePic(){
+        Look profilePic = new Look();
+        for(Look look: lookList){
+            if(look.isProfilePic()){
+                profilePic = look;
+            }
+        }
+            return profilePic;
+    }
+    public String getProfilePicUrl(){
+        String url = "";
+        url = getProfilePic().getPictureFilePath();
+        return url;
     }
 }

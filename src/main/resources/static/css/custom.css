@@ -308,7 +308,7 @@ section:nth-of-type(2) {
 }
 
 .product-info-banner-mobile {
-    display: flex;
+    /*display: flex;*/
     height: 50px;
     width: 100%;
     border-bottom: 1px solid #e0e0e0;
