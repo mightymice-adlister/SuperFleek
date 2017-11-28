@@ -69,14 +69,14 @@ $(document).ready(function() {
       .map(({id, name, brand, type, thumbnailUrl}) =>
         `
           <ul class="collection">
-              <li class="collection-item avatar">
+              <a href="/product/${id}"><li class="collection-item avatar">
                 <img src="${thumbnailUrl}" alt="" class="circle">
                 <span class="title">${name}</span>
                 <p>${brand.name} <br>
                    ${type.name}
                 </p>
-                <a href="/product/${id}" class="secondary-content"><i class="material-icons">grade</i></a>
-              </li>
+                <a href="/product/${id}" class="secondary-content"><i class="material-icons">send</i></a>
+              </li></a>
            </ul>
         `)
       .reduce((html, template) => html + template, '')
