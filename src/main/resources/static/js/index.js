@@ -25,5 +25,43 @@ $(document).ready(function() {
   $(".add-profile-pic").on("click", openPicker);
 
 
+  // User can search for products
+
+  (function($) {
+    var request = $.ajax({'url': '/makeup.json'});
+    request.done(function (products){
+
+      const search = () => {
+        var key = $("#filter").val().toLowerCase();
+        var value = $.trim($("#query").val().toLowerCase());
+        var results = document.getElementById("results");
+        // console.log(products);
+        results.innerHTML = ! value ? '' : products
+          .filter(product => {
+
+            if(key == "brand" || key == "type") {
+
+              return product[key]['name'].toLowerCase().indexOf(value.toLowerCase()) !== -1;
+
+            } else {
+
+              return product[key].toLowerCase().indexOf(value.toLowerCase()) !== -1;
+
+            }
+          })
+      .map(({id, name, brand, type}) => `<p><a href="/product/${id}">${name}, ${brand.name} (${type.name})</a></p>`)
+      .reduce((html, template) => html + template, '')
+      };
+
+      $("#query").on("input", search);
+      $("#filter").on("change", search);
+
+    })
+  })(jQuery);
+
+
+
+  $('select').material_select();
+
 
 });

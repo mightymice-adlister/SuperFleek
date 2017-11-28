@@ -45,6 +45,11 @@ public class MakeupController {
         return "product";
     }
 
+    @GetMapping("/search")
+    public String searchProducts() {
+        return "search";
+    }
+
     private Makeup makeupBrandToUpperCase(Makeup makeup){
         String brandName = makeup.getBrand().getName();
 
