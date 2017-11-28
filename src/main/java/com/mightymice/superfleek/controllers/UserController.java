@@ -1,6 +1,7 @@
 package com.mightymice.superfleek.controllers;
 
 import com.mightymice.superfleek.models.Look;
+import com.mightymice.superfleek.models.MakeupList;
 import com.mightymice.superfleek.models.User;
 import com.mightymice.superfleek.repositories.Looks;
 import com.mightymice.superfleek.repositories.Users;
@@ -59,6 +60,8 @@ public class UserController {
 
     @GetMapping("/profile/{username}")
     public String profileView(@PathVariable String username, Model viewModel){
+        MakeupList collection = new MakeupList("Collection");
+        viewModel.addAttribute("collection", collection);
         viewModel.addAttribute("profilePic", getProfilePic(users.findByUsername(username)));
         viewModel.addAttribute("user", users.findByUsername(username));
         return "profile";
