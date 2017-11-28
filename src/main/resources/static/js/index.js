@@ -49,20 +49,19 @@ $(document).ready(function() {
     request.done(function (products){
 
       const search = () => {
-        var key = $("#filter").val().toLowerCase();
-        var value = $.trim($("#query").val().toLowerCase());
+        var key = $("#filter").val();
+        var value = $.trim($("#query").val());
         var results = document.getElementById("results");
         // console.log(products);
         results.innerHTML = ! value ? '' : products
           .filter(product => {
-
             if(key == "brand" || key == "type") {
 
               return product[key]['name'].toLowerCase().indexOf(value.toLowerCase()) !== -1;
 
             } else {
 
-              return product[key].toLowerCase().indexOf(value.toLowerCase()) !== -1;
+              return product["name"].toLowerCase().indexOf(value.toLowerCase()) !== -1;
 
             }
           })
