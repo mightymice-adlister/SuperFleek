@@ -31,6 +31,9 @@ public class MakeupList {
 
     public MakeupList() {
     }
+    public MakeupList(String title){
+        this.title=
+    }
 
     public Long getId() {
         return id;
