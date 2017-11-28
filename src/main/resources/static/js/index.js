@@ -25,5 +25,12 @@ $(document).ready(function() {
   $(".add-profile-pic").on("click", openPicker);
 
 
+  // User can search for products
+  (function($) {
+    var request = $.ajax({'url': '/makeup.json'});
+    request.done(function (products){
+      console.log(products);
+    })
+  })(jQuery);
 
 });
