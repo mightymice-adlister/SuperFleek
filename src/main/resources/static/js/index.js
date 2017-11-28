@@ -26,30 +26,53 @@ $(document).ready(function() {
 
 
   // User can search for products
-  var query = $("#query");
-  var filter = $("#filter");
-  var results = $("#results");
 
   (function($) {
     var request = $.ajax({'url': '/makeup.json'});
     request.done(function (products){
+
+      const search = () => {
+        var key = $("#filter").val().toLowerCase();
+        var value = $.trim($("#query").val().toLowerCase());
+        var results = document.getElementById("results");
+        // console.log(products);
+        results.innerHTML = ! value ? '' : products
+          .filter(product => product[key].toLowerCase().indexOf(value.toLowerCase()) !== -1)
+      .map(({name, brand, type}) => `<div>${name}, ${brand.name} (${type.name})</div>`)
+      .reduce((html, template) => html + template, '')
+      };
+
       // Search functions
-      var search = function () {
-        var key = filter.val();
-        var value = query.trim().val();
-        console.log(products);
-        if (results.html() !== value) {
-          results.html("");
-        } else {
-          products
-            .filter(function (product) {
-            return product.key.toLowerCase().indexOf(value.toLowerCase()) !== -1;
-          })
-            .map(function ())
-        }
-      }
+      //   if($("#results").html() === "" || $("#results").html() !== !value) {
+      //     var search = function() {
+      //       var key = $("#filter").val().toLowerCase();
+      //       var value = $.trim($("#query").val().toLowerCase());
+      //       // console.log(value);
+      //
+      //       products.filter(function (product) {
+      //         return product[key].indexOf(value) !== -1;
+      //       })
+      //         .map(function (product) {
+      //           // console.log(product);
+      //           var html = " <div>" +
+      //             product.name + " " + product.brand.name +
+      //             "</div>";
+      //           return html;
+      //         })
+      //         .reduce(function (html, template) {
+      //           console.log(html);
+      //           return html + template;
+      //         }, " ");
+      //     };
+        // }
+
+      $("#query").on("input", search);
+      $("#filter").on("change", search);
+
     })
   })(jQuery);
+
+
 
   $('select').material_select();
 
