@@ -368,6 +368,24 @@ section:nth-of-type(2) {
 
 
 /***********************/
+/*       Search        */
+/***********************/
+.searchbar {
+    border: 1px solid #ccc;
+}
+
+
+.searchbar select, .searchbar .select-wrapper {
+    width: 10vw;
+}
+
+.collection .collection-item.avatar {
+    padding-right: 42px;
+}
+
+
+
+/***********************/
 /*    Input Fields     */
 /***********************/
 /* label color */
