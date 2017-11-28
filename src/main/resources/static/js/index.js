@@ -28,6 +28,23 @@ $(document).ready(function() {
   // User can search for products
 
   (function($) {
+
+    // debounce is used to delay search queries
+    debounce = function(func, delay) {
+      var inDebounce;
+      inDebounce = undefined;
+      return function() {
+        var args, context;
+        clearTimeout(inDebounce);
+        context = this;
+        args = arguments;
+        return inDebounce = setTimeout(function() {
+          return func.apply(context, arguments);
+        }, delay);
+      };
+    };
+
+
     var request = $.ajax({'url': '/makeup.json'});
     request.done(function (products){
 
@@ -53,7 +70,7 @@ $(document).ready(function() {
       .reduce((html, template) => html + template, '')
       };
 
-      $("#query").on("input", search);
+      $("#query").on("input", debounce(search, 500));
       $("#filter").on("change", search);
 
     })
