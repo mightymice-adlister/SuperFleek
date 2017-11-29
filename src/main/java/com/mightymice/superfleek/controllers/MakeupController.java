@@ -36,10 +36,10 @@ public class MakeupController {
         return "index";
     }
 
-    @GetMapping("/makeup.json")
-    public @ResponseBody Iterable<Makeup> viewAllMakeupInJSONFormat(){
-        return makeups.findAll();
-    }
+//    @GetMapping("/makeup.json")
+//    public @ResponseBody Iterable<Makeup> viewAllMakeupInJSONFormat(){
+//        return makeups.findAll();
+//    }
 
 
 

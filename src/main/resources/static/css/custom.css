@@ -368,6 +368,54 @@ section:nth-of-type(2) {
 
 
 /***********************/
+/*       Search        */
+/***********************/
+.searchbar {
+    border: 1px solid #ccc;
+}
+
+
+.searchbar select, .searchbar .select-wrapper {
+    width: 10vw;
+}
+
+.collection .collection-item.avatar {
+    padding-right: 42px;
+}
+
+.no-results {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -15vmax;
+    margin-top: -15vmax;
+    border: 5px dashed #ddd;
+    border-radius: 20px;
+    height: 30vmax;
+    width: 30vmax;
+}
+
+.no-results h6 {
+    font-size: 2vmax;
+}
+
+.no-results h4 {
+    font-size: 3vmax;
+}
+
+.no-results h6, .no-results h4 {
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+    top: 50%;
+    line-height: 3em;
+    margin-top: -2em;
+    color: #ddd;
+}
+
+
+
+/***********************/
 /*    Input Fields     */
 /***********************/
 /* label color */
