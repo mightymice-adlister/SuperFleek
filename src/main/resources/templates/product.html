@@ -42,7 +42,11 @@
                         </div>
                     </div> <!-- product info text -->
                 </div> <!-- main product info row -->
-            </div> <!-- product info banner -->
+            </div>
+            <form th:action="@{/product/{id}/add(id=${makeup.id})}" th:method="post">
+                <button>Add To Collection</button>
+            </form>
+            <!-- product info banner -->
             <div class="product-review-bar">
                 <div class="star-board">
                     <i class="material-icons tiny ratings">grade</i>

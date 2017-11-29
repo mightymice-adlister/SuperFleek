@@ -94,6 +94,9 @@ public class User {
         lastName = copy.lastName;
         bio = copy.bio;
         lookList = copy.lookList;
+        makeupLists = copy.makeupLists;
+        hasLoggedIn = copy.hasLoggedIn;
+        reviews = copy.reviews;
 
     }
 
@@ -182,5 +185,16 @@ public class User {
         String url = "";
         url = getProfilePic().getPictureFilePath();
         return url;
+    }
+    public MakeupList getCollectionFromMakeupList(){
+        MakeupList collection = new MakeupList();
+        for(MakeupList list: makeupLists){
+            if(list.getTitle().equals("Collection")){
+                collection=list;
+                System.out.println("found the list");
+            }
+            System.out.println("found a list, but it's not named collection");
+        }
+        return collection;
     }
 }
