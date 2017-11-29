@@ -94,6 +94,9 @@ public class User {
         lastName = copy.lastName;
         bio = copy.bio;
         lookList = copy.lookList;
+        makeupLists = copy.makeupLists;
+        hasLoggedIn = copy.hasLoggedIn;
+        reviews = copy.reviews;
 
     }
 
