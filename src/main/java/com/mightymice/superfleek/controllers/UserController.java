@@ -7,6 +7,7 @@ import com.mightymice.superfleek.repositories.Looks;
 import com.mightymice.superfleek.repositories.MakeupLists;
 import com.mightymice.superfleek.repositories.Users;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.method.P;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -146,6 +147,26 @@ public class UserController {
         newProfilePic.setProfilePic(true);
         looks.save(newProfilePic);
         return "redirect:/profile";
+    }
+
+    @GetMapping("/look/{id}")
+    public String showLook(@PathVariable Long id, Model viewModel){
+        Look look = looks.findOne(id);
+        viewModel.addAttribute("look", look);
+        return "look";
+    }
+
+    @PostMapping("/look/{id}/update")
+    public String updateLook(@PathVariable Long id, @ModelAttribute Look look){
+        Look lookToUpdate = looks.findOne(id);
+        if(!look.getDescription().isEmpty()){
+            lookToUpdate.setDescription(look.getDescription());
+        }
+        if(!look.getTitle().isEmpty()){
+            lookToUpdate.setTitle(look.getTitle());
+        }
+        looks.save(lookToUpdate);
+        return "redirect:/look/"+id;
     }
 
 
