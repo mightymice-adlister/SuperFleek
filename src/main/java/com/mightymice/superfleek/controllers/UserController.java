@@ -50,11 +50,17 @@ public class UserController {
 
         }
 
+        if(users.findByUsername(user.getUsername()) != null){
+            validation.rejectValue("username","user.username","That username already exists.");
+        }
+
+
         if(validation.hasErrors()){
             viewModel.addAttribute("errors", validation);
             viewModel.addAttribute("user", user);
             return"/sign-up";
         }
+
 //        user.setConfirmPassword("");
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setHasLoggedIn(false);
