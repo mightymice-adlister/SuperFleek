@@ -78,4 +78,12 @@ public class MakeupList {
     public void setMakeups(List<Makeup> makeups) {
         this.makeups = makeups;
     }
+    public boolean hasMakeup(Makeup makeup){
+        for(Makeup makeupInMakeupList: makeups){
+            if(makeup == makeupInMakeupList) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

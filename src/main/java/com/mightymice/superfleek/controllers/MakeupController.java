@@ -78,8 +78,10 @@ public class MakeupController {
     public String addProductToCollection(@PathVariable long id){
         User user = new User((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         MakeupList collection = makeupLists.findByTitleAndUser("Collection", user);
-        collection.getMakeups().add(makeups.findOne(id));
-        makeupLists.save(collection);
+        if(!collection.hasMakeup(makeups.findOne(id))){
+            collection.getMakeups().add(makeups.findOne(id));
+            makeupLists.save(collection);
+        }
         return "redirect:/product/"+id;
     }
 
