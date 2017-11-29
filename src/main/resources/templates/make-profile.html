@@ -7,148 +7,140 @@
 </head>
 <body>
 
-<div class="add-profile-pic">
-<i class="large material-icons">add</i>
+
+<div class="loading-wrapper">
+    <div class="preloader-wrapper active">
+        <div class="spinner-layer spinner-red-only">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+    </div>
 </div>
-<form th:method="post" th:name="make-profile" th:action="@{/make-profile}" th:object="${user}">
-    <input th:field="*{bio}" th:type="text"/>
-    <input th:field="*{lookList[0].pictureFilePath}" th:type="hidden" id="profile-input" value="" />
-    <button>Submit</button>
-</form>
-<!--<div class="loading-wrapper">-->
-    <!--<div class="preloader-wrapper active">-->
-        <!--<div class="spinner-layer spinner-red-only">-->
-            <!--<div class="circle-clipper left">-->
-                <!--<div class="circle"></div>-->
-            <!--</div>-->
-            <!--<div class="gap-patch">-->
-                <!--<div class="circle"></div>-->
-            <!--</div>-->
-            <!--<div class="circle-clipper right">-->
-                <!--<div class="circle"></div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
-<!--<div class="page-wrapper hidden">-->
-    <!--<div class="navbar-fixed">-->
-        <!--<nav class="grey darken-4 center-align">-->
-            <!--<div class="nav-wrapper">-->
-                <!--<div class="col s12" id="walkthrough">-->
-                    <!--<a data-menuanchor="one" href="#one" class="mp-walkthrough-text breadcrumb">Add a photo</a>-->
-                    <!--<a data-menuanchor="two" href="#two" class="mp-walkthrough-text breadcrumb">Start a collection</a>-->
-                    <!--<a data-menuanchor="three" href="#three" class="mp-walkthrough-text breadcrumb">Add your bio</a>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</nav>-->
-    <!--</div>-->
+<div class="page-wrapper hidden">
+    <div class="navbar-fixed">
+        <nav class="grey darken-4 center-align">
+            <div class="nav-wrapper">
+                <div class="col s12" id="walkthrough">
+                    <a data-menuanchor="one" href="#one" class="mp-walkthrough-text breadcrumb">Add a photo</a>
+                    <a data-menuanchor="two" href="#two" class="mp-walkthrough-text breadcrumb">Start a collection</a>
+                    <a data-menuanchor="three" href="#three" class="mp-walkthrough-text breadcrumb">Add your bio</a>
+                </div>
+            </div>
+        </nav>
+    </div>
 
-    <!--<div id="fullpage">-->
-    <!--<form th:method="post" th:name="make-profile" th:action="@{/make-profile}" th:object="${user}">-->
-        <!--<div class="section">-->
-            <!--<h2 class="main-title">Upload a profile picture</h2>-->
-                <!--<div class="row">-->
-                    <!--<div class="col s12">-->
-                        <!--<h6 class="sub-title">Lorem ipsum...</h6>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="add-profile-pic">-->
-                    <!--<i class="large material-icons">add</i>-->
-                <!--</div>-->
-
-
-            <!--&lt;!&ndash; profile input &ndash;&gt;-->
-            <!--<input name="profile-input" th:type="hidden" id="profile-input" value="" th:field="*{lookList[0].pictureFilePath}" />-->
+    <div id="fullpage">
+        <div class="section">
+            <h2 class="main-title">Upload a profile picture</h2>
+                <div class="row">
+                    <div class="col s12">
+                        <h6 class="sub-title">Lorem ipsum...</h6>
+                    </div>
+                </div>
+                <div class="add-profile-pic">
+                    <img class="hidden" id="profile-pic-box" src="" />
+                    <i class="large material-icons">add</i>
+                </div>
 
 
 
-        <!--</div>-->
-        <!--<div class="section">-->
-            <!--<h2 class="main-title">Start your collection</h2>-->
-            <!--<h6 class="sub-title">Here is where you enter the products you already own</h6>-->
-            <!--&lt;!&ndash; maintains searchbar size &ndash;&gt;-->
-                <!--<div class="row">-->
-                    <!--<div class="col s12 offset-m3 m6">-->
-                        <!--<nav>-->
-                            <!--<div class="nav-wrapper light-blue darken-1">-->
-                                <!--<div>-->
-                                    <!--<div class="input-field">-->
-
-                                        <!--&lt;!&ndash; collection input &ndash;&gt;-->
-                                        <!--<input id="search" type="search" required="required" />-->
 
 
-                                        <!--<label class="label-icon"-->
-                                               <!--for="search"><i class="material-icons">search</i></label>-->
-                                        <!--<i class="material-icons">close</i>-->
-                                    <!--</div>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                        <!--</nav>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--&lt;!&ndash; end search bar &ndash;&gt;-->
-                <!--<div class="row">-->
-                    <!--<div class="col s12 offset-m3 m6">-->
-                            <!--<div class="collection-bar">-->
-                                <!--<div id="collection" class="collection-grid">-->
-                                    <!--<div class="grey lighten-4 grid-item"></div>-->
-                                    <!--<div class="grey lighten-4 grid-item"></div>-->
-                                    <!--<div class="grey lighten-4 grid-item"></div>-->
-                                    <!--<div class="grey lighten-4 grid-item"></div>-->
-                                    <!--<div class="grey lighten-4 grid-item"></div>-->
-                                    <!--<div class="grey lighten-4 grid-item"></div>-->
-                                    <!--<div class="grey lighten-4 grid-item"></div>-->
-                                    <!--<div class="grey lighten-4 grid-item"></div>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-        <!--</div>&lt;!&ndash; end section &ndash;&gt;-->
-        <!--<div class="section">-->
-            <!--<div class="content">-->
-                    <!--<div class="row">-->
-                        <!--<h2 class="main-title">Write your bio</h2>-->
-                    <!--</div>-->
-                    <!--<div class="row">-->
-                        <!--<div class="row">-->
-                            <!--<div class="col s12">-->
-                                <!--<div class="row">-->
-                                    <!--<div class="input-field col s12">-->
+        </div>
+        <div class="section">
+            <h2 class="main-title">Start your collection</h2>
+            <h6 class="sub-title">Here is where you enter the products you already own</h6>
+            <!-- maintains searchbar size -->
+                <div class="row">
+                    <div class="col s12 offset-m3 m6">
+                        <nav>
+                            <div class="nav-wrapper light-blue darken-1">
+                                <div>
+                                    <div class="input-field">
+
+                                        <!-- collection input -->
+                                        <input id="search" type="search" required="required" />
 
 
-                                        <!--&lt;!&ndash; bio input &ndash;&gt;-->
-                                        <!--<input name="bio-input" th:name="bio" th:type="textarea" id="textarea1" class="materialize-textarea" th:field="*{bio}" />-->
+                                        <label class="label-icon"
+                                               for="search"><i class="material-icons">search</i></label>
+                                        <i class="material-icons">close</i>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            <!-- end search bar -->
+                <div class="row">
+                    <div class="col s12 offset-m3 m6">
+                            <div class="collection-bar">
+                                <div id="collection" class="collection-grid">
+                                    <div class="grey lighten-4 grid-item"></div>
+                                    <div class="grey lighten-4 grid-item"></div>
+                                    <div class="grey lighten-4 grid-item"></div>
+                                    <div class="grey lighten-4 grid-item"></div>
+                                    <div class="grey lighten-4 grid-item"></div>
+                                    <div class="grey lighten-4 grid-item"></div>
+                                    <div class="grey lighten-4 grid-item"></div>
+                                    <div class="grey lighten-4 grid-item"></div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+        </div><!-- end section -->
+        <div class="section">
+            <div class="content">
+                    <div class="row">
+                        <h2 class="main-title">Write your bio</h2>
+                    </div>
+                    <div class="row">
+                        <div class="row">
+                            <div class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                        <label for="textarea1">Bio</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div><!-- end content -->
+        </div><!-- end section -->
+        <div class="section">
+            <div class="content">
+                <div class="mp-section-content">
+                    <h2 class="main-title">Finish!</h2>
+                    <form th:method="post" th:name="make-profile" th:action="@{/make-profile}" th:object="${user}">
 
+                        <input id="bio-input" th:field="*{bio}" th:type="hidden" value=""/>
 
-                                        <!--<label for="textarea1">Bio...</label>-->
-                                    <!--</div>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
-            <!--</div>&lt;!&ndash; end content &ndash;&gt;-->
-        <!--</div>&lt;!&ndash; end section &ndash;&gt;-->
-        <!--<div class="section">-->
-            <!--<div class="content">-->
-                <!--<div class="mp-section-content">-->
-                    <!--<h2 class="main-title">Welcome!</h2>-->
+                        <input th:field="*{lookList[0].pictureFilePath}" th:type="hidden" id="profile-input" value="" />
 
-                    <!--<input value="submit" type="submit" name="make-profile-btn" class="btn waves-effect waves-light grey darken-4" />-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-    <!--</form> &lt;!&ndash; end of form &ndash;&gt;-->
-<!--</div> &lt;!&ndash; end full page &ndash;&gt;-->
-    <!--<i class="mp-down-arrow large material-icons animated pulse infinite">keyboard_arrow_down</i>-->
-<!--</div> &lt;!&ndash; end page wrapper &ndash;&gt;-->
+                        <button class="btn waves-effect waves-light grey darken-4">Go</button>
+                    </form>
+
+</div>
+</div>
+</div>
+</div> <!-- end full page -->
+    <i class="mp-down-arrow large material-icons animated pulse infinite">keyboard_arrow_down</i>
+</div> <!-- end page wrapper -->
 
 
 
 
 
 <div th:replace="fragments/footer :: scripts"></div>
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.6.6/jquery.fullPage.min.js"></script>-->
-<!--<script src="/js/fullpage.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.6.6/jquery.fullPage.min.js"></script>
+<script src="/js/fullpage.js"></script>
 </body>
 </html>

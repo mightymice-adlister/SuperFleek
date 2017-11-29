@@ -17,12 +17,28 @@ $(document).ready(function() {
         console.log(response);
       }
       handleFilestack(response);
+
+      // Sends the image url to the profile input
       $("#profile-input").val(response.filesUploaded[0].url);
-      console.log(response.filesUploaded[0].url);
+
+      // Changes the file picker box to the uploaded image
+      $(".add-profile-pic").css({"padding": 0});
+      $("#profile-pic-box")
+        .removeClass("hidden")
+        .attr("src", response.filesUploaded[0].url);
+
     });
   }
 
   $(".add-profile-pic").on("click", openPicker);
+
+  // Add bio text to bio input
+  var bio = $("#textarea1");
+  bio.on("blur", function(){
+    $("#bio-input").val(bio.val());
+  });
+
+
 
 
   // User can search for products
