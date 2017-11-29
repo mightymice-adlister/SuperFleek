@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:replace="fragments/header :: header('Product')">
     <meta charset="UTF-8" />
     <title></title>
@@ -43,7 +43,7 @@
                     </div> <!-- product info text -->
                 </div> <!-- main product info row -->
             </div>
-            <form th:action="@{/product/{id}/add(id=${makeup.id})}" th:method="post">
+            <form sec:authorize="isAuthenticated()" th:action="@{/product/{id}/add(id=${makeup.id})}" th:method="post">
                 <button>Add To Collection</button>
             </form>
             <!-- product info banner -->
@@ -57,7 +57,7 @@
                 <h6 class="review-number">57 reviews</h6>
                 <h6 class="review-score">Overwhelmingly positive</h6>
             </div>
-        <div><!-- form div -->
+        <div sec:authorize="isAuthenticated()"><!-- form div -->
             <form class="form" th:action="@{/product/{id}(id=${makeup.id})}" th:method="post" th:object="${review}">
                 <input th:field="*{rating}" th:type="radio" name="rating" value="1" id="positive" /><label for="positive">poppin!</label>
                 <input th:field="*{rating}" th:type="radio" name="rating" value="-1" id="negative" /><label for="negative">nah</label>
