@@ -167,9 +167,59 @@ section:nth-of-type(2) {
     color: hotpink;
 }
 
+.section1-slider {
+    position: absolute;
+    z-index: -99;
+    top: -80vh;
+    left: 0;
+    -webkit-animation: slidedown 5s;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-delay: 2s;
+    -webkit-animation-delay: 2s;
+}
+
+@keyframes slidedown {
+    0% {top: -80vh;}
+    100% {top: -40vh;}
+}
+
+
+.section2-slider {
+    position: absolute;
+    width: 65vw;
+    right: -9vw;
+    bottom: -50vw;
+    -webkit-transition: all 2.1s ease-out;
+    transition: all 2.1s ease-out;
+}
+
+.fp-viewing-three .section2-slider{
+    bottom: 10vh;
+}
+
+.fp-viewing-four .section2-slider{
+    bottom: 0;
+}
+
+.section3-slider {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    opacity: 0;
+    -webkit-transition: all 3.1s ease-out;
+    transition: opacity 3.1s ease-in-out;
+}
+
+.fp-viewing-four .section3-slider {
+    opacity: 1;
+}
+
 
 .add-profile-pic {
     border: 3px solid black;
+    background-color: rgba(255, 255, 255, 0.5);
     display: inline-block;
     height: 150px;
     width: 150px;
@@ -180,6 +230,7 @@ section:nth-of-type(2) {
 
 .add-profile-pic:hover {
     background-color: darkgrey;
+    transition: background-color 0.2s ease-in-out;
     cursor: pointer;
 }
 
@@ -514,6 +565,13 @@ section:nth-of-type(2) {
 
 .hidden {
     display: none;
+}
+
+.white-border {
+    text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+}
+.white-border-box {
+    box-shadow: 1px 1px 5px 3px rgba(255, 255, 255, 1);
 }
 
 .collection-grid {
