@@ -182,6 +182,11 @@ section:nth-of-type(2) {
     cursor: pointer;
 }
 
+.add-profile-pic img {
+    height: 100%;
+    width: 100%;
+}
+
 .mp-user-choice img {
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
