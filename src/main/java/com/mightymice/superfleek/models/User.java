@@ -2,6 +2,7 @@ package com.mightymice.superfleek.models;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
@@ -15,6 +16,7 @@ public class User {
     private Long id;
     @NotBlank(message ="You must enter an email address")
     @Column(nullable = false, unique = true)
+    @Email
     private String email;
     @NotBlank(message ="You must enter a username")
     @Column(nullable = false, unique = true)
