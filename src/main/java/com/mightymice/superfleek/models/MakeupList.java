@@ -34,6 +34,10 @@ public class MakeupList {
     public MakeupList(String title){
         this.title=title;
     }
+    public MakeupList(String title, User user){
+        this.title= title;
+        this.user=user;
+    }
 
     public Long getId() {
         return id;

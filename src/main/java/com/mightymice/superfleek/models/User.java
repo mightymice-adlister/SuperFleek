@@ -183,4 +183,15 @@ public class User {
         url = getProfilePic().getPictureFilePath();
         return url;
     }
+    public MakeupList getCollectionFromMakeupList(){
+        MakeupList collection = new MakeupList();
+        for(MakeupList list: makeupLists){
+            if(list.getTitle().equals("Collection")){
+                collection=list;
+                System.out.println("found the list");
+            }
+            System.out.println("found a list, but it's not named collection");
+        }
+        return collection;
+    }
 }
