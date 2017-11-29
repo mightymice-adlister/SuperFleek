@@ -40,6 +40,18 @@ public class User {
     @JsonIgnore
     private String confirmPassword;
 
+//    public String getProfilePicUrl() {
+//        return profilePicUrl;
+//    }
+//
+//    public void setProfilePicUrl(String profilePicUrl) {
+//        this.profilePicUrl = profilePicUrl;
+//    }
+//
+//    @Transient
+//    @JsonIgnore
+//    private String profilePicUrl = getProfilePic().getPictureFilePath();
+
     private boolean hasLoggedIn;
 
     public boolean isHasLoggedIn() {
@@ -82,6 +94,9 @@ public class User {
         lastName = copy.lastName;
         bio = copy.bio;
         lookList = copy.lookList;
+        makeupLists = copy.makeupLists;
+        hasLoggedIn = copy.hasLoggedIn;
+        reviews = copy.reviews;
 
     }
 
@@ -156,5 +171,30 @@ public class User {
 
     public void setBio(String bio) {
         this.bio = bio;
+    }
+    public Look getProfilePic(){
+        Look profilePic = new Look();
+        for(Look look: lookList){
+            if(look.isProfilePic()){
+                profilePic = look;
+            }
+        }
+            return profilePic;
+    }
+    public String getProfilePicUrl(){
+        String url = "";
+        url = getProfilePic().getPictureFilePath();
+        return url;
+    }
+    public MakeupList getCollectionFromMakeupList(){
+        MakeupList collection = new MakeupList();
+        for(MakeupList list: makeupLists){
+            if(list.getTitle().equals("Collection")){
+                collection=list;
+                System.out.println("found the list");
+            }
+            System.out.println("found a list, but it's not named collection");
+        }
+        return collection;
     }
 }
