@@ -7,6 +7,7 @@ import com.mightymice.superfleek.repositories.Looks;
 import com.mightymice.superfleek.repositories.MakeupLists;
 import com.mightymice.superfleek.repositories.Users;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.method.P;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -70,7 +71,9 @@ public class UserController {
     @GetMapping("/profile/{username}")
     public String profileView(@PathVariable String username, Model viewModel){
         User user = users.findByUsername(username);
+        Look newLook = new Look();
         MakeupList collection = user.getCollectionFromMakeupList();
+        viewModel.addAttribute("look",newLook);
         viewModel.addAttribute("collection", collection);
         viewModel.addAttribute("profilePic", user.getProfilePic());
         viewModel.addAttribute("user", user);
@@ -127,6 +130,49 @@ public class UserController {
         users.save(signedInUser);
         return "redirect:/profile";
 
+    }
+
+    @PostMapping("/look/add/{id}")
+    public String uploadLook(@PathVariable Long id, @ModelAttribute Look look){
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        look.setUser(user);
+        look.setProfilePic(false);
+        looks.save(look);
+        return "redirect:/profile";
+    }
+
+    @PostMapping("/look/{id}/makeprofilepic")
+    public String makeProfilePic(@PathVariable Long id){
+        List<Look> looksList =looks.findAllByUser(looks.findOne(id).getUser());
+        Look newProfilePic = looks.findOne(id);
+        for(Look look:looksList){
+         if(look.getId() != newProfilePic.getId()){
+             look.setProfilePic(false);
+         }
+        }
+        newProfilePic.setProfilePic(true);
+        looks.save(newProfilePic);
+        return "redirect:/profile";
+    }
+
+    @GetMapping("/look/{id}")
+    public String showLook(@PathVariable Long id, Model viewModel){
+        Look look = looks.findOne(id);
+        viewModel.addAttribute("look", look);
+        return "look";
+    }
+
+    @PostMapping("/look/{id}/update")
+    public String updateLook(@PathVariable Long id, @ModelAttribute Look look){
+        Look lookToUpdate = looks.findOne(id);
+        if(!look.getDescription().isEmpty()){
+            lookToUpdate.setDescription(look.getDescription());
+        }
+        if(!look.getTitle().isEmpty()){
+            lookToUpdate.setTitle(look.getTitle());
+        }
+        looks.save(lookToUpdate);
+        return "redirect:/look/"+id;
     }
 
 

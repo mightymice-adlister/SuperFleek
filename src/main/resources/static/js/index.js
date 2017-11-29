@@ -29,15 +29,72 @@ $(document).ready(function() {
 
     });
   }
-
+    function openLookPicker(event) {
+    event.preventDefault();
+    $(".add-look-pic").attr("Hidden", "hidden");
+    $()
+        fsClient.pick({
+            fromSources:["local_file_system","imagesearch","facebook","instagram","webcam"],
+            accept:["image/*"],
+            maxFiles:1,
+            transformations:{
+                crop:{      force:true}}
+        }).then(function(response) {
+            // declare this function to handle response
+            function handleFilestack(response) {
+                console.log(response);
+            }
+            handleFilestack(response);
+            $("#look-input").val(response.filesUploaded[0].url);
+            console.log(response.filesUploaded[0].url);
+            $(".submit-look-pic").removeAttr("Hidden")
+        });
+    }
+//click event for opening the profile setup picture picker
   $(".add-profile-pic").on("click", openPicker);
+  //click event for opening the general look picture picker
+  $(".add-look-pic").on("click", openLookPicker);
+  //function for showing the edit title field in the look view
+    function showEditTitle(event){
+        event.preventDefault();
+        $(".edit-title").removeAttr("hidden");
+        $(".show-edit-title").attr("hidden", "hidden");
+        $(".made-edits").removeAttr("hidden");
+        $(".cancel-edit-title").removeAttr("hidden")
+    }
+  //function for showing the edit description field in look view
+    function showEditDescription(event){
+        event.preventDefault();
+        $(".edit-description").removeAttr("hidden");
+        $(".show-edit-description").attr("hidden", "hidden");
+        $(".made-edits").removeAttr("hidden");
+        $(".cancel-edit-description").removeAttr("hidden");
+    }
+  //click event for showing the edit title field
+    $(".show-edit-title").on("click",showEditTitle);
+  //click event for showing the edit description field
+    $(".show-edit-description").on("click",showEditDescription);
 
+    $(".cancel-edit-title").on("click",function(event){
+      event.preventDefault();
+        $(".edit-title").attr("hidden", "hidden");
+        $(".show-edit-title").removeAttr("hidden");
+        $(".made-edits").attr("hidden", "hidden");
+        $(".cancel-edit-title").attr("hidden","hidden")
+    });
+
+    $(".cancel-edit-description").on("click",function(event){
+        event.preventDefault();
+        $(".edit-description").attr("hidden", "hidden");
+        $(".show-edit-description").removeAttr("hidden");
+        $(".made-edits").attr("hidden", "hidden");
+        $(".cancel-edit-description").attr("hidden","hidden")
+    });
   // Add bio text to bio input
   var bio = $("#textarea1");
   bio.on("blur", function(){
     $("#bio-input").val(bio.val());
   });
-
 
 
 
@@ -122,7 +179,6 @@ $(document).ready(function() {
   }
 
   results.innerHTML = displayEmpty();
-
 
 
 
