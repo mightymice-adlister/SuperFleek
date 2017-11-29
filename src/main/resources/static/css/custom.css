@@ -167,6 +167,36 @@ section:nth-of-type(2) {
     color: hotpink;
 }
 
+.section1-scroll {
+    position: absolute;
+    z-index: -99;
+    top: -80vh;
+    left: 0px;
+    /*animation: all 1.1s ease-out;*/
+    -webkit-animation: slidedown 5s;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-delay: 2s;
+    -webkit-animation-delay: 2s;
+}
+
+@keyframes slidedown {
+    0% {top: -80vh;}
+    100% {top: 0;}
+}
+
+.fp-viewing-one {
+    bottom: 0;
+}
+
+.section2-scroll {
+
+}
+
+.section3-scroll {
+
+}
+
 
 .add-profile-pic {
     border: 3px solid black;
