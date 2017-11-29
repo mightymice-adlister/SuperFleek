@@ -20,9 +20,13 @@ $(document).ready(function() {
 
       // Sends the image url to the profile input
       $("#profile-input").val(response.filesUploaded[0].url);
-      
+
       // Changes the file picker box to the uploaded image
-      $("#profile-pic-box").attr("src", response.filesUploaded[0].url);
+      $(".add-profile-pic").css({"padding": 0});
+      $("#profile-pic-box")
+        .removeClass("hidden")
+        .attr("src", response.filesUploaded[0].url);
+
     });
   }
 
