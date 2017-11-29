@@ -64,7 +64,7 @@ public class UserController {
     @GetMapping("/profile/{username}")
     public String profileView(@PathVariable String username, Model viewModel){
         User user = users.findByUsername(username);
-        MakeupList collection = new MakeupList("Collection");
+        MakeupList collection = user.getCollectionFromMakeupList();
         viewModel.addAttribute("collection", collection);
         viewModel.addAttribute("profilePic", user.getProfilePic());
         viewModel.addAttribute("user", user);
