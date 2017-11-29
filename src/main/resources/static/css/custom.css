@@ -491,6 +491,21 @@ section:nth-of-type(2) {
 
 }
 
+.logout-btn {
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+    webkit-transition: background-color .3s;
+    transition: background-color .3s;
+    display: block;
+    padding: 0 15px;
+}
+
+.logout-btn:hover {
+    background-color: inherit;
+}
+
 .hidden {
     display: none;
 }
