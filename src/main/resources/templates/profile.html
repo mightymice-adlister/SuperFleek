@@ -34,6 +34,13 @@
                     </div>
                 </div>
                 <div class="row">
+                    <button type="button" class="add-look-pic">Add A Look</button>
+                    <form th:action="@{/look/add/{id}(id = ${user.id})}" th:method="post" th:object="${look}">
+                        <input th:field="${look.pictureFilePath}" value="" th:type="hidden" id="look-input"/>
+                        <input th:type="submit" class="submit-look-pic" hidden="hidden" />
+                    </form>
+                </div>
+                <div class="row">
                     <div class="card-tabs">
                         <ul class="tabs white tabs-fixed-width">
                             <li class="tab black-text"><a href="#collection">Collection</a></li>

@@ -21,8 +21,30 @@ $(document).ready(function() {
       console.log(response.filesUploaded[0].url);
     });
   }
+    function openLookPicker(event) {
+    event.preventDefault();
+    $(".add-look-pic").attr("Hidden", "hidden");
+    $()
+        fsClient.pick({
+            fromSources:["local_file_system","imagesearch","facebook","instagram","webcam"],
+            accept:["image/*"],
+            maxFiles:1,
+            transformations:{
+                crop:{      force:true}}
+        }).then(function(response) {
+            // declare this function to handle response
+            function handleFilestack(response) {
+                console.log(response);
+            }
+            handleFilestack(response);
+            $("#look-input").val(response.filesUploaded[0].url);
+            console.log(response.filesUploaded[0].url);
+            $(".submit-look-pic").removeAttr("Hidden")
+        });
+    }
 
   $(".add-profile-pic").on("click", openPicker);
+  $(".add-look-pic").on("click", openLookPicker);
 
 
   // User can search for products
