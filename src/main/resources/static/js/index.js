@@ -26,7 +26,7 @@ $(document).ready(function() {
 
 
   // User can search for products
-
+  var results = document.getElementById("results");
   (function($) {
 
     // debounce is used to delay search queries
@@ -45,14 +45,16 @@ $(document).ready(function() {
     };
 
 
-    var request = $.ajax({'url': '/makeup.json'});
+    var request = $.ajax({'url': '/js/makeup.json'});
     request.done(function (products){
 
       const search = () => {
         var key = $("#filter").val();
         var value = $.trim($("#query").val());
-        var results = document.getElementById("results");
-        // console.log(products);
+
+        displayEmpty();
+
+
         results.innerHTML = ! value ? '' : products
           .filter(product => {
             if(key == "brand" || key == "type") {
@@ -78,14 +80,34 @@ $(document).ready(function() {
               </li></a>
            </ul>
         `)
-      .reduce((html, template) => html + template, '')
+      .reduce((html, template) => html + template, '');
       };
+
 
       $("#query").on("input", debounce(search, 300));
       $("#filter").on("change", search);
 
     })
   })(jQuery);
+
+  // Displays a no search results message when results div is empty
+  function displayEmpty() {
+    if(results.childNodes.length === 1) {
+      console.log(results.childNodes.length);
+      var noResults = `
+            <div class="no-results">
+            <h4>No results</h4>
+            <h6>Try searching for a product</h6>
+            </div>`;
+
+    }
+    return noResults;
+
+  }
+
+  results.innerHTML = displayEmpty();
+
+
 
 
 
