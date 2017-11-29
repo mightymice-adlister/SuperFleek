@@ -99,6 +99,23 @@
                         </div>
                         <div id="looks">
                             <!-- look cards here -->
+                            <div th:each="look : ${user.lookList}" class="col s12 m6 l4">
+                                <div class="card small">
+                                    <div class="card-image waves-effect waves-block waves-light">
+                                        <img class="activator" th:src="${look.pictureFilePath}" />
+                                    </div>
+                                    <div class="card-content">
+                                        <span class="card-title activator grey-text text-darken-4" th:text="${look.title}">Card Title<i class="material-icons right">more_vert</i></span>
+                                        <p><a href="#">This is a link</a></p>
+                                    </div>
+                                    <div class="card-reveal">
+                                        <span class="card-title grey-text text-darken-4" th:text="${look.title}">Card Title<i class="material-icons right">close</i></span>
+                                        <form th:action="@{/look/{id}/makeprofilepic(id=${look.id})}" th:method="post">
+                                            <input type="submit" value="Make Profile Pic"/>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div id="wishlist">
                             <!-- wishlist cards here -->

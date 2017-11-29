@@ -134,5 +134,19 @@ public class UserController {
         return "redirect:/profile";
     }
 
+    @PostMapping("/look/{id}/makeprofilepic")
+    public String makeProfilePic(@PathVariable Long id){
+        List<Look> looksList =looks.findAllByUser(looks.findOne(id).getUser());
+        Look newProfilePic = looks.findOne(id);
+        for(Look look:looksList){
+         if(look.getId() != newProfilePic.getId()){
+             look.setProfilePic(false);
+         }
+        }
+        newProfilePic.setProfilePic(true);
+        looks.save(newProfilePic);
+        return "redirect:/profile";
+    }
+
 
 }
