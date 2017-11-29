@@ -1,8 +1,10 @@
 package com.mightymice.superfleek.controllers;
 
 import com.mightymice.superfleek.models.Look;
+import com.mightymice.superfleek.models.MakeupList;
 import com.mightymice.superfleek.models.User;
 import com.mightymice.superfleek.repositories.Looks;
+import com.mightymice.superfleek.repositories.MakeupLists;
 import com.mightymice.superfleek.repositories.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -21,11 +23,13 @@ public class UserController {
     private Users users;
     private PasswordEncoder passwordEncoder;
     private Looks looks;
+    private MakeupLists makeupLists;
     @Autowired
-    public UserController(Users users, PasswordEncoder passwordEncoder, Looks looks){
+    public UserController(Users users, PasswordEncoder passwordEncoder, Looks looks, MakeupLists makeupLists){
         this.users = users;
         this.passwordEncoder = passwordEncoder;
         this.looks = looks;
+        this.makeupLists=makeupLists;
     }
 
     @GetMapping("/sign-up")
@@ -59,8 +63,11 @@ public class UserController {
 
     @GetMapping("/profile/{username}")
     public String profileView(@PathVariable String username, Model viewModel){
-        viewModel.addAttribute("profilePic", getProfilePic(users.findByUsername(username)));
-        viewModel.addAttribute("user", users.findByUsername(username));
+        User user = users.findByUsername(username);
+        MakeupList collection = new MakeupList("Collection");
+        viewModel.addAttribute("collection", collection);
+        viewModel.addAttribute("profilePic", user.getProfilePic());
+        viewModel.addAttribute("user", user);
         return "profile";
     }
     @GetMapping("/profile")
@@ -105,18 +112,16 @@ public class UserController {
         signedInUser.setHasLoggedIn(true);
         ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).setHasLoggedIn(true);
         signedInUser.setConfirmPassword(signedInUser.getPassword());
+        List<MakeupList> initialMULists = signedInUser.getMakeupLists();
+        MakeupList collection = new MakeupList("Collection", signedInUser);
+        initialMULists.add(collection);
+        makeupLists.save(collection);
+        signedInUser.setMakeupLists(initialMULists);
 
         users.save(signedInUser);
         return "redirect:/profile";
 
     }
 
-    public Look getProfilePic(User user){
-        for(Look look:looks.findAllByUser(user)){
-            if (look.isProfilePic()){
-                return look;
-            }
-        }
-        return null;
-    }
+
 }
