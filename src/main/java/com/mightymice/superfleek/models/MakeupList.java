@@ -31,6 +31,13 @@ public class MakeupList {
 
     public MakeupList() {
     }
+    public MakeupList(String title){
+        this.title=title;
+    }
+    public MakeupList(String title, User user){
+        this.title= title;
+        this.user=user;
+    }
 
     public Long getId() {
         return id;
@@ -70,5 +77,13 @@ public class MakeupList {
 
     public void setMakeups(List<Makeup> makeups) {
         this.makeups = makeups;
+    }
+    public boolean hasMakeup(Makeup makeup){
+        for(Makeup makeupInMakeupList: makeups){
+            if(makeup == makeupInMakeupList) {
+                return true;
+            }
+        }
+        return false;
     }
 }
