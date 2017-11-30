@@ -7,42 +7,22 @@
 <body id="search">
 
 <header>
-    <!--<nav class="show-on-small" th:replace="fragments/navbar :: navbar"></nav>-->
-    <div class="navbar-fixed">
-        <nav class="nav-extended">
-            <div class="nav-wrapper">
-                <a href="#!" class="brand-logo">Logo</a>
-                <a href="#" data-activates="mobile-demo"
-                   class="button-collapse right"><i class="material-icons">menu</i></a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="sass.html">Sass</a></li>
-                    <li><a href="badges.html">Components</a></li>
-                    <li><a href="collapsible.html">Javascript</a></li>
-                    <li><a href="mobile.html">Mobile</a></li>
-                </ul>
-                <ul class="side-nav" id="mobile-demo">
-                    <li><a href="sass.html">Sass</a></li>
-                    <li><a href="badges.html">Components</a></li>
-                    <li><a href="collapsible.html">Javascript</a></li>
-                    <li><a href="mobile.html">Mobile</a></li>
-                </ul>
-            </div>
-        </nav>
-    </div>
+    <nav class="show-on-small" th:replace="fragments/navbar :: navbar"></nav>
 
-    <div class="navbar-fixed">
-        <nav class="hide-on-med-and-up">
-            <div class="nav-wrapper">
-                <form th:action="@{/search}" th:method="get">
-                    <div class="input-field">
-                        <input id="query" type="search" th:value="${query}" required="required" />
-                        <label class="label-icon" for="query"><i class="material-icons">search</i></label>
-                        <i class="material-icons">close</i>
-                    </div>
-                </form>
-            </div>
-        </nav>
-    </div>
+    <!--<div class="navbar-fixed">-->
+        <!--<nav class="hidden show-on-medium-and-down">-->
+            <!--<div class="nav-wrapper red lighten-5 red-text">-->
+                <!--<form th:action="@{/search}" th:method="get">-->
+                    <!--<div class="input-field">-->
+                        <!--<input id="query2" type="search" th:name="query" th:value="${query}"-->
+                        <!--required="required" />-->
+                        <!--<label class="label-icon" for="query2"><i class="material-icons red-text">search</i></label>-->
+                        <!--<i class="material-icons">close</i>-->
+                    <!--</div>-->
+                <!--</form>-->
+            <!--</div>-->
+        <!--</nav>-->
+    <!--</div>-->
 </header>
 
 <main>
