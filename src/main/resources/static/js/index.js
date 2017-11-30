@@ -98,9 +98,11 @@ $(document).ready(function() {
         `)
       .reduce((html, template) => html + template, '');
       };
-
-
+      // Runs the search function on page load for the use case of searching from a different view
+      $("window").on("load", search());
+      // Debounce is needed to limit the number of searches as the user types
       $("#query").on("input", debounce(search, 300));
+      // Filter functionality is present but not implemented
       $("#filter").on("change", search);
 
     })
@@ -121,7 +123,7 @@ $(document).ready(function() {
 
   }
 
-  results.innerHTML = displayEmpty();
+
 
 
 
