@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:replace="fragments/header :: header('Profile')">
     <meta charset="UTF-8" />
     <title></title>
@@ -33,12 +33,15 @@
                         <p th:text="${user.bio}">Bio</p>
                     </div>
                 </div>
-                <div class="row">
+                <div sec:authorize="isAuthenticated()" class="row">
+                    <div th:if="${user.id}==${#authentication.principal.id}">
                     <button type="button" class="add-look-pic">Add A Look</button>
                     <form th:action="@{/look/add/}" th:method="post" th:object="${look}">
                         <input th:field="*{pictureFilePath}" value="" th:type="hidden" id="look-input"/>
                         <input th:type="submit" class="submit-look-pic" hidden="hidden" />
+
                     </form>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="card-tabs">
@@ -92,7 +95,7 @@
                                 </div>
                                 <div class="card-reveal">
                                     <span class="card-title grey-text text-darken-4" th:text="${makeup.brand.name}">Card Title<i class="material-icons right">close</i></span>
-                                    <a th:text="${makeup.name}" th:href="@{/product/{id}(id=${makeup.id})}">Here is some more information about this product that is only revealed once clicked on.</a>
+                                    <p><a th:text="${makeup.name}" th:href="@{/product/{id}(id=${makeup.id})}">Here is some more information about this product that is only revealed once clicked on.</a></p>
                                 </div>
                                 </div>
                             </div>
@@ -105,14 +108,19 @@
                                         <img class="activator" th:src="${look.pictureFilePath}" />
                                     </div>
                                     <div class="card-content">
-                                        <span class="card-title activator grey-text text-darken-4" th:text="${look.title}">Card Title<i class="material-icons right">more_vert</i></span>
-                                        <p><a href="#">This is a link</a></p>
+                                        <span th:if="${look.title}!=null" class="card-title activator grey-text text-darken-4" th:text="${look.title}">Card Title<i class="material-icons right">more_vert</i></span>
+                                        <span th:if="${look.title}==null" class="card-title activator grey-text text-darken-4">No Title<i class="material-icons right">more_vert</i></span>
+                                        <p><a th:href="@{/look/{id}(id=${look.id})}">This is a link</a></p>
                                     </div>
                                     <div class="card-reveal">
-                                        <span class="card-title grey-text text-darken-4" th:text="${look.title}">Card Title<i class="material-icons right">close</i></span>
-                                        <form th:action="@{/look/{id}/makeprofilepic(id=${look.id})}" th:method="post">
+                                        <span th:if="${look.description}!=null" class="card-title grey-text text-darken-4" th:text="${look.description}">Card Title<i class="material-icons right">close</i></span>
+                                        <span th:if="${look.description}==null" class="card-title grey-text text-darken-4">No Description<i class="material-icons right">close</i></span>
+                                        <p><a th:href="@{/look/{id}(id=${look.id})}">This is a link</a></p>
+                                        <span sec:authorize="isAuthenticated()">
+                                        <form th:if="${look.user.id}==${#authentication.principal.id}" th:action="@{/look/{id}/makeprofilepic(id=${look.id})}" th:method="post">
                                             <input type="submit" value="Make Profile Pic"/>
                                         </form>
+                                        </span>
                                     </div>
                                 </div>
                             </div>

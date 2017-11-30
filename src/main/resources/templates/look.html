@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:replace="fragments/header :: header('Look')">
     <meta charset="UTF-8" />
     <title></title>
@@ -13,9 +13,11 @@
     <div class="row">
         <div class="col s10 offset-s1 m6 offset-m3">
             <h2  th:text="${look.title}">Default Title</h2>
-            <a href="#" class="show-edit-title">Edit Title</a>
+            <span sec:authorize="isAuthenticated()">
+            <a th:if="${look.user.id} == ${#authentication.principal.id}" href="#" class="show-edit-title">Edit Title</a>
             <input type="text" class="edit-title" name="edit-title" th:field="*{title}" hidden="hidden"/>
             <a href="#" class="cancel-edit-title" hidden="hidden">Cancel Edit Title</a>
+                </span>
         </div>
     </div>
     <div class="row">
@@ -26,9 +28,11 @@
     <div class="row">
         <div class="col s10 offset-s1 m6 offset-m3">
             <p th:text="${look.description}"></p>
-            <a href="#" class="show-edit-description">Edit Description</a>
+            <span sec:authorize="isAuthenticated()">
+            <a th:if="${look.user.id} == ${#authentication.principal.id}" href="#" class="show-edit-description">Edit Description</a>
             <input type="text" class="edit-description" name="edit-description" th:field="*{description}" hidden="hidden"/>
             <a href="#" class="cancel-edit-description" hidden="hidden">Cancel Edit Description</a>
+                </span>
         </div>
     </div>
         <div class="row made-edits" hidden="hidden">
