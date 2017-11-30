@@ -10,6 +10,7 @@
 </header>
 <div class="container">
     <form th:action="@{/look/{id}/update(id=${look.id})}" th:method="post" th:object="${look}">
+
     <div class="row">
         <div class="col s10 offset-s1 m6 offset-m3">
             <h2  th:text="${look.title}">Default Title</h2>
@@ -31,10 +32,41 @@
             <span sec:authorize="isAuthenticated()">
             <a th:if="${look.user.id} == ${#authentication.principal.id}" href="#" class="show-edit-description">Edit Description</a>
             <input type="text" class="edit-description" name="edit-description" th:field="*{description}" hidden="hidden"/>
-            <a href="#" class="cancel-edit-description" hidden="hidden">Cancel Edit Description</a>
+            <a href="#" class="cancel-edit-description" hidden="hidden">Hide Edit Description</a>
                 </span>
         </div>
     </div>
+        <div class="row">
+            <div class="col s10 offset-s1 m6 offset-m3">
+                <p th:each="makeup:${look.makeups}">
+                    <a th:href="@{/product/{id}(id=makeup.id)}" th:text="${makeup.name}">
+                    </a>
+                </p>
+
+                <!--this code is for using checkboxes for selecting makeups-->
+                <!--<div sec:authorize="isAuthenticated()" hidden="hidden">-->
+                    <!--<p th:each="makeup:${look.user.getCollectionFromMakeupList().makeups}">-->
+                    <!--<input th:field="*{makeups}" type="checkbox"   th:value="${makeup.id}" th:id="${makeup.id}"/><label th:text="${makeup.name}"></label>-->
+                    <!--</p>-->
+                <!--</div>-->
+            </div>
+        </div>
+    <div class="row">
+
+            <div class="input-field col s10 offset-s1 m6 offset-m3" sec:authorize="isAuthenticated()">
+                <a th:if="${look.user.id} == ${#authentication.principal.id}" class="show-makeup-select" href="#">Add/Edit Makeup Used</a>
+                <div class="makeup-select-div" hidden="hidden">
+                <select class="makeup-select" multiple="multiple" th:field="*{makeups}">
+                    <!--<option value="" disabled selected>Choose your option</option>-->
+                    <option th:each="makeup:${look.user.getCollectionFromMakeupList().makeups}" th:value="${makeup.id}" th:text="${makeup.name}">Option 1</option>
+                    <!--<option value="2">Option 2</option>-->
+                    <!--<option value="3">Option 3</option>-->
+                </select>
+                </div>
+                <a class="hide-makeup-select" href="#" hidden="hidden">Cancel Makeup Edit</a>
+            </div>
+
+        </div>
         <div class="row made-edits" hidden="hidden">
             <div class="col s10 offset-s1 m6 offset-m3">
                 <input type="submit" value="Update Look"/>

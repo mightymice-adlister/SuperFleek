@@ -168,6 +168,9 @@ public class UserController {
         if(!look.getDescription().isEmpty()){
             lookToUpdate.setDescription(look.getDescription());
         }
+        if(look.getMakeups() != null){
+            lookToUpdate.setMakeups(look.getMakeups());
+        }
         if(!look.getTitle().isEmpty()){
             lookToUpdate.setTitle(look.getTitle());
         }
