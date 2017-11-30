@@ -513,6 +513,10 @@ section:nth-of-type(2) {
     box-shadow: 0 1px 0 0 #000 !important;
 }
 
+#topbarsearch form {
+    margin-right: -2em;
+}
+
 /***********************/
 /*   helper classes    */
 /***********************/
