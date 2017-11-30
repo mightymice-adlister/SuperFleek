@@ -132,8 +132,8 @@ public class UserController {
 
     }
 
-    @PostMapping("/look/add/{id}")
-    public String uploadLook(@PathVariable Long id, @ModelAttribute Look look){
+    @PostMapping("/look/add/")
+    public String uploadLook(@ModelAttribute Look look){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         look.setUser(user);
         look.setProfilePic(false);
