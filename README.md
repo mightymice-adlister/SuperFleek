@@ -27,13 +27,13 @@ Photos and background images courtesy of https://unsplash.com
 ## Features List
 - [x] User sign up
 - [x] User can register
-- [ ] User can create their profile [profile img, bio]
-- [ ] User can upload a profile image
-- [ ] User can add a collection
+- [x] User can create their profile [profile img, bio]
+- [x] User can upload a profile image
+- [x] User can add a collection
 - [ ] User can upload images for looks
 - [ ] User can edit their profile
-- [ ] User can search a product and view its details
-- [ ] User can add a product to a list viewable on their profile [wishlist, collection, custom]
+- [x] User can search a product and view its details
+- [x] User can add a product to a list viewable on their profile [wishlist, collection, custom]
 - [ ] User can delete a product list
 - [ ] User can edit a product list
-- [ ] User can read and post product reviews
+- [x] User can read and post product reviews
