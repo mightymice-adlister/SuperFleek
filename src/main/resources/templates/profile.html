@@ -20,28 +20,28 @@
                     </div>
                 </div>
                 <div class="row">
-                    <!-- User info sizing -->
+                    <!-- User info -->
                     <div class="col s6">
+                        <!-- User avatar -->
                         <div class="user-avatar-container">
                             <img class="profile-user-avatar" th:src="${profilePic.pictureFilePath}" />
                         </div>
                     </div>
                     <div class="col s6">
-                        <h2 th:text="${'@'+user.username}">
-                        @Pinkpony123
-                        </h2>
+                        <!-- User info -->
+                        <h3 th:text="${'@'+user.username}"></h3>
                         <!-- insert bio data -->
                         <p th:text="${user.bio}">Bio</p>
-                    </div>
-                </div>
-                <div sec:authorize="isAuthenticated()" class="row">
-                    <div th:if="${user.id}==${#authentication.principal.id}">
-                    <button type="button" class="add-look-pic">Add A Look</button>
-                    <form th:action="@{/look/add/}" th:method="post" th:object="${look}">
-                        <input th:field="*{pictureFilePath}" value="" th:type="hidden" id="look-input"/>
-                        <input th:type="submit" class="submit-look-pic" hidden="hidden" />
+                        <div sec:authorize="isAuthenticated()" class="row">
+                            <div th:if="${user.id}==${#authentication.principal.id}">
+                                <button type="button" class="add-look-pic">Add A Look</button>
+                                <form th:action="@{/look/add/}" th:method="post" th:object="${look}">
+                                    <input th:field="*{pictureFilePath}" value="" th:type="hidden" id="look-input"/>
+                                    <input th:type="submit" class="submit-look-pic" hidden="hidden" />
+                                </form>
+                            </div>
+                        </div>
 
-                    </form>
                     </div>
                 </div>
                 <div class="row">
@@ -65,10 +65,9 @@
                         <div id="looks">
                             <!-- look cards here -->
 
-
+                        <div th:each="look : ${user.lookList}">
                             <div th:replace="fragments/look-list :: look-card"></div>
-                            <div th:replace="fragments/look-list :: look-card"></div>
-                            <div th:replace="fragments/look-list :: look-card"></div>
+                        </div>
 
 
 
@@ -108,7 +107,6 @@
     </div>
 </main>
 <footer>
-    <div th:replace="fragments/footer :: menu-bottom"></div>
 </footer>
 <div th:replace="fragments/footer :: scripts"></div>
 </body>
