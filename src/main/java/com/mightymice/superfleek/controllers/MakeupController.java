@@ -31,16 +31,15 @@ public class MakeupController {
     }
 
     @GetMapping("/")
-    @ResponseBody
     public String index(){
 
         return "index";
     }
 
-//    @GetMapping("/makeup.json")
-//    public @ResponseBody Iterable<Makeup> viewAllMakeupInJSONFormat(){
-//        return makeups.findAll();
-//    }
+    @GetMapping("/makeup.json")
+    public @ResponseBody Iterable<Makeup> viewAllMakeupInJSONFormat(){
+        return makeups.findAll();
+    }
 
 
 

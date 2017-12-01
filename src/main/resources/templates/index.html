@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/header :: header('Welcome')">    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8" />
+    <title></title>
+</head>
+<body id="index">
+<header>
+    <nav th:replace="fragments/navbar :: navbar"></nav>
+</header>
+<main>
+    <div class="container">
+        <!-- mobile layout -->
+        <div class="login-mobile-wrapper z-depth-2 hide-on-large-only">
+            <div class="login-mobile-panel center-align">
+                <img src="/imgs/makeup-cosmetics-palette-and-brushes-on-white-background_1357-249.jpg" />
+                <div class="row">
+                    <h1 class="main-title">Welcome</h1>
+                    <h6 class="sub-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dignissimos est nisi. Animi assumenda at debitis dolores, ea eaque est eum fugit maxime placeat porro ratione rem soluta sunt voluptates.</h6>
+                </div>
+                <div class="row">
+                    <div class="col offset-s2 s8">
+                    </div>
+                </div>
+            </div>
+            <div class="login-mobile-panel center-align">
+                <div class="row">
+                    <h1 class="main-title">Login <br /> Signup <br /> products</h1>
+                </div>
+                <div class="row">
+                    <div class="col offset-s2 s8">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Desktop layout -->
+        <div class="row show-on-large hidden">
+            <div class="full-page-wrapper valign-wrapper center-align">
+                <div class="col m12">
+                    <div class="card horizontal z-depth-2 login-card">
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <div class="col s12 offset-m4 m8 offset-l3 l6">
+                                    <div class="row">
+                                        <div class="col s12">
+                                            <h1 class="main-title">Welcome</h1>
+                                            <h6 class="sub-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut corporis deserunt incidunt odio quia quis sunt. Ab accusantium assumenda exercitationem expedita inventore, iure labore magnam, nesciunt quis quo reprehenderit voluptatem.</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- first wrapper -->
+                <div class="half-page-wrapper center-align">
+                    <div class="col m12">
+                        <div class="card horizontal z-depth-2 login-card">
+                            <div class="card-stacked">
+                                <div class="card-content">
+                                    <div class="col s12 offset-m4 m8 offset-l3 l6">
+                                        <div class="row">
+                                            <div class="col s12">
+                                                <h1 class="main-title">Login <br /> Signup <br /> products</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</main>
+<footer>
+    <div th:replace="fragments/footer :: menu-bottom"></div>
+</footer>
+<div th:replace="fragments/footer :: scripts"></div>
+</body>
+</html>
