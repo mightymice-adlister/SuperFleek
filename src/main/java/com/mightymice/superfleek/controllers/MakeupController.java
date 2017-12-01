@@ -31,7 +31,6 @@ public class MakeupController {
     }
 
     @GetMapping("/")
-    @ResponseBody
     public String index(){
 
         return "index";
