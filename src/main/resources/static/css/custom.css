@@ -502,9 +502,9 @@ section:nth-of-type(2) {
 
 
 
-/***********************/
-/*    Input Fields     */
-/***********************/
+/*******************************/
+/*  Input Fields / Materialize */
+/*******************************/
 /* label color */
 .input-field label {
     color: #000;
@@ -541,6 +541,12 @@ section:nth-of-type(2) {
 .input-field input[type=search]:focus {
     border-bottom: 1px solid #039be5 !important;
     box-shadow: 0 1px 0 0 #000 !important;
+}
+
+/*Consistent card image size*/
+.card .card-image img {
+    height: 32vmax;
+    max-height: 32vmax;
 }
 
 /***********************/
