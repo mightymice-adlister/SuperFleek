@@ -39,7 +39,7 @@
         <div class="row">
             <div class="col s10 offset-s1 m6 offset-m3">
                 <p th:each="makeup:${look.makeups}">
-                    <a th:href="@{/product/{id}(id=makeup.id)}" th:text="${makeup.name}">
+                    <a th:href="@{/product/{id}(id=${makeup.id})}" th:text="${makeup.name}">
                     </a>
                 </p>
 
