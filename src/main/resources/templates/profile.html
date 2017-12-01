@@ -11,37 +11,52 @@
 
 <main>
     <div class="container">
-        <div class="row">
+        <div class="row page-wrapper">
             <!-- main column sizing-->
-            <div class="col s12 offset-m1 m10">
-                <div class="row">
-                    <div class="col s12">
-                        <div class="profile-hero-img"><img th:src="${user.lookList[0].pictureFilePath}" /></div>
-                    </div>
-                </div>
+            <div class="col s12">
+                <!--<div class="row">-->
+                    <!--<div class="col s12">-->
+                        <!--<div class="profile-hero-img"><img th:src="${user.lookList[0].pictureFilePath}" /></div>-->
+                    <!--</div>-->
+                <!--</div>-->
                 <div class="row">
                     <!-- User info -->
-                    <div class="col s6">
+                    <div class="col s5">
                         <!-- User avatar -->
-                        <div class="user-avatar-container">
+                        <div class="user-avatar-container profile-info-container">
                             <img class="profile-user-avatar" th:src="${profilePic.pictureFilePath}" />
                         </div>
                     </div>
-                    <div class="col s6">
-                        <!-- User info -->
-                        <h3 th:text="${'@'+user.username}"></h3>
-                        <!-- insert bio data -->
-                        <p th:text="${user.bio}">Bio</p>
-                        <div sec:authorize="isAuthenticated()" class="row">
-                            <div th:if="${user.id}==${#authentication.principal.id}">
-                                <button type="button" class="add-look-pic">Add A Look</button>
+                    <div class="col s7">
+                        <div class="profile-info-container">
+                            <!-- User info -->
+                            <div class="row">
+                                <div class="col s6">
+                                    <h4 class="profile-username" th:text="${user.username}"></h4>
+                                    <!-- edit profile button -->
+                                    <a href="#editprofile" alt="edit profile">
+                                        <span class="edit-profile-btn-container">
+                                            <i class="edit-profile-btn material-icons">settings</i>
+                                        </span>
+                                    </a>
+                                <p th:text="${user.bio}">Bio</p>
+                                </div>
+                            </div>
+
+                            <!-- Add a look button -->
+                            <div class="row">
+                                <div class="col s12">
+                                    <span sec:authorize="isAuthenticated()" th:if="${user.id}==${#authentication.principal.id}">
+                                <button class="add-look-pic waves-effect waves-light btn">Add A Look</button>
                                 <form th:action="@{/look/add/}" th:method="post" th:object="${look}">
                                     <input th:field="*{pictureFilePath}" value="" th:type="hidden" id="look-input"/>
                                     <input th:type="submit" class="submit-look-pic" hidden="hidden" />
                                 </form>
+                                </span>
+                                </div>
                             </div>
-                        </div>
 
+                        </div>
                     </div>
                 </div>
                 <div class="row">

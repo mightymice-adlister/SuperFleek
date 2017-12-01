@@ -1,7 +1,6 @@
 $(document).ready(function() {
   // Navbar collapse on med screens and smaller
   $(".button-collapse").sideNav();
-  console.log("hello");
 
   var fsClient = filestack.init('ArukrJULXTZWDKklrkBmaz');
   function openPicker() {
@@ -32,7 +31,6 @@ $(document).ready(function() {
     function openLookPicker(event) {
     event.preventDefault();
     $(".add-look-pic").attr("Hidden", "hidden");
-    $()
         fsClient.pick({
             fromSources:["local_file_system","imagesearch","facebook","instagram","webcam"],
             accept:["image/*"],

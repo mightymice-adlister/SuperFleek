@@ -16,10 +16,12 @@
     <!-- image -->
     <img th:src="${look.pictureFilePath}" />
     <!-- look title -->
+    <div>
+        <span th:if="${look.title}!=null" class="card-title" th:text="${look.title}"></span>
+        <span th:if="${look.title}==null" class="card-title">Add a title</span>
+        <a th:href="@{/look/{id}(id=${look.id})}" class="btn-floating btn-large halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+    </div>
 
-    <span th:if="${look.title}!=null" class="card-title" th:text="${look.title}"></span>
-    <span th:if="${look.title}==null" class="card-title">Add a title</span>
-    <a th:href="@{/look/{id}(id=${look.id})}" class="btn-floating btn-large halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
     </div>
 
     <!-- look description -->
