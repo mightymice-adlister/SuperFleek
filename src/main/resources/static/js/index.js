@@ -55,8 +55,13 @@ $(document).ready(function() {
   //click event for opening the general look picture picker
   $(".add-look-pic").on("click", openLookPicker);
   //function for showing the edit title field in the look view
+    var editTitleIsOpen= false;
+    var editDescriptionIsOpen = false;
+    var makeupSelectorIsShowing=false;
+
     function showEditTitle(event){
         event.preventDefault();
+        editTitleIsOpen = true;
         $(".edit-title").removeAttr("hidden");
         $(".show-edit-title").attr("hidden", "hidden");
         $(".made-edits").removeAttr("hidden");
@@ -65,32 +70,84 @@ $(document).ready(function() {
   //function for showing the edit description field in look view
     function showEditDescription(event){
         event.preventDefault();
+        editDescriptionIsOpen = true;
         $(".edit-description").removeAttr("hidden");
         $(".show-edit-description").attr("hidden", "hidden");
         $(".made-edits").removeAttr("hidden");
         $(".cancel-edit-description").removeAttr("hidden");
     }
-  //click event for showing the edit title field
-    $(".show-edit-title").on("click",showEditTitle);
-  //click event for showing the edit description field
-    $(".show-edit-description").on("click",showEditDescription);
 
-    $(".cancel-edit-title").on("click",function(event){
+    $("a.show-makeup-select").on("click", function(event){
+        event.preventDefault();
+        makeupSelectorIsShowing = true;
+        $(".makeup-select-div").removeAttr("hidden");
+        $(".show-makeup-select").attr("hidden", "hidden");
+        $(".made-edits").removeAttr("hidden");
+        $(".hide-makeup-select").removeAttr("hidden");
+        $('select').material_select();
+    });
+
+
+  //click event for showing the edit title field
+    $("a.show-edit-title").on("click",showEditTitle);
+  //click event for showing the edit description field
+    $("a.show-edit-description").on("click",showEditDescription);
+
+    $("a.cancel-edit-title").on("click",function(event){
       event.preventDefault();
+      editTitleIsOpen = false;
         $(".edit-title").attr("hidden", "hidden");
         $(".show-edit-title").removeAttr("hidden");
-        $(".made-edits").attr("hidden", "hidden");
+        if((!editDescriptionIsOpen)&&(!makeupSelectorIsShowing)) {
+            $(".made-edits").attr("hidden", "hidden");
+        }
         $(".cancel-edit-title").attr("hidden","hidden")
     });
 
-    $(".cancel-edit-description").on("click",function(event){
+
+
+    $("a.cancel-edit-description").on("click",function(event){
         event.preventDefault();
+        editDescriptionIsOpen = false;
         $(".edit-description").attr("hidden", "hidden");
         $(".show-edit-description").removeAttr("hidden");
-        $(".made-edits").attr("hidden", "hidden");
+        if((!editTitleIsOpen) && (!makeupSelectorIsShowing)) {
+            $(".made-edits").attr("hidden", "hidden");
+        }
         $(".cancel-edit-description").attr("hidden","hidden")
     });
-  // Add bio text to bio input
+
+
+    $("a.hide-makeup-select").on("click",function(event){
+        event.preventDefault();
+        makeupSelectorIsShowing = false;
+        $(".makeup-select-div").attr("hidden", "hidden");
+        $(".show-makeup-select").removeAttr("hidden");
+        if((!editTitleIsOpen)&&(!editDescriptionIsOpen)) {
+            $(".made-edits").attr("hidden", "hidden");
+        }
+        $(".hide-makeup-select").attr("hidden","hidden")
+    });
+//this creates empty labesl after checkboxes so that they render in materialize
+    $('input[type=checkbox]').each(function() {
+            if(this.nextSibling.nodeName != 'label') {
+                $(this).after('<label for="'+this.id+'"></label>')
+            }
+        }
+    );
+
+    $('select.makeup-select').each(function() {
+            if(this.nextSibling.nodeName != 'label') {
+                $(this).after('<label>Select Makeup From Your Collection</label>')
+            }
+        }
+    );
+
+
+    $('select').material_select();
+
+
+    // Add bio text to bio input
   var bio = $("#textarea1");
   bio.on("blur", function(){
     $("#bio-input").val(bio.val());
@@ -185,7 +242,8 @@ $(document).ready(function() {
 
 
 
-  $('select').material_select();
+
+
 
 
 });

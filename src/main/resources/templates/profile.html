@@ -110,7 +110,7 @@
                                     <div class="card-content">
                                         <span th:if="${look.title}!=null" class="card-title activator grey-text text-darken-4" th:text="${look.title}">Card Title<i class="material-icons right">more_vert</i></span>
                                         <span th:if="${look.title}==null" class="card-title activator grey-text text-darken-4">No Title<i class="material-icons right">more_vert</i></span>
-                                        <p><a th:href="@{/look/{id}(id=${look.id})}">This is a link</a></p>
+                                        <p><a th:href="@{/look/{id}(id=${look.id})}">View This Look</a></p>
                                     </div>
                                     <div class="card-reveal">
                                         <span th:if="${look.description}!=null" class="card-title grey-text text-darken-4" th:text="${look.description}">Card Title<i class="material-icons right">close</i></span>
