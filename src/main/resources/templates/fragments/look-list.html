@@ -19,7 +19,7 @@
 
     <span th:if="${look.title}!=null" class="card-title" th:text="${look.title}"></span>
     <span th:if="${look.title}==null" class="card-title"></span>
-    <a class="btn-floating btn-large halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+    <a th:href="@{/look/{id}(id=${look.id})}" class="btn-floating btn-large halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
     </div>
 
     <!-- look description -->
