@@ -37,11 +37,14 @@
 
     <ul>
         <li th:fragment="collection-card" class="collection-item avatar">
-            <img src="/imgs/lipstick-thumbnail.jpeg" alt="product" class="circle" />
-            <span class="title">Title</span>
-            <p>First Line
-            </p>
-            <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+
+            <img th:src="${makeup.thumbnailUrl}" th:alt="${makeup.name}" class="circle" />
+
+            <span th:text="${makeup.name}" class="title">Title</span>
+
+            <p th:text="${makeup.brand.name}">Brand name</p>
+
+            <a th:href="@{/product/{id}(id=${makeup.id})}" class="secondary-content"><i class="material-icons">grade</i></a>
         </li>
     </ul>
 
