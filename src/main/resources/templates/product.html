@@ -43,8 +43,11 @@
                     </div> <!-- product info text -->
                 </div> <!-- main product info row -->
             </div>
-            <form sec:authorize="isAuthenticated()" th:action="@{/product/{id}/add(id=${makeup.id})}" th:method="post">
+            <form sec:authorize="isAuthenticated()" th:action="@{/product/{id}/add/Collection(id=${makeup.id})}" th:method="post">
                 <button>Add To Collection</button>
+            </form>
+            <form sec:authorize="isAuthenticated()" th:action="@{/product/{id}/add/Wish List(id=${makeup.id})}" th:method="post">
+                <button>Add To Wish List</button>
             </form>
             <!-- product info banner -->
             <div class="product-review-bar">

@@ -81,14 +81,24 @@ public class MakeupController {
 //        return "search";
 //    }
 
-    @PostMapping("/product/{id}/add")
-    public String addProductToCollection(@PathVariable long id){
+    @PostMapping("/product/{id}/add/{listName}")
+    public String addProductToCollection(@PathVariable long id, @PathVariable String listName){
         User user = new User((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
-        MakeupList collection = makeupLists.findByTitleAndUser("Collection", user);
-        if(!collection.hasMakeup(makeups.findOne(id))){
-            collection.getMakeups().add(makeups.findOne(id));
-            makeupLists.save(collection);
-        }
+
+            MakeupList collection = makeupLists.findByTitleAndUser(listName, user);
+            if (!collection.hasMakeup(makeups.findOne(id))) {
+                collection.getMakeups().add(makeups.findOne(id));
+                makeupLists.save(collection);
+            }
+
+//        if(listName.equals("wishlist")){
+//            MakeupList collection = makeupLists.findByTitleAndUser("Wish List", user);
+//            if (!collection.hasMakeup(makeups.findOne(id))) {
+//                collection.getMakeups().add(makeups.findOne(id));
+//                makeupLists.save(collection);
+//            }
+//
+//        }
         return "redirect:/product/"+id;
     }
 
