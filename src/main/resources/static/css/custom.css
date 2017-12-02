@@ -306,8 +306,8 @@ section:nth-of-type(2) {
 }
 
 .user-avatar-container {
-    height: 25vmax;
-    width: 25vmax;
+    height: 25vmin;
+    width: 25vmin;
     margin-right: 25px;
 }
 
@@ -473,7 +473,11 @@ section:nth-of-type(2) {
 /***********************/
 .nav-search {
     position: absolute;
-    left: 25vh;
+    left: 24vh;
+}
+
+#query {
+    width: 25vw;
 }
 .searchbar {
     border: 1px solid #ccc;
