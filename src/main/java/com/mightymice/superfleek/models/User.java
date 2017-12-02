@@ -209,6 +209,7 @@ public class User {
         }
         return collection;
     }
+
     public MakeupList getMakeupListByNameFromMakeupLists(String listName){
         MakeupList collection = new MakeupList();
         for(MakeupList list: makeupLists){

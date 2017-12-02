@@ -22,12 +22,14 @@ public class MakeupController {
     private MakeupLists makeupLists;
     private Makeups makeups;
     private Reviews reviews;
+    private Users users;
 
     @Autowired
-    public MakeupController(Makeups makeups, Reviews reviews, MakeupLists makeupLists){
+    public MakeupController(Makeups makeups, Reviews reviews, MakeupLists makeupLists, Users users){
         this.makeups = makeups;
         this.reviews = reviews;
         this.makeupLists =makeupLists;
+        this.users = users;
     }
 
     @GetMapping("/")
@@ -52,10 +54,15 @@ public class MakeupController {
     @GetMapping("/product/{id}")
     public String productView(@PathVariable long id, Model viewModel){
         Makeup makeup = makeups.findOne(id);
+        User signedInUser = users.findByUsername(((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername());
+        MakeupList collection = signedInUser.getMakeupListByNameFromMakeupLists("Collection");
+        MakeupList wishList = signedInUser.getMakeupListByNameFromMakeupLists("Wish List");
         viewModel.addAttribute("makeup", makeup);
         Review review = new Review();
         review.setRating(0);
         viewModel.addAttribute("review", review);
+        viewModel.addAttribute("userCollection", collection);
+        viewModel.addAttribute("userWishList", wishList);
 
         return "product";
     }
@@ -91,6 +98,7 @@ public class MakeupController {
                 makeupLists.save(collection);
             }
 
+
 //        if(listName.equals("wishlist")){
 //            MakeupList collection = makeupLists.findByTitleAndUser("Wish List", user);
 //            if (!collection.hasMakeup(makeups.findOne(id))) {
@@ -101,6 +109,19 @@ public class MakeupController {
 //        }
         return "redirect:/product/"+id;
     }
+
+    @PostMapping("/product/{id}/remove/{listName}")
+    public String removeProductFromCollection(@PathVariable long id, @PathVariable String listName){
+        User user = new User((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+
+        MakeupList collection = makeupLists.findByTitleAndUser(listName, user);
+        if (collection.hasMakeup(makeups.findOne(id))) {
+            collection.getMakeups().remove(makeups.findOne(id));
+            makeupLists.save(collection);
+        }
+        return "redirect:/product/"+id;
+    }
+
 
     private Makeup makeupBrandToUpperCase(Makeup makeup){
         String brandName = makeup.getBrand().getName();
