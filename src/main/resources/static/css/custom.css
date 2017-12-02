@@ -356,11 +356,42 @@ section:nth-of-type(2) {
     width: 100%;
 }
 
+.user-avatar-container {
+    height: 25vmin;
+    width: 25vmin;
+    margin-right: 25px;
+}
+
 .profile-user-avatar {
     height: 100%;
     width: 100%;
+    border-radius: 4px;
 }
 
+.profile-info-container {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    /*height: 25vmax;*/
+    margin: 0 auto;
+}
+
+.profile-username {
+    display: inline-block;
+}
+
+
+.edit-profile-btn {
+    display: inline-block;
+    font-size: 3em;
+}
+
+.edit-profile-btn-container {
+    cursor: pointer;
+    position: relative;
+    top: 8px;
+    margin-left: 10px;
+}
 /*.profile-user-avatar img {*/
     /*height: 100%;*/
     /*width: 100%;*/
@@ -399,8 +430,8 @@ section:nth-of-type(2) {
     background-color:#000!important;
 }
 
-.card-content .card {
-    max-width: 20vw;
+.card-content #collection, .card-content #looks, .card-content #wishlist {
+    margin-top: 2em;
 }
 
 /***********************/
@@ -491,6 +522,14 @@ section:nth-of-type(2) {
 /***********************/
 /*       Search        */
 /***********************/
+.nav-search {
+    position: absolute;
+    left: 24vh;
+}
+
+#query {
+    width: 25vw;
+}
 .searchbar {
     border: 1px solid #ccc;
 }
@@ -536,9 +575,11 @@ section:nth-of-type(2) {
 
 
 
-/***********************/
-/*    Input Fields     */
-/***********************/
+
+
+/*******************************/
+/*  Input Fields / Materialize */
+/*******************************/
 /* label color */
 .input-field label {
     color: #000;
@@ -578,7 +619,13 @@ section:nth-of-type(2) {
 }
 
 #topbarsearch form {
-    margin-right: -2em;
+    /*margin-right: -2em;*/
+}
+
+/*Consistent card image size*/
+.card .card-image img {
+    min-height: 15vmax;
+
 }
 
 /***********************/
@@ -607,7 +654,7 @@ section:nth-of-type(2) {
 }
 
 .page-wrapper {
-
+    margin-top: 2em;
 }
 
 .loading-wrapper {
