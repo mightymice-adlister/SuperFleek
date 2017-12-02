@@ -308,7 +308,8 @@ section:nth-of-type(2) {
     display: flex;
     flex-flow: column;
     justify-content: space-between;
-    height: 25vmax;
+    /*height: 25vmax;*/
+    margin: 0 auto;
 }
 
 .profile-username {
@@ -545,8 +546,8 @@ section:nth-of-type(2) {
 
 /*Consistent card image size*/
 .card .card-image img {
-    height: 32vmax;
-    max-height: 32vmax;
+    min-height: 15vmax;
+
 }
 
 /***********************/

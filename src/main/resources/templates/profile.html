@@ -12,40 +12,36 @@
 <main>
     <div class="container">
         <div class="row page-wrapper">
-            <!-- main column sizing-->
+            <!-- page column sizing-->
             <div class="col s12">
-                <!--<div class="row">-->
-                    <!--<div class="col s12">-->
-                        <!--<div class="profile-hero-img"><img th:src="${user.lookList[0].pictureFilePath}" /></div>-->
-                    <!--</div>-->
-                <!--</div>-->
                 <div class="row">
-                    <!-- User info -->
-                    <div class="col s5">
-                        <!-- User avatar -->
-                        <div class="user-avatar-container profile-info-container">
-                            <img class="profile-user-avatar" th:src="${profilePic.pictureFilePath}" />
+                    <!-- User info sizing -->
+                    <div class="col offset-s1 s10">
+                        <!-- Avatar col -->
+                        <div class="col s12 m6">
+                            <div class="user-avatar-container profile-info-container">
+                                <img class="profile-user-avatar" th:src="${profilePic.pictureFilePath}" />
+                            </div>
                         </div>
-                    </div>
-                    <div class="col s7">
-                        <div class="profile-info-container">
-                            <!-- User info -->
-                            <div class="row">
-                                <div class="col s6">
-                                    <h4 class="profile-username" th:text="${user.username}"></h4>
-                                    <!-- edit profile button -->
-                                    <a href="#editprofile" alt="edit profile">
+                        <!-- User info col -->
+                        <div class="col s12 m6">
+                            <div class="profile-info-container center-align">
+                                <div class="row">
+                                    <div class="col s12">
+                                        <h4 class="profile-username" th:text="${user.username}"></h4>
+                                        <!-- edit profile button -->
+                                        <a href="#editprofile" alt="edit profile">
                                         <span class="edit-profile-btn-container">
                                             <i class="edit-profile-btn material-icons">settings</i>
                                         </span>
-                                    </a>
-                                <p th:text="${user.bio}">Bio</p>
+                                        </a>
+                                        <p>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <!-- Add a look button -->
-                            <div class="row">
-                                <div class="col s12">
+                                <!-- Add a look button -->
+                                <div class="row">
+                                    <div class="col s12">
                                     <span sec:authorize="isAuthenticated()" th:if="${user.id}==${#authentication.principal.id}">
                                 <button class="add-look-pic waves-effect waves-light btn">Add A Look</button>
                                 <form th:action="@{/look/add/}" th:method="post" th:object="${look}">
@@ -53,12 +49,15 @@
                                     <input th:type="submit" class="submit-look-pic" hidden="hidden" />
                                 </form>
                                 </span>
+                                    </div>
                                 </div>
-                            </div>
 
+                            </div>
                         </div>
                     </div>
-                </div>
+
+
+                </div> <!-- profile info row -->
                 <div class="row">
                     <div class="card-tabs">
                         <ul class="tabs white tabs-fixed-width">
@@ -117,7 +116,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> <!-- main col sizing -->
         </div>
     </div>
 </main>
