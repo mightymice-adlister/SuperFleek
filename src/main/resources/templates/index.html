@@ -8,26 +8,36 @@
     <nav th:replace="fragments/navbar :: navbar"></nav>
 </header>
 <main>
-    <div class="container">
+
+        <div class="container">
         <!-- mobile layout -->
-        <div class="login-mobile-wrapper z-depth-2 hide-on-large-only">
-            <div class="login-mobile-panel center-align">
-                <img src="/imgs/makeup-cosmetics-palette-and-brushes-on-white-background_1357-249.jpg" />
-                <div class="row">
-                    <h1 class="main-title">Welcome</h1>
-                    <h6 class="sub-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dignissimos est nisi. Animi assumenda at debitis dolores, ea eaque est eum fugit maxime placeat porro ratione rem soluta sunt voluptates.</h6>
+        <div class="login-mobile-wrapper hide-on-large-only">
+            <div class="top col s12"></div>
+            <div class="">
+                <!--<img src="/imgs/makeup-cosmetics-palette-and-brushes-on-white-background_1357-249.jpg" />-->
+                <!--<div class="section">-->
+
+                <!--</div>-->
+                <div class="row ">
+                    <div class="col offset-s1 s10">
+                        <h1 class="mobile-h1 main-title center-align">Welcome</h1>
+                        <h6 class="mobile-h6">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dignissimos est nisi. Animi assumenda at debitis dolores, ea eaque est eum fugit maxime placeat porro ratione rem soluta sunt voluptates.</h6>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col offset-s2 s8">
                     </div>
                 </div>
             </div>
-            <div class="login-mobile-panel center-align">
-                <div class="row">
-                    <h1 class="main-title">Login <br /> Signup <br /> products</h1>
-                </div>
-                <div class="row">
-                    <div class="col offset-s2 s8">
+            <div class="center-align">
+                <div class="bottom-nav">
+                    <div class="home-link-container">
+                        <div class="col s6">
+                            <h1 class="mobile-h1 main-title">Login</h1>
+                        </div>
+                        <div class="col s6 push-s1">
+                            <h1 class="mobile-h1 main-title">SignUp</h1>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -36,44 +46,37 @@
 
 
         <!-- Desktop layout -->
-        <div class="row show-on-large hidden">
-            <div class="full-page-wrapper valign-wrapper center-align">
-                <div class="col m12">
-                    <div class="card horizontal z-depth-2 login-card">
-                        <div class="card-stacked">
-                            <div class="card-content">
-                                <div class="col s12 offset-m4 m8 offset-l3 l6">
-                                    <div class="row">
-                                        <div class="col s12">
-                                            <h1 class="main-title">Welcome</h1>
-                                            <h6 class="sub-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut corporis deserunt incidunt odio quia quis sunt. Ab accusantium assumenda exercitationem expedita inventore, iure labore magnam, nesciunt quis quo reprehenderit voluptatem.</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+        <div class="valign-wrapper ">
+            <div class="row show-on-large hidden">
+                <div class="row">
+                </div><!--invisible div -->
+
+                <div class="welcome">
+
+                        <h1 class="mobile-h1 card-title center-align">Welcome</h1>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est unde, veritatis. Earum
+                                exercitationem fugiat quisquam saepe tempora. Aliquid, amet architecto corporis deserunt
+                                harum itaque libero minima omnis, placeat recusandae soluta.</p>
+
                 </div>
-            </div><!-- first wrapper -->
-                <div class="half-page-wrapper center-align">
-                    <div class="col m12">
-                        <div class="card horizontal z-depth-2 login-card">
-                            <div class="card-stacked">
-                                <div class="card-content">
-                                    <div class="col s12 offset-m4 m8 offset-l3 l6">
-                                        <div class="row">
-                                            <div class="col s12">
-                                                <h1 class="main-title">Login <br /> Signup <br /> products</h1>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
+            <!--<div class="row show-on-large hidden">-->
+                <!--<div class="col s4 z-depth-5">-->
+
+
+                <!--</div>-->
+                <!--<div class="col s4 z-depth-5">-->
+
+                <!--</div>-->
+
+            <!--</div>-->
+
         </div>
+
+    </div>
+    <div class="overlay-wrapper"></div>
 </main>
 <footer>
     <div th:replace="fragments/footer :: menu-bottom"></div>
