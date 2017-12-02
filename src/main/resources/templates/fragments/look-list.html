@@ -19,7 +19,7 @@
     <div>
         <span th:if="${look.title}!=null" class="card-title" th:text="${look.title}"></span>
         <span th:if="${look.title}==null" class="card-title">Add a title</span>
-        <a th:href="@{/look/{id}(id=${look.id})}" class="btn-floating btn-large halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+        <a th:href="@{/look/{id}(id=${look.id})}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
     </div>
 
     </div>
@@ -40,13 +40,18 @@
     <ul>
         <li th:fragment="collection-card" class="collection-item avatar">
 
-            <img th:src="${makeup.thumbnailUrl}" th:alt="${makeup.name}" class="circle" />
+            <a th:href="@{/product/{id}(id=${makeup.id})}">
 
-            <span th:text="${makeup.name}" class="title">Title</span>
+                <img th:src="${makeup.thumbnailUrl}" th:alt="${makeup.name}" class="circle" />
 
-            <p th:text="${makeup.brand.name}">Brand name</p>
+                <span th:text="${makeup.name}" class="title">Title</span>
 
-            <a th:href="@{/product/{id}(id=${makeup.id})}" class="secondary-content"><i class="material-icons">grade</i></a>
+                <p th:text="${makeup.brand.name}">Brand name</p>
+
+            </a>
+
+            <a th:href="@{/product/{id}(id=${makeup.id})}"
+               class="secondary-content"><i class="material-icons">send</i></a>
         </li>
     </ul>
 
