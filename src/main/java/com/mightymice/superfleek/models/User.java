@@ -1,6 +1,7 @@
 package com.mightymice.superfleek.models;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
@@ -13,28 +14,37 @@ import java.util.List;
 @Table(name="users")
 public class User {
     @Id @GeneratedValue
+    @JsonBackReference
     private Long id;
     @NotBlank(message ="You must enter an email address")
     @Column(nullable = false, unique = true)
     @Email
+    @JsonBackReference
     private String email;
     @NotBlank(message ="You must enter a username")
     @Column(nullable = false, unique = true)
+    @JsonBackReference
     private String username;
     @NotBlank(message ="You must enter a password")
     @Column(nullable = false)
     @JsonIgnore
     private String password;
     @Column
+    @JsonBackReference
     private String firstName;
     @Column
+    @JsonBackReference
     private String lastName;
     @Column(columnDefinition = "text")
+    @JsonBackReference
     private String bio;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    @JsonBackReference
     private List<MakeupList> makeupLists;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    @JsonBackReference
     private List<Look> lookList;
+    @JsonBackReference
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Review> reviews;
     @NotBlank(message = "You must confirm your password")
@@ -53,7 +63,7 @@ public class User {
 //    @Transient
 //    @JsonIgnore
 //    private String profilePicUrl = getProfilePic().getPictureFilePath();
-
+@JsonBackReference
     private boolean hasLoggedIn;
 
     public boolean isHasLoggedIn() {

@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -30,16 +31,15 @@ public class MakeupController {
     }
 
     @GetMapping("/")
-    @ResponseBody
     public String index(){
 
         return "index";
     }
 
-//    @GetMapping("/makeup.json")
-//    public @ResponseBody Iterable<Makeup> viewAllMakeupInJSONFormat(){
-//        return makeups.findAll();
-//    }
+    @GetMapping("/makeup.json")
+    public @ResponseBody Iterable<Makeup> viewAllMakeupInJSONFormat(){
+        return makeups.findAll();
+    }
 
 
 
@@ -70,9 +70,16 @@ public class MakeupController {
         return "redirect:/product/" + id;
     }
     @GetMapping("/search")
-    public String searchProducts() {
+    public String queryProducts(HttpServletRequest request, Model viewModel) {
+        String query = request.getParameter("query");
+        viewModel.addAttribute("query", query);
         return "search";
     }
+
+//    @GetMapping("/search")
+//    public String searchProducts() {
+//        return "search";
+//    }
 
     @PostMapping("/product/{id}/add")
     public String addProductToCollection(@PathVariable long id){
