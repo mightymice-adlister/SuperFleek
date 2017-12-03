@@ -61,14 +61,16 @@
             </div>
             <!-- product info banner -->
             <div class="product-review-bar">
-                <div class="star-board">
-                    <i class="material-icons tiny ratings">grade</i>
-                    <i class="material-icons tiny ratings">grade</i>
-                    <i class="material-icons tiny ratings">grade</i>
-                    <i class="material-icons tiny ratings">grade</i>
-                </div>
-                <h6 class="review-number">57 reviews</h6>
-                <h6 class="review-score">Overwhelmingly positive</h6>
+                <!--<div class="star-board">-->
+                    <!--<i class="material-icons tiny ratings">grade</i>-->
+                    <!--<i class="material-icons tiny ratings">grade</i>-->
+                    <!--<i class="material-icons tiny ratings">grade</i>-->
+                    <!--<i class="material-icons tiny ratings">grade</i>-->
+                <!--</div>-->
+                <h6 class="review-number"><span th:text="${makeup.getNumberOfReviews()}"></span> reviews</h6>
+                <h6 th:text="${makeup.getReviewCalculation()}" class="review-score">Overwhelmingly positive</h6>
+                <a th:if="${makeup.getReviewCalculation()} == 'Mostly Positive Reviews'" href="#!" class="secondary-content"><i class="material-icons green-text">thumb_up</i></a>
+                <a th:if="${makeup.getReviewCalculation()} == 'Mostly Negative Reviews'" href="#!" class="secondary-content"><i class="material-icons red-text">thumb_down</i></a>
             </div>
         <div sec:authorize="isAuthenticated()"><!-- form div -->
             <form class="form" th:action="@{/product/{id}(id=${makeup.id})}" th:method="post" th:object="${review}">
@@ -96,7 +98,7 @@
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut tortor pretium viverra suspendisse potenti nullam ac tortor. Sit amet nulla facilisi morbi tempus iaculis urna id volutpat. Facilisi cras fermentum odio eu feugiat pretium nibh ipsum. Viverra ipsum nunc aliquet bibendum enim.
                     </p>
                     <a th:if="${review.rating} == 1" href="#!" class="secondary-content"><i class="material-icons green-text">thumb_up</i></a>
-                    <a th:if="${review.rating} == -1" href="#!" class="secondary-content"><i class="material-icons green-text">thumb_down</i></a>
+                    <a th:if="${review.rating} == -1" href="#!" class="secondary-content"><i class="material-icons red-text">thumb_down</i></a>
 
                 </li>
             </ul>
