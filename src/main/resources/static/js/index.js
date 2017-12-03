@@ -57,13 +57,6 @@ $(document).ready(function() {
     var editDescriptionIsOpen = false;
     var makeupSelectorIsShowing=false;
 
-    $('.master-edit').on("click", function(){
-        event.preventDefault();
-        $('.master-edit').attr("hidden", "hidden");
-        $('.made-edits').removeAttr("hidden");
-        $('.hide-makeup-select').removeAttr("hidden");
-    });
-
     function showEditTitle(event){
         event.preventDefault();
         editTitleIsOpen = true;
@@ -85,7 +78,6 @@ $(document).ready(function() {
     $("a.show-makeup-select").on("click", function(event){
         event.preventDefault();
         makeupSelectorIsShowing = true;
-        $(".master-edit").attr("hidden", "hidden");
         $(".makeup-select-div").removeAttr("hidden");
         $(".show-makeup-select").attr("hidden", "hidden");
         $(".made-edits").removeAttr("hidden");
@@ -132,8 +124,7 @@ $(document).ready(function() {
         if((!editTitleIsOpen)&&(!editDescriptionIsOpen)) {
             $(".made-edits").attr("hidden", "hidden");
         }
-        $(".hide-makeup-select").attr("hidden","hidden");
-        $(".master-edit").removeAttr("hidden");
+        $(".hide-makeup-select").attr("hidden","hidden")
     });
 //this creates empty labesl after checkboxes so that they render in materialize
     $('input[type=checkbox]').each(function() {
@@ -150,23 +141,8 @@ $(document).ready(function() {
         }
     );
 
-  $('.title-field').blur(function(){
-    var content = $('.title-field').html();
-    $('.edit-description').val(content);
-    console.log($('.edit-description').val());
-  });
 
-  $('.description-field').blur(function(){
-    var content = $('.description-field').html();
-    $('.edit-description').val(content);
-    console.log($('.edit-description').val());
-  });
-
-
-
-
-
-
+    $('select').material_select();
 
 
     // Add bio text to bio input
