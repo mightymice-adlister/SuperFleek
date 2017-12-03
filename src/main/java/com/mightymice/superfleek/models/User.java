@@ -209,4 +209,17 @@ public class User {
         }
         return collection;
     }
+
+    public MakeupList getMakeupListByNameFromMakeupLists(String listName){
+        MakeupList collection = new MakeupList();
+        for(MakeupList list: makeupLists){
+            if(list.getTitle().equals(listName)){
+                collection=list;
+                System.out.println("found the list");
+            }
+            System.out.println("found a list, but it's not named collection");
+        }
+        return collection;
+
+    }
 }

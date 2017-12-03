@@ -43,9 +43,17 @@ main {
 
 .welcome{
     position: fixed;
-    top: 23vmax;
+    top: 21vmax;
     width: 27vmax;
     right: 5vmax;
+    color: #FFF;
+}
+
+.welcome-links{
+    position: fixed;
+    top: 42vmax;
+    width: 27vmax;
+    right: 6vmax;
     color: #FFF;
 }
 
