@@ -13,8 +13,10 @@ import static javax.persistence.CascadeType.ALL;
 public class MakeupList {
     @Id
     @GeneratedValue
+    @JsonBackReference
     private Long id;
     @ManyToOne @JoinColumn(name = "user_id")
+    @JsonBackReference
     private User user;
     @Column(nullable = false)
     private String title;
