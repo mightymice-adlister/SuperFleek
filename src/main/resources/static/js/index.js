@@ -151,14 +151,14 @@ $(document).ready(function() {
     );
 
   $('.title-field').blur(function(){
-    var content = $('.title-field').html();
-    $('.edit-description').val(content);
-    console.log($('.edit-description').val());
+    var content = $('.title-field').text();
+    $('.edit-title').val($.trim((content)));
+    console.log($('.edit-title').val());
   });
 
   $('.description-field').blur(function(){
-    var content = $('.description-field').html();
-    $('.edit-description').val(content);
+    var content = $('.description-field').text();
+    $('.edit-description').val($.trim((content)));
     console.log($('.edit-description').val());
   });
 
