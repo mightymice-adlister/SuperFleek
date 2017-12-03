@@ -18,7 +18,7 @@
             <!-- Image-->
             <div class="col s12 m6">
                 <img class="responsive-img" th:src="${look.pictureFilePath}" alt=""/>
-                <a class="master-edit" href="#">
+                <a sec:authorize="isAuthenticated()" th:if="${look.user.id} == ${#authentication.principal.id}" class="master-edit" href="#">
                     <button class="btn btn-long">Edit</button>
                 </a>
                 <a class="made-edits" href="#" hidden="hidden">
@@ -63,10 +63,15 @@
                 <div class="flex-container-row">
                     <!-- Title -->
                     <span sec:authorize="isAuthenticated()">
-                        <h3 th:if="${look.user.id} == ${#authentication.principal.id}" class="title-field center-align"
-                           contenteditable="true" th:text="${look.title}">Default Title</h3>
-                        <h3 th:unless="${look.user.id} == ${#authentication.principal.id}" class="center-align"
-                           contenteditable="false" th:text="${look.title}">Default Title</h3>
+                        <span th:if="${look.user.id} == ${#authentication.principal.id}"
+                              class="title-field center-align" contenteditable="true">
+                            <h3 th:if="${look.title != null}" th:text="${look.title}"></h3>
+                            <h3 th:if="${look.title == null}" th:text="${look.title}">My look</h3>
+                        </span>
+                        <span th:unless="${look.user.id} == ${#authentication.principal.id}" class="center-align"
+                           contenteditable="false" th:text="${look.title}">
+                            Default Title
+                        </span>
                     </span>
                     <input type="text" class="edit-title" name="edit-title" th:field="*{title}" hidden="hidden"/>
 
@@ -85,7 +90,9 @@
                 <!-- Description -->
                 <span sec:authorize="isAuthenticated()">
                 <p th:if="${look.user.id} == ${#authentication.principal.id}" class="description-field center-align"
-                   contenteditable="true" th:text="${look.description}">Default Title</p>
+                   contenteditable="true" th:text="${look.description}">
+
+                </p>
                 <p th:unless="${look.user.id} == ${#authentication.principal.id}" class="center-align"
                    contenteditable="false" th:text="${look.description}">Default Title</p>
                 </span>

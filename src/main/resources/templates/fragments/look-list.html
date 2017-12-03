@@ -18,7 +18,7 @@
     <!-- look title -->
     <div>
         <span th:if="${look.title}!=null" class="card-title" th:text="${look.title}"></span>
-        <span th:if="${look.title}==null" class="card-title">Add a title</span>
+        <span th:if="${look.title}==null" class="card-title">My look</span>
         <a th:href="@{/look/{id}(id=${look.id})}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
     </div>
 
@@ -26,7 +26,8 @@
 
     <!-- look description -->
     <div class="card-content">
-    <p th:if="${look.description}!=null" th:text="${look.description}">Write a description</p>
+    <p th:if="${look.description}!=null" th:text="${look.description}"></p>
+    <p th:if="${look.description}==null" th:text="${look.description}">Let's talk about my look</p>
     </div>
 
     <!-- link to product page -->
