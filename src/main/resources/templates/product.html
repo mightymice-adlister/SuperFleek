@@ -43,22 +43,9 @@
                     </div> <!-- product info text -->
                 </div> <!-- main product info row -->
             </div>
-            <div sec:authorize="isAuthenticated()"  th:switch="${userCollection.hasMakeup(makeup)}">
-                <form th:case="false" th:action="@{/product/{id}/add/Collection(id=${makeup.id})}" th:method="post">
+            <form sec:authorize="isAuthenticated()" th:action="@{/product/{id}/add(id=${makeup.id})}" th:method="post">
                 <button>Add To Collection</button>
-                </form>
-                <form th:case="true" th:action="@{/product/{id}/remove/Collection(id=${makeup.id})}" th:method="post">
-                <button>Remove From Collection</button>
-                </form>
-            </div>
-            <div sec:authorize="isAuthenticated()"  th:switch="${userWishList.hasMakeup(makeup)}">
-            <form th:case="false"  th:action="@{/product/{id}/add/Wish List(id=${makeup.id})}" th:method="post">
-                <button>Add To Wish List</button>
             </form>
-            <form th:case="true"  th:action="@{/product/{id}/remove/Wish List(id=${makeup.id})}" th:method="post">
-                <button>Remove From Wish List</button>
-            </form>
-            </div>
             <!-- product info banner -->
             <div class="product-review-bar">
                 <div class="star-board">

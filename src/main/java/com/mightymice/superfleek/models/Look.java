@@ -10,11 +10,9 @@ import java.util.List;
 public class Look {
     @Id
     @GeneratedValue
-    @JsonBackReference
     private Long id;
     @ManyToOne
     @JoinColumn(name="user_id")
-    @JsonBackReference
     private User user;
     @Column(nullable = false)
     private String pictureFilePath;

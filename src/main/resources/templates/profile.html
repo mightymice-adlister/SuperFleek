@@ -11,53 +11,38 @@
 
 <main>
     <div class="container">
-        <div class="row page-wrapper">
-            <!-- page column sizing-->
-            <div class="col s12">
+        <div class="row">
+            <!-- main column sizing-->
+            <div class="col s12 offset-m1 m10">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="profile-hero-img"><img th:src="${user.lookList[0].pictureFilePath}" /></div>
+                    </div>
+                </div>
                 <div class="row">
                     <!-- User info sizing -->
-                    <div class="col offset-s1 s10">
-                        <!-- Avatar col -->
-                        <div class="col s12 m6">
-                            <div class="user-avatar-container profile-info-container">
-                                <img class="profile-user-avatar" th:src="${profilePic.pictureFilePath}" />
-                            </div>
-                        </div>
-                        <!-- User info col -->
-                        <div class="col s12 m6">
-                            <div class="profile-info-container center-align">
-                                <div class="row">
-                                    <div class="col s12">
-                                        <h4 class="profile-username" th:text="${user.username}"></h4>
-                                        <!-- edit profile button -->
-                                        <a href="#editprofile" alt="edit profile">
-                                        <span class="edit-profile-btn-container">
-                                            <i class="edit-profile-btn material-icons">settings</i>
-                                        </span>
-                                        </a>
-                                        <p>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                    </div>
-                                </div>
-
-                                <!-- Add a look button -->
-                                <div class="row">
-                                    <div class="col s12">
-                                    <span sec:authorize="isAuthenticated()" th:if="${user.id}==${#authentication.principal.id}">
-                                <button class="add-look-pic waves-effect waves-light btn">Add A Look</button>
-                                <form th:action="@{/look/add/}" th:method="post" th:object="${look}">
-                                    <input th:field="*{pictureFilePath}" value="" th:type="hidden" id="look-input"/>
-                                    <input th:type="submit" class="submit-look-pic" hidden="hidden" />
-                                </form>
-                                </span>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
+                    <div class="col offset-s2 s4">
+                        <img class="profile-user-avatar" th:src="${profilePic.pictureFilePath}" />
                     </div>
+                    <div class="col s1"></div>
+                    <div class="col s4">
+                        <h2 th:text="${'@'+user.username}">
+                        @Pinkpony123
+                        </h2>
+                        <!-- insert bio data -->
+                        <p th:text="${user.bio}">Bio</p>
+                    </div>
+                </div>
+                <div sec:authorize="isAuthenticated()" class="row">
+                    <div th:if="${user.id}==${#authentication.principal.id}">
+                    <button type="button" class="add-look-pic">Add A Look</button>
+                    <form th:action="@{/look/add/}" th:method="post" th:object="${look}">
+                        <input th:field="*{pictureFilePath}" value="" th:type="hidden" id="look-input"/>
+                        <input th:type="submit" class="submit-look-pic" hidden="hidden" />
 
-
-                </div> <!-- profile info row -->
+                    </form>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="card-tabs">
                         <ul class="tabs white tabs-fixed-width">
@@ -69,90 +54,89 @@
                     <div class="card-content">
                         <div id="collection">
 
-                            <!--<div th:each="makeup : ${collection.makeups}" class="col s12">-->
-                                <ul th:each="makeup : ${collection.makeups}" class="collection col offset-s1 s11">
-                                    <li th:replace="fragments/look-list :: collection-card"></li>
-                                </ul>
+                            <!--<div class="col s12 m6 l4">-->
+                                <!--<div class="card small">-->
+                                <!--<div class="card-image waves-effect waves-block waves-light">-->
+                                    <!--<img class="activator" src="https://source.unsplash.com/375x250/?model" />-->
+                                <!--</div>-->
+                                <!--<div class="card-content">-->
+                                    <!--<span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>-->
+                                    <!--<p><a href="#">This is a link</a></p>-->
+                                <!--</div>-->
+                                <!--<div class="card-reveal">-->
+                                    <!--<span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>-->
+                                    <!--<p>Here is some more information about this product that is only revealed once clicked on.</p>-->
+                                <!--</div>-->
+                                <!--</div>-->
                             <!--</div>-->
-
+                            <!--<div class="col s12 m6 l4">-->
+                                <!--<div class="card small">-->
+                                <!--<div class="card-image waves-effect waves-block waves-light">-->
+                                    <!--<img class="activator" src="https://source.unsplash.com/375x250/?model" />-->
+                                <!--</div>-->
+                                <!--<div class="card-content">-->
+                                    <!--<span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>-->
+                                    <!--<p><a href="#">This is a link</a></p>-->
+                                <!--</div>-->
+                                <!--<div class="card-reveal">-->
+                                    <!--<span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>-->
+                                    <!--<p>Here is some more information about this product that is only revealed once clicked on.</p>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <div th:each="makeup : ${collection.makeups}" class="col s12 m6 l4">
+                                <div class="card small">
+                                <div class="card-image waves-effect waves-block waves-light">
+                                    <img class="activator" th:src="${makeup.thumbnailUrl}" />
+                                </div>
+                                <div class="card-content">
+                                    <span class="card-title activator grey-text text-darken-4" th:text="${makeup.name}">Card Title<i class="material-icons right">more_vert</i></span>
+                                    <p><a th:href="@{/product/{id}(id=${makeup.id})}">This is a link</a></p>
+                                </div>
+                                <div class="card-reveal">
+                                    <span class="card-title grey-text text-darken-4" th:text="${makeup.brand.name}">Card Title<i class="material-icons right">close</i></span>
+                                    <p><a th:text="${makeup.name}" th:href="@{/product/{id}(id=${makeup.id})}">Here is some more information about this product that is only revealed once clicked on.</a></p>
+                                </div>
+                                </div>
+                            </div>
                         </div>
                         <div id="looks">
                             <!-- look cards here -->
-
-                        <div th:each="look : ${user.lookList}">
-                            <div th:replace="fragments/look-list :: look-card"></div>
-                        </div>
-
-
-
-
-
-
-                            <!--<div th:each="look : ${user.lookList}" class="col s12 m6 l4">-->
-                                <!--<div class="card small">-->
-                                    <!--<div class="card-image waves-effect waves-block waves-light">-->
-                                        <!--<img class="activator" th:src="${look.pictureFilePath}" />-->
-                                    <!--</div>-->
-                                    <!--<div class="card-content">-->
-                                        <!--<span th:if="${look.title}!=null" class="card-title activator grey-text text-darken-4" th:text="${look.title}">Card Title<i class="material-icons right">more_vert</i></span>-->
-                                        <!--<span th:if="${look.title}==null" class="card-title activator grey-text text-darken-4">No Title<i class="material-icons right">more_vert</i></span>-->
-                                        <!--<p><a th:href="@{/look/{id}(id=${look.id})}">This is a link</a></p>-->
-                                    <!--</div>-->
-                                    <!--<div class="card-reveal">-->
-                                        <!--<span th:if="${look.description}!=null" class="card-title grey-text text-darken-4" th:text="${look.description}">Card Title<i class="material-icons right">close</i></span>-->
-                                        <!--<span th:if="${look.description}==null" class="card-title grey-text text-darken-4">No Description<i class="material-icons right">close</i></span>-->
-                                        <!--<p><a th:href="@{/look/{id}(id=${look.id})}">This is a link</a></p>-->
-                                        <!--<span sec:authorize="isAuthenticated()">-->
-                                        <!--<form th:if="${look.user.id}==${#authentication.principal.id}" th:action="@{/look/{id}/makeprofilepic(id=${look.id})}" th:method="post">-->
-                                            <!--<input type="submit" value="Make Profile Pic"/>-->
-                                        <!--</form>-->
-                                        <!--</span>-->
-                                    <!--</div>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                        </div>
-                        <div id="wishlist">
-                            <!-- wishlist cards here -->
-                            <div th:each="makeup : ${user.getMakeupListByNameFromMakeupLists('Wish List').makeups}" class="col s12 m6 l4">
+                            <div th:each="look : ${user.lookList}" class="col s12 m6 l4">
                                 <div class="card small">
                                     <div class="card-image waves-effect waves-block waves-light">
-                                        <img class="activator" th:src="${makeup.thumbnailUrl}" />
+                                        <img class="activator" th:src="${look.pictureFilePath}" />
                                     </div>
                                     <div class="card-content">
-                                        <span class="card-title activator grey-text text-darken-4" th:text="${makeup.name}">Card Title<i class="material-icons right">more_vert</i></span>
-                                        <p><a th:href="@{/product/{id}(id=${makeup.id})}">This is a link</a></p>
+                                        <span th:if="${look.title}!=null" class="card-title activator grey-text text-darken-4" th:text="${look.title}">Card Title<i class="material-icons right">more_vert</i></span>
+                                        <span th:if="${look.title}==null" class="card-title activator grey-text text-darken-4">No Title<i class="material-icons right">more_vert</i></span>
+                                        <p><a th:href="@{/look/{id}(id=${look.id})}">This is a link</a></p>
                                     </div>
                                     <div class="card-reveal">
-                                        <span class="card-title grey-text text-darken-4" th:text="${makeup.brand.name}">Card Title<i class="material-icons right">close</i></span>
-                                        <p><a th:text="${makeup.name}" th:href="@{/product/{id}(id=${makeup.id})}">Here is some more information about this product that is only revealed once clicked on.</a></p>
+                                        <span th:if="${look.description}!=null" class="card-title grey-text text-darken-4" th:text="${look.description}">Card Title<i class="material-icons right">close</i></span>
+                                        <span th:if="${look.description}==null" class="card-title grey-text text-darken-4">No Description<i class="material-icons right">close</i></span>
+                                        <p><a th:href="@{/look/{id}(id=${look.id})}">This is a link</a></p>
+                                        <span sec:authorize="isAuthenticated()">
+                                        <form th:if="${look.user.id}==${#authentication.principal.id}" th:action="@{/look/{id}/makeprofilepic(id=${look.id})}" th:method="post">
+                                            <input type="submit" value="Make Profile Pic"/>
+                                        </form>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div id="wishlist">
+                            <!-- wishlist cards here -->
+                        </div>
                     </div>
                 </div>
-            </div> <!-- main col sizing -->
+            </div>
         </div>
     </div>
 </main>
 <footer>
+    <div th:replace="fragments/footer :: menu-bottom"></div>
 </footer>
 <div th:replace="fragments/footer :: scripts"></div>
 </body>
 </html>
-
-
-
-<!--<div class="card small">-->
-    <!--<div class="card-image waves-effect waves-block waves-light">-->
-    <!--<img class="activator" th:src="${makeup.thumbnailUrl}" />-->
-    <!--</div>-->
-    <!--<div class="card-content">-->
-    <!--<span class="card-title activator grey-text text-darken-4" th:text="${makeup.name}">Card Title<i class="material-icons right">more_vert</i></span>-->
-    <!--<p><a th:href="@{/product/{id}(id=${makeup.id})}">This is a link</a></p>-->
-    <!--</div>-->
-    <!--<div class="card-reveal">-->
-    <!--<span class="card-title grey-text text-darken-4" th:text="${makeup.brand.name}">Card Title<i class="material-icons right">close</i></span>-->
-    <!--<p><a th:text="${makeup.name}" th:href="@{/product/{id}(id=${makeup.id})}">Here is some more information about this product that is only revealed once clicked on.</a></p>-->
-    <!--</div>-->
-    <!--</div>-->

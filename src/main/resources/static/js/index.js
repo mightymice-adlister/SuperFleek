@@ -1,6 +1,7 @@
 $(document).ready(function() {
   // Navbar collapse on med screens and smaller
   $(".button-collapse").sideNav();
+  console.log("hello");
 
   var fsClient = filestack.init('ArukrJULXTZWDKklrkBmaz');
   function openPicker() {
@@ -31,6 +32,7 @@ $(document).ready(function() {
     function openLookPicker(event) {
     event.preventDefault();
     $(".add-look-pic").attr("Hidden", "hidden");
+    $()
         fsClient.pick({
             fromSources:["local_file_system","imagesearch","facebook","instagram","webcam"],
             accept:["image/*"],
@@ -53,20 +55,8 @@ $(document).ready(function() {
   //click event for opening the general look picture picker
   $(".add-look-pic").on("click", openLookPicker);
   //function for showing the edit title field in the look view
-    var editTitleIsOpen= false;
-    var editDescriptionIsOpen = false;
-    var makeupSelectorIsShowing=false;
-
-    $('.master-edit').on("click", function(){
-        event.preventDefault();
-        $('.master-edit').attr("hidden", "hidden");
-        $('.made-edits').removeAttr("hidden");
-        $('.hide-makeup-select').removeAttr("hidden");
-    });
-
     function showEditTitle(event){
         event.preventDefault();
-        editTitleIsOpen = true;
         $(".edit-title").removeAttr("hidden");
         $(".show-edit-title").attr("hidden", "hidden");
         $(".made-edits").removeAttr("hidden");
@@ -75,101 +65,32 @@ $(document).ready(function() {
   //function for showing the edit description field in look view
     function showEditDescription(event){
         event.preventDefault();
-        editDescriptionIsOpen = true;
         $(".edit-description").removeAttr("hidden");
         $(".show-edit-description").attr("hidden", "hidden");
         $(".made-edits").removeAttr("hidden");
         $(".cancel-edit-description").removeAttr("hidden");
     }
-
-    $("a.show-makeup-select").on("click", function(event){
-        event.preventDefault();
-        makeupSelectorIsShowing = true;
-        $(".master-edit").attr("hidden", "hidden");
-        $(".makeup-select-div").removeAttr("hidden");
-        $(".show-makeup-select").attr("hidden", "hidden");
-        $(".made-edits").removeAttr("hidden");
-        $(".hide-makeup-select").removeAttr("hidden");
-        $('select').material_select();
-    });
-
-
   //click event for showing the edit title field
-    $("a.show-edit-title").on("click",showEditTitle);
+    $(".show-edit-title").on("click",showEditTitle);
   //click event for showing the edit description field
-    $("a.show-edit-description").on("click",showEditDescription);
+    $(".show-edit-description").on("click",showEditDescription);
 
-    $("a.cancel-edit-title").on("click",function(event){
+    $(".cancel-edit-title").on("click",function(event){
       event.preventDefault();
-      editTitleIsOpen = false;
         $(".edit-title").attr("hidden", "hidden");
         $(".show-edit-title").removeAttr("hidden");
-        if((!editDescriptionIsOpen)&&(!makeupSelectorIsShowing)) {
-            $(".made-edits").attr("hidden", "hidden");
-        }
+        $(".made-edits").attr("hidden", "hidden");
         $(".cancel-edit-title").attr("hidden","hidden")
     });
 
-
-
-    $("a.cancel-edit-description").on("click",function(event){
+    $(".cancel-edit-description").on("click",function(event){
         event.preventDefault();
-        editDescriptionIsOpen = false;
         $(".edit-description").attr("hidden", "hidden");
         $(".show-edit-description").removeAttr("hidden");
-        if((!editTitleIsOpen) && (!makeupSelectorIsShowing)) {
-            $(".made-edits").attr("hidden", "hidden");
-        }
+        $(".made-edits").attr("hidden", "hidden");
         $(".cancel-edit-description").attr("hidden","hidden")
     });
-
-
-    $("a.hide-makeup-select").on("click",function(event){
-        event.preventDefault();
-        makeupSelectorIsShowing = false;
-        $(".makeup-select-div").attr("hidden", "hidden");
-        $(".show-makeup-select").removeAttr("hidden");
-        if((!editTitleIsOpen)&&(!editDescriptionIsOpen)) {
-            $(".made-edits").attr("hidden", "hidden");
-        }
-        $(".hide-makeup-select").attr("hidden","hidden");
-        $(".master-edit").removeAttr("hidden");
-    });
-//this creates empty labesl after checkboxes so that they render in materialize
-    $('input[type=checkbox]').each(function() {
-            if(this.nextSibling.nodeName != 'label') {
-                $(this).after('<label for="'+this.id+'"></label>')
-            }
-        }
-    );
-
-    $('select.makeup-select').each(function() {
-            if(this.nextSibling.nodeName != 'label') {
-                $(this).after('<label>Select Makeup From Your Collection</label>')
-            }
-        }
-    );
-
-  $('.title-field').blur(function(){
-    var content = $('.title-field').html();
-    $('.edit-description').val(content);
-    console.log($('.edit-description').val());
-  });
-
-  $('.description-field').blur(function(){
-    var content = $('.description-field').html();
-    $('.edit-description').val(content);
-    console.log($('.edit-description').val());
-  });
-
-
-
-
-
-
-
-
-    // Add bio text to bio input
+  // Add bio text to bio input
   var bio = $("#textarea1");
   bio.on("blur", function(){
     $("#bio-input").val(bio.val());
@@ -234,11 +155,9 @@ $(document).ready(function() {
         `)
       .reduce((html, template) => html + template, '');
       };
-      // Runs the search function on page load for the use case of searching from a different view
-      $("window").on("load", search());
-      // Debounce is needed to limit the number of searches as the user types
+
+
       $("#query").on("input", debounce(search, 300));
-      // Filter functionality is present but not implemented
       $("#filter").on("change", search);
 
     })
@@ -259,13 +178,12 @@ $(document).ready(function() {
 
   }
 
+  results.innerHTML = displayEmpty();
 
 
 
 
-
-
-
+  $('select').material_select();
 
 
 });
