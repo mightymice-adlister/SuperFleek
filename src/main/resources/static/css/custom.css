@@ -433,6 +433,18 @@ section:nth-of-type(2) {
 .card-content #collection, .card-content #looks, .card-content #wishlist {
     margin-top: 2em;
 }
+/***********************/
+/*   Ind Looks View    */
+/***********************/
+.show-edit-title {
+    margin-top: 1em;
+}
+
+.flex-container-row {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
 
 /***********************/
 /*    Product View     */
@@ -626,6 +638,13 @@ section:nth-of-type(2) {
 .card .card-image img {
     min-height: 15vmax;
 
+}
+
+#toast-container {
+    top: auto !important;
+    right: auto !important;
+    bottom: 10%;
+    left:7%;
 }
 
 /***********************/

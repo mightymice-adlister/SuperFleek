@@ -141,8 +141,28 @@ $(document).ready(function() {
         }
     );
 
+  $('.title-field').blur(function(){
+    var content = $('.title-field').html();
+    $('.edit-description').val(content);
+    console.log($('.edit-description').val());
+  });
+  // $('.title-field').blur(function(){
+  //   var content = $('.title-field').html();
+  //   $('.edit-title').val(content);
+  //   console.log($('.edit-title').val());
+  // }, false);
 
-    $('select').material_select();
+  $('.description-field').blur(function(){
+    var content = $('.description-field').html();
+    $('.edit-description').val(content);
+    console.log($('.edit-description').val());
+  });
+
+
+
+
+
+
 
 
     // Add bio text to bio input
