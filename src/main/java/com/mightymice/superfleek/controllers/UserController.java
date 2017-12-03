@@ -3,17 +3,12 @@ package com.mightymice.superfleek.controllers;
 import com.mightymice.superfleek.models.Look;
 import com.mightymice.superfleek.models.MakeupList;
 import com.mightymice.superfleek.models.User;
-import com.mightymice.superfleek.models.UserWithRoles;
 import com.mightymice.superfleek.repositories.Looks;
 import com.mightymice.superfleek.repositories.MakeupLists;
 import com.mightymice.superfleek.repositories.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.method.P;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 
@@ -22,7 +17,6 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -71,8 +65,7 @@ public class UserController {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setHasLoggedIn(false);
         users.save(user);
-        authenticate(user);
-        return "redirect:/profile";
+        return "redirect:/login";
     }
 
     @GetMapping("/profile/{username}")
@@ -130,10 +123,7 @@ public class UserController {
         signedInUser.setConfirmPassword(signedInUser.getPassword());
         List<MakeupList> initialMULists = signedInUser.getMakeupLists();
         MakeupList collection = new MakeupList("Collection", signedInUser);
-        MakeupList wishList = new MakeupList("Wish List", signedInUser);
         initialMULists.add(collection);
-        initialMULists.add(wishList);
-        makeupLists.save(wishList);
         makeupLists.save(collection);
         signedInUser.setMakeupLists(initialMULists);
 
@@ -178,27 +168,11 @@ public class UserController {
         if(!look.getDescription().isEmpty()){
             lookToUpdate.setDescription(look.getDescription());
         }
-        if(look.getMakeups() != null){
-            lookToUpdate.setMakeups(look.getMakeups());
-        }
         if(!look.getTitle().isEmpty()){
             lookToUpdate.setTitle(look.getTitle());
         }
         looks.save(lookToUpdate);
         return "redirect:/look/"+id;
-    }
-
-
-    private void authenticate(User user) {
-        // Notice how we're using an empty list for the roles
-        UserDetails userDetails = new UserWithRoles(user);
-        Authentication auth = new UsernamePasswordAuthenticationToken(
-                userDetails,
-                userDetails.getPassword(),
-                userDetails.getAuthorities()
-        );
-        SecurityContext context = SecurityContextHolder.getContext();
-        context.setAuthentication(auth);
     }
 
 

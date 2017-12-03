@@ -66,12 +66,6 @@
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 
-		<!--<dependency>-->
-			<!--<groupId>javas.xml.bind</groupId>-->
-			<!--<artifactId>jaxb-api</artifactId>-->
-			<!--<version>2.3.0</version>-->
-		<!--</dependency>-->
-
 		<dependency>
 			<groupId>org.thymeleaf.extras</groupId>
 			<artifactId>thymeleaf-extras-springsecurity4</artifactId>
