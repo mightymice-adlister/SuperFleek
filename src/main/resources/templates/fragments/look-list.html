@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8" />
+    <title>Look list</title>
+</head>
+<body>
+
+<div th:fragment="look-card">
+    <!-- dynamic sizing -->
+
+    <div class="col s12 m6 l4">
+    <div class="card">
+    <div class="card-image">
+
+    <!-- image -->
+    <img th:src="${look.pictureFilePath}" />
+    <!-- look title -->
+    <div>
+        <span th:if="${look.title}!=null" class="card-title" th:text="${look.title}"></span>
+        <span th:if="${look.title}==null" class="card-title">Add a title</span>
+        <a th:href="@{/look/{id}(id=${look.id})}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+    </div>
+
+    </div>
+
+    <!-- look description -->
+    <div class="card-content">
+    <p th:if="${look.description}!=null" th:text="${look.description}">Write a description</p>
+    </div>
+
+    <!-- link to product page -->
+    <div class="card-action">
+    <a th:href="@{/look/{id}(id=${look.id})}">View more</a>
+    </div>
+    </div>
+    </div>
+</div> <!-- fragment end -->
+
+    <ul>
+        <li th:fragment="collection-card" class="collection-item avatar">
+
+            <a th:href="@{/product/{id}(id=${makeup.id})}">
+
+                <img th:src="${makeup.thumbnailUrl}" th:alt="${makeup.name}" class="circle" />
+
+                <span th:text="${makeup.name}" class="title">Title</span>
+
+                <p th:text="${makeup.brand.name}">Brand name</p>
+
+            </a>
+
+            <a th:href="@{/product/{id}(id=${makeup.id})}"
+               class="secondary-content"><i class="material-icons">send</i></a>
+        </li>
+    </ul>
+
+
+</body>
+</html>

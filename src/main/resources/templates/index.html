@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/header :: header('Welcome')">    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8" />
+    <title></title>
+</head>
+<body id="index">
+<header>
+    <nav th:replace="fragments/navbar :: navbar"></nav>
+</header>
+<main>
+
+        <div class="container">
+        <!-- mobile layout -->
+        <div class="login-mobile-wrapper hide-on-large-only">
+            <div class="top col s12"></div>
+            <div class="">
+                <!--<img src="/imgs/makeup-cosmetics-palette-and-brushes-on-white-background_1357-249.jpg" />-->
+                <!--<div class="section">-->
+
+                <!--</div>-->
+                <div class="row ">
+                    <div class="col offset-s1 s10">
+                        <h1 class="mobile-h1 main-title center-align">Welcome</h1>
+                        <h6 class="mobile-h6">Superfleek is your very own virtual makeup organizer. Make a profile,
+                            and start sharing new looks today! </h6>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col offset-s2 s8">
+                    </div>
+                </div>
+            </div>
+            <div class="center-align">
+                <div class="bottom-nav">
+                    <div class="home-link-container">
+                        <div class="col s6">
+                            <a href="/login"><h1 class="mobile-h1 main-title">Login</h1></a>
+                        </div>
+                        <div class="col s6 push-s1">
+                            <a href="/sign-up"><h1 class="mobile-h1 main-title">SignUp</h1></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Desktop layout -->
+
+        <div class="valign-wrapper ">
+            <div class="row show-on-large hidden">
+                <div class="row">
+                </div><!--invisible div -->
+
+                <div class="welcome">
+
+                        <h1 class="mobile-h1 card-title center-align">Welcome</h1>
+                            <p>Superfleek is your very own virtual makeup organizer. Make a profile,
+                            and start sharing new looks today!</p>
+
+                </div>
+                    <div class="welcome-links">
+                        <div class="col s6">
+                            <a href="/login"><h1 class="mobile-h1 main-title">Login</h1></a>
+                        </div>
+                        <div class="col s6">
+                            <a href="/sign-up"><h1 class="mobile-h1 main-title">SignUp</h1></a>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="overlay-wrapper"></div>
+</main>
+<footer>
+    <div th:replace="fragments/footer :: menu-bottom"></div>
+</footer>
+<div th:replace="fragments/footer :: scripts"></div>
+</body>
+</html>

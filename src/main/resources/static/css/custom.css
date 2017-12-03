@@ -12,12 +12,6 @@ main {
     flex: 1 0 auto;
 }
 
-.menu-bottom {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
 /***********************/
 /*       Index         */
 /***********************/
@@ -35,6 +29,69 @@ main {
     height: 100%;
     width: 95%;
     padding: 0 0.5em 0 0.5em;
+}
+
+.home-link-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.top{
+    height: 37vh;
+    /*border: solid black 2px;*/
+}
+
+.welcome{
+    position: fixed;
+    top: 21vmax;
+    width: 27vmax;
+    right: 5vmax;
+    color: #FFF;
+}
+
+.welcome-links{
+    position: fixed;
+    top: 42vmax;
+    width: 27vmax;
+    right: 6vmax;
+    color: #FFF;
+}
+
+.mobile-h6{
+    color: #FFF;
+}
+.mobile-h1{
+    color: #fe9488;
+}
+
+.bottom-nav{
+    position:fixed;
+    bottom: 0;
+    width: 90vw;
+}
+
+.bottom-nav div{
+    margin: -3px;
+}
+
+@media screen and (min-width:992px) {
+    #index {
+
+        /*background: url('http://divaexpress.com.br/wp-content/uploads/2017/06/maquiagem.jpg') center center fixed;*/
+        /*background-size: cover;*/
+        background: url('https://www.paidmodelingjobs.com/wp-content/uploads/2016/04/Cosmetic-Brand-Commercial-Photo-Shoot-Models.jpg') center center fixed;
+        background-size: cover;
+    }
+}
+
+@media screen and (max-width:991px) {
+    #index {
+        /*background: url('https://i.pinimg.com/originals/7f/b2/35/7fb23512240b8c7f8ea0771279fe344d.jpg') center center fixed;*/
+        /*background-size: cover;*/
+        background: url('https://www.paidmodelingjobs.com/wp-content/uploads/2016/04/Cosmetic-Brand-Commercial-Photo-Shoot-Models.jpg') center center fixed;
+        background-size: cover;
+
+    }
 }
 
 /***********************/
@@ -65,6 +122,21 @@ main {
     transform: rotate(23deg);
     z-index: 99;
 }
+
+.signup-btn:hover{
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 3em;
+    left: 32vw;
+    letter-spacing: 0.2em;
+    position: relative;
+    top: 5vh;
+    transform: rotate(11deg);
+    z-index: 99;
+}
+
 .login-btn {
     font-family: 'Poppins', sans-serif;
 }
@@ -292,11 +364,42 @@ section:nth-of-type(2) {
     width: 100%;
 }
 
+.user-avatar-container {
+    height: 25vmin;
+    width: 25vmin;
+    margin-right: 25px;
+}
+
 .profile-user-avatar {
     height: 100%;
     width: 100%;
+    border-radius: 4px;
 }
 
+.profile-info-container {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    /*height: 25vmax;*/
+    margin: 0 auto;
+}
+
+.profile-username {
+    display: inline-block;
+}
+
+
+.edit-profile-btn {
+    display: inline-block;
+    font-size: 3em;
+}
+
+.edit-profile-btn-container {
+    cursor: pointer;
+    position: relative;
+    top: 8px;
+    margin-left: 10px;
+}
 /*.profile-user-avatar img {*/
     /*height: 100%;*/
     /*width: 100%;*/
@@ -335,14 +438,26 @@ section:nth-of-type(2) {
     background-color:#000!important;
 }
 
-.card-content .card {
-    max-width: 20vw;
+.card-content #collection, .card-content #looks, .card-content #wishlist {
+    margin-top: 2em;
+}
+/***********************/
+/*   Ind Looks View    */
+/***********************/
+.show-edit-title {
+    margin-top: 1em;
+}
+
+.flex-container-row {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
 }
 
 /***********************/
 /*    Product View     */
 /***********************/
-.menu-bottom a{
+.menu-bottom {
     margin: -3px;
     width: 51%;
 }
@@ -427,6 +542,14 @@ section:nth-of-type(2) {
 /***********************/
 /*       Search        */
 /***********************/
+.nav-search {
+    position: absolute;
+    left: 24vh;
+}
+
+#query {
+    width: 25vw;
+}
 .searchbar {
     border: 1px solid #ccc;
 }
@@ -472,9 +595,11 @@ section:nth-of-type(2) {
 
 
 
-/***********************/
-/*    Input Fields     */
-/***********************/
+
+
+/*******************************/
+/*  Input Fields / Materialize */
+/*******************************/
 /* label color */
 .input-field label {
     color: #000;
@@ -513,10 +638,35 @@ section:nth-of-type(2) {
     box-shadow: 0 1px 0 0 #000 !important;
 }
 
+#topbarsearch form {
+    /*margin-right: -2em;*/
+}
+
+/*Consistent card image size*/
+.card .card-image img {
+    min-height: 15vmax;
+
+}
+
+#toast-container {
+    top: auto !important;
+    right: auto !important;
+    bottom: 10%;
+    left:7%;
+}
+
 /***********************/
 /*   helper classes    */
 /***********************/
-
+.overlay-wrapper {
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
+    background-color: #000;
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+}
 .full-page-wrapper {
     height: 100vh;
 }
@@ -531,8 +681,9 @@ section:nth-of-type(2) {
 }
 
 .page-wrapper {
-
+    margin-top: 2em;
 }
+
 
 .loading-wrapper {
     position: fixed;
@@ -563,6 +714,9 @@ section:nth-of-type(2) {
     background-color: inherit;
 }
 
+.btn-long {
+    width: 100%;
+}
 .hidden {
     display: none;
 }
