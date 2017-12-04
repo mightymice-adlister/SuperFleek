@@ -205,7 +205,7 @@ section:nth-of-type(2) {
 }
 
 .breadcrumb.active {
-    color: hotpink !important;
+    color: #ffb74d  !important;
 }
 
 .mp-section-content {
