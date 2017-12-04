@@ -264,17 +264,5 @@ $(document).ready(function() {
     return noResults;
 
   }
-
-
-
-
-
-
-
-
-
-
 });
 
-
-// <p><a href="/product/${id}">${name}, ${brand.name} (${type.name})</a></p>

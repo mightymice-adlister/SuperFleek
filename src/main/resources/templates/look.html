@@ -48,7 +48,7 @@
                         </select>
                     </div>
                 </div>
-                <p class="page-wrapper" th:each="makeup:${look.makeups}">
+                <p class="space-top" th:each="makeup:${look.makeups}">
                     <a th:href="@{/product/{id}(id=${makeup.id})}" th:text="'#' + ${makeup.name}"></a>
                 </p>
             </div>

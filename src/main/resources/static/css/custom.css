@@ -266,11 +266,11 @@ section:nth-of-type(2) {
     transition: all 2.1s ease-out;
 }
 
-.fp-viewing-three .section2-slider{
+.fp-viewing-two .section2-slider{
     bottom: 10vh;
 }
 
-.fp-viewing-four .section2-slider{
+.fp-viewing-three .section2-slider{
     bottom: 0;
 }
 
@@ -284,7 +284,7 @@ section:nth-of-type(2) {
     transition: opacity 3.1s ease-in-out;
 }
 
-.fp-viewing-four .section3-slider {
+.fp-viewing-three .section3-slider {
     opacity: 1;
 }
 
@@ -697,10 +697,6 @@ section:nth-of-type(2) {
     margin: 0 auto;
 }
 
-.page-wrapper {
-    margin-top: 2em;
-}
-
 
 .loading-wrapper {
     position: fixed;
@@ -758,6 +754,10 @@ section:nth-of-type(2) {
     height: 7rem;
     width: 7rem;
     border: 1px solid white;
+}
+
+.space-top {
+    margin-top: 2em;
 }
 
 h1 {
