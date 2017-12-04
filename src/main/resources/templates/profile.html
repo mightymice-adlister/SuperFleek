@@ -68,7 +68,7 @@
                     </div>
                     <div class="card-content">
                         <div id="collection">
-                            <ul th:each="makeup : ${collection.makeups}" class="collection col offset-s1 s11">
+                            <ul th:each="makeup : ${collection.makeups}" class="collection col s12">
                                 <li th:replace="fragments/look-list :: collection-card"></li>
                             </ul>
                         </div>
@@ -81,7 +81,7 @@
                         <div id="wishlist">
                             <!-- wishlist cards here -->
                             <div class="collection-cards">
-                                <ul th:each="makeup : ${user.getMakeupListByNameFromMakeupLists('Wish List').makeups}" class="collection col offset-s1 s11">
+                                <ul th:each="makeup : ${user.getMakeupListByNameFromMakeupLists('Wish List').makeups}" class="collection col s12">
                                     <li th:replace="fragments/look-list :: wishlist-card"></li>
                                 </ul>
                             </div>

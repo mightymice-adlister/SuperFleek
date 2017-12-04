@@ -210,10 +210,10 @@ $(document).ready(function() {
         var key = $("#filter").val();
         var value = $.trim($("#query").val());
 
-        displayEmpty();
+        // displayEmpty();
 
 
-        results.innerHTML = ! value ? '' : products
+        results.innerHTML = ! value ? displayEmpty() : products
           .filter(product => {
             if(key == "brand" || key == "type") {
 
@@ -252,14 +252,12 @@ $(document).ready(function() {
 
   // Displays a no search results message when results div is empty
   function displayEmpty() {
-    if(results.childNodes.length === 1) {
-      console.log(results.childNodes.length);
+    if(document.querySelectorAll('.collection').length > 0) {
       var noResults = `
             <div class="no-results">
             <h4>No results</h4>
             <h6>Try searching for a product</h6>
             </div>`;
-
     }
     return noResults;
 
