@@ -31,7 +31,7 @@
                             </div>
                             <div class="col s6">
                                 <!-- product price -->
-                                <p>$32.00</p>
+                                <h5>$32.00</h5>
                             </div>
                         </div>
                         <div class="row">
@@ -41,26 +41,30 @@
                             </div>
                         </div>
                     </div> <!-- product info text -->
+                    <div class="btn-group">
+                        <div sec:authorize="isAuthenticated()"  th:switch="${userCollection.hasMakeup(makeup)}">
+                            <form th:case="false" th:action="@{/product/{id}/add/Collection(id=${makeup.id})}" th:method="post">
+                                <button class="btn left btn-long">Add To Collection</button>
+                            </form>
+                            <form th:case="true" th:action="@{/product/{id}/remove/Collection(id=${makeup.id})}" th:method="post">
+                                <button class="btn left btn-long">Remove From Collection</button>
+                            </form>
+                        </div>
+                        <div sec:authorize="isAuthenticated()"  th:switch="${userWishList.hasMakeup(makeup)}">
+                            <form th:case="false"  th:action="@{/product/{id}/add/Wish List(id=${makeup.id})}" th:method="post">
+                                <button class="btn btn-long">Add To Wish List</button>
+                            </form>
+                            <form th:case="true"  th:action="@{/product/{id}/remove/Wish List(id=${makeup.id})}" th:method="post">
+                                <button class="btn btn-long">Remove From Wish List</button>
+                            </form>
+                        </div>
+                    </div>
+
                 </div> <!-- main product info row -->
-            </div>
-            <div sec:authorize="isAuthenticated()"  th:switch="${userCollection.hasMakeup(makeup)}">
-                <form th:case="false" th:action="@{/product/{id}/add/Collection(id=${makeup.id})}" th:method="post">
-                <button>Add To Collection</button>
-                </form>
-                <form th:case="true" th:action="@{/product/{id}/remove/Collection(id=${makeup.id})}" th:method="post">
-                <button>Remove From Collection</button>
-                </form>
-            </div>
-            <div sec:authorize="isAuthenticated()"  th:switch="${userWishList.hasMakeup(makeup)}">
-            <form th:case="false"  th:action="@{/product/{id}/add/Wish List(id=${makeup.id})}" th:method="post">
-                <button>Add To Wish List</button>
-            </form>
-            <form th:case="true"  th:action="@{/product/{id}/remove/Wish List(id=${makeup.id})}" th:method="post">
-                <button>Remove From Wish List</button>
-            </form>
             </div>
             <!-- product info banner -->
             <div class="product-review-bar">
+                <!--<p>Rating: </p>-->
                 <div class="star-board">
                     <i class="material-icons tiny ratings">grade</i>
                     <i class="material-icons tiny ratings">grade</i>
@@ -71,23 +75,23 @@
                 <h6 class="review-score">Overwhelmingly positive</h6>
             </div>
         <div sec:authorize="isAuthenticated()"><!-- form div -->
-            <form class="form" th:action="@{/product/{id}(id=${makeup.id})}" th:method="post" th:object="${review}">
-                <input th:field="*{rating}" th:type="radio" name="rating" value="1" id="positive" /><label for="positive">poppin!</label>
-                <input th:field="*{rating}" th:type="radio" name="rating" value="-1" id="negative" /><label for="negative">nah</label>
-                <input th:field="*{title}" th:name="title" />
-                <textarea th:name="body" th:field="*{body}"></textarea>
+            <form class="form center-align" th:action="@{/product/{id}(id=${makeup.id})}" th:method="post" th:object="${review}">
+                <input th:field="*{rating}" th:type="radio" name="rating" value="1" id="positive" /><label for="positive">Love it!</label>
+                <input th:field="*{rating}" th:type="radio" name="rating" value="-1" id="negative" /><label for="negative">Not for me</label>
+                <input th:field="*{title}" th:name="title" placeholder="Title"/>
+                <textarea th:name="body" th:field="*{body}" placeholder="Leave a review"></textarea>
                 <input th:type="submit" th:value="Submit" />
             </form>
         </div><!-- review -->
             <ul class="collection">
-                <li class="collection-item avatar">
-                    <img src="https://source.unsplash.com/45x45/?model" alt="" class="circle" />
-                    <span class="title">This lipstick is lit!!!</span>
-                    <p>@Pinkpony123 <br />
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut tortor pretium viverra suspendisse potenti nullam ac tortor. Sit amet nulla facilisi morbi tempus iaculis urna id volutpat. Facilisi cras fermentum odio eu feugiat pretium nibh ipsum. Viverra ipsum nunc aliquet bibendum enim.
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons green-text">thumb_up</i></a>
-                </li>
+                <!--<li class="collection-item avatar">-->
+                    <!--<img src="https://source.unsplash.com/45x45/?model" alt="" class="circle" />-->
+                    <!--<span th:text="${review.title}" class="title"></span>-->
+                    <!--<p>@Pinkpony123 <br />-->
+                        <!--Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut tortor pretium viverra suspendisse potenti nullam ac tortor. Sit amet nulla facilisi morbi tempus iaculis urna id volutpat. Facilisi cras fermentum odio eu feugiat pretium nibh ipsum. Viverra ipsum nunc aliquet bibendum enim.-->
+                    <!--</p>-->
+                    <!--<a href="#!" class="secondary-content"><i class="material-icons green-text">thumb_up</i></a>-->
+                <!--</li>-->
                 <li class="collection-item avatar" th:each="review : ${makeup.reviews}">
                     <img th:src="${review.user.getProfilePicUrl()}" alt="" class="circle" />
                     <span th:text="${review.title}" class="title">This lipstick is lit!!!</span>
