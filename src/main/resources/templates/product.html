@@ -43,18 +43,18 @@
                     </div> <!-- product info text -->
                     <div class="btn-group">
                         <div sec:authorize="isAuthenticated()"  th:switch="${userCollection.hasMakeup(makeup)}">
-                            <form th:case="false" th:action="@{/product/{id}/add/Collection(id=${makeup.id})}" th:method="post">
+                            <form class="no-height" th:case="false" th:action="@{/product/{id}/add/Collection(id=${makeup.id})}" th:method="post">
                                 <button class="btn left btn-long">Add To Collection</button>
                             </form>
-                            <form th:case="true" th:action="@{/product/{id}/remove/Collection(id=${makeup.id})}" th:method="post">
+                            <form class="no-height" th:case="true" th:action="@{/product/{id}/remove/Collection(id=${makeup.id})}" th:method="post">
                                 <button class="btn left btn-long">Remove From Collection</button>
                             </form>
                         </div>
                         <div sec:authorize="isAuthenticated()"  th:switch="${userWishList.hasMakeup(makeup)}">
-                            <form th:case="false"  th:action="@{/product/{id}/add/Wish List(id=${makeup.id})}" th:method="post">
+                            <form class="no-height" th:case="false"  th:action="@{/product/{id}/add/Wish List(id=${makeup.id})}" th:method="post">
                                 <button class="btn btn-long">Add To Wish List</button>
                             </form>
-                            <form th:case="true"  th:action="@{/product/{id}/remove/Wish List(id=${makeup.id})}" th:method="post">
+                            <form class="no-height" th:case="true"  th:action="@{/product/{id}/remove/Wish List(id=${makeup.id})}" th:method="post">
                                 <button class="btn btn-long">Remove From Wish List</button>
                             </form>
                         </div>
@@ -80,7 +80,7 @@
                 <input th:field="*{rating}" th:type="radio" name="rating" value="-1" id="negative" /><label for="negative">Not for me</label>
                 <input th:field="*{title}" th:name="title" placeholder="Title"/>
                 <textarea th:name="body" th:field="*{body}" placeholder="Leave a review"></textarea>
-                <input th:type="submit" th:value="Submit" />
+                <input class="btn" th:type="submit" th:value="Submit" />
             </form>
         </div><!-- review -->
             <ul class="collection">
