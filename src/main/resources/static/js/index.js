@@ -45,7 +45,13 @@ $(document).ready(function() {
             handleFilestack(response);
             $("#look-input").val(response.filesUploaded[0].url);
             console.log(response.filesUploaded[0].url);
-            $(".submit-look-pic").removeAttr("Hidden")
+          // Add new look
+          if($("#look-input").val() !== "") {
+            $(".add-look-pic").addClass("hidden");
+            $(".submit-look-pic").removeClass("hidden");
+          } else {
+            $(".add-look-pic").removeClass("hidden");
+          }
         });
     }
 //click event for opening the profile setup picture picker
@@ -164,9 +170,6 @@ $(document).ready(function() {
   $(".make-profile-link").click(function(event){
     $(".make-profile-pic-input").submit();
   });
-
-
-
 
 
 

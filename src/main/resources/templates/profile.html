@@ -46,7 +46,7 @@
                                 <button class="add-look-pic waves-effect waves-light btn">Add A Look</button>
                                 <form th:action="@{/look/add/}" th:method="post" th:object="${look}">
                                     <input th:field="*{pictureFilePath}" value="" th:type="hidden" id="look-input"/>
-                                    <input th:type="submit" class="btn submit-look-pic" hidden="hidden" />
+                                    <input th:type="submit" value="submit" class="btn submit-look-pic hidden" hidden="hidden" />
                                 </form>
                                 </span>
                                     </div>
