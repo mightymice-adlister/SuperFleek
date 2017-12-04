@@ -252,7 +252,7 @@ $(document).ready(function() {
 
   // Displays a no search results message when results div is empty
   function displayEmpty() {
-    if(document.querySelectorAll('.collection').length > 0) {
+     {
       var noResults = `
             <div class="no-results">
             <h4>No results</h4>
