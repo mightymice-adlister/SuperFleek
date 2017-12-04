@@ -43,25 +43,22 @@ main {
 
 .welcome{
     position: fixed;
-    top: 21vmax;
+    top: 42vh;
     width: 27vmax;
     right: 5vmax;
     color: #FFF;
 }
 
 .welcome-links{
-    position: fixed;
-    top: 90vmin;
-    width: 27vmax;
-    right: 8vmin;
-    color: #FFF;
+    margin-top: 20vh;
+    right: 6vw;
 }
 
 .mobile-h6{
     color: #FFF;
 }
 .mobile-h1{
-    color: #fe9488;
+    color: #80cbc4;
 }
 
 .bottom-nav{
@@ -76,10 +73,7 @@ main {
 
 @media screen and (min-width:992px) {
     #index {
-
-        /*background: url('http://divaexpress.com.br/wp-content/uploads/2017/06/maquiagem.jpg') center center fixed;*/
-        /*background-size: cover;*/
-        background: url('https://www.paidmodelingjobs.com/wp-content/uploads/2016/04/Cosmetic-Brand-Commercial-Photo-Shoot-Models.jpg') center center fixed;
+        background: url('/imgs/index-bg-compressed.jpg') center center fixed;
         background-size: cover;
     }
 }
@@ -98,11 +92,8 @@ main {
 /*       login         */
 /***********************/
 #login {
-    background: url('https://i.pinimg.com/originals/7f/b2/35/7fb23512240b8c7f8ea0771279fe344d.jpg') center center fixed;
+    background: url('/imgs/login-join-bg-compressed.jpg') center center fixed;
     background-size: cover;
-    /*background: #3494E6;  !* fallback for old browsers *!*/
-    /*background: -webkit-linear-gradient(to right, #EC6EAD, #3494E6);  !* Chrome 10-25, Safari 5.1-6 *!*/
-    /*background: linear-gradient(to right, #EC6EAD, #3494E6); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
 }
 
 .login-form h6 {
@@ -113,7 +104,7 @@ main {
     color: #fff;
     cursor: pointer;
     display: inline-block;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Didact Gothic', sans-serif;
     font-size: 3em;
     left: 32vw;
     letter-spacing: 0.2em;
