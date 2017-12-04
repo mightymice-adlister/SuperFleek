@@ -43,25 +43,22 @@ main {
 
 .welcome{
     position: fixed;
-    top: 21vmax;
+    top: 42vh;
     width: 27vmax;
     right: 5vmax;
     color: #FFF;
 }
 
 .welcome-links{
-    position: fixed;
-    top: 42vmax;
-    width: 27vmax;
-    right: 6vmax;
-    color: #FFF;
+    margin-top: 20vh;
+    right: 6vw;
 }
 
 .mobile-h6{
     color: #FFF;
 }
 .mobile-h1{
-    color: #fe9488;
+    color: #80cbc4;
 }
 
 .bottom-nav{
@@ -76,10 +73,7 @@ main {
 
 @media screen and (min-width:992px) {
     #index {
-
-        /*background: url('http://divaexpress.com.br/wp-content/uploads/2017/06/maquiagem.jpg') center center fixed;*/
-        /*background-size: cover;*/
-        background: url('https://www.paidmodelingjobs.com/wp-content/uploads/2016/04/Cosmetic-Brand-Commercial-Photo-Shoot-Models.jpg') center center fixed;
+        background: url('/imgs/index-bg-compressed.jpg') center center fixed;
         background-size: cover;
     }
 }
@@ -98,11 +92,8 @@ main {
 /*       login         */
 /***********************/
 #login {
-    background: url('https://i.pinimg.com/originals/7f/b2/35/7fb23512240b8c7f8ea0771279fe344d.jpg') center center fixed;
+    background: url('/imgs/login-join-bg-compressed.jpg') center center fixed;
     background-size: cover;
-    /*background: #3494E6;  !* fallback for old browsers *!*/
-    /*background: -webkit-linear-gradient(to right, #EC6EAD, #3494E6);  !* Chrome 10-25, Safari 5.1-6 *!*/
-    /*background: linear-gradient(to right, #EC6EAD, #3494E6); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
 }
 
 .login-form h6 {
@@ -113,7 +104,7 @@ main {
     color: #fff;
     cursor: pointer;
     display: inline-block;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Didact Gothic', sans-serif;
     font-size: 3em;
     left: 32vw;
     letter-spacing: 0.2em;
@@ -127,7 +118,7 @@ main {
     color: #fff;
     cursor: pointer;
     display: inline-block;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Sintony', sans-serif;
     font-size: 3em;
     left: 32vw;
     letter-spacing: 0.2em;
@@ -266,11 +257,11 @@ section:nth-of-type(2) {
     transition: all 2.1s ease-out;
 }
 
-.fp-viewing-three .section2-slider{
+.fp-viewing-two .section2-slider{
     bottom: 10vh;
 }
 
-.fp-viewing-four .section2-slider{
+.fp-viewing-three .section2-slider{
     bottom: 0;
 }
 
@@ -284,7 +275,7 @@ section:nth-of-type(2) {
     transition: opacity 3.1s ease-in-out;
 }
 
-.fp-viewing-four .section3-slider {
+.fp-viewing-three .section3-slider {
     opacity: 1;
 }
 
@@ -380,7 +371,7 @@ section:nth-of-type(2) {
     display: flex;
     flex-flow: column;
     justify-content: space-between;
-    /*height: 25vmax;*/
+    height: 100%;
     margin: 0 auto;
 }
 
@@ -423,6 +414,17 @@ section:nth-of-type(2) {
     margin: 0.5em;
 }
 
+/*.collection-cards {*/
+    /*width: 30vmax;*/
+/*}*/
+.title {
+    margin-right: 1em;
+}
+
+.space-bottom {
+    margin-bottom: 2em;
+}
+
 .tab a.active {
     color:rgb(0, 0, 0)!important;
     /*background-color:#448AFF!important;*/
@@ -433,9 +435,10 @@ section:nth-of-type(2) {
 /*}*/
 .tabs .tab a {
     color: #000!important;
+    font-size: 1.5em;
 }
 .tabs .indicator{
-    background-color:#000!important;
+    background-color:#009688!important;
 }
 
 .card-content #collection, .card-content #looks, .card-content #wishlist {
@@ -451,7 +454,13 @@ section:nth-of-type(2) {
 .flex-container-row {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
+    justify-content: center;
+}
+
+.flex-container-col {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
 }
 
 /***********************/
@@ -499,7 +508,8 @@ section:nth-of-type(2) {
     margin: 3px 0 0 5px;
 }
 .product-title {
-
+    position: relative;
+    top: -17px;
 }
 
 .product-price {
@@ -536,6 +546,11 @@ section:nth-of-type(2) {
     border: 1px solid crimson;
     margin: 10%;
     width: 75%;
+}
+
+.btn-group {
+    position: relative;
+    top: -33px;
 }
 
 
@@ -663,7 +678,7 @@ section:nth-of-type(2) {
     width: 100vw;
     z-index: -1;
     background-color: #000;
-    opacity: 0.5;
+    opacity: 0.7;
     position: absolute;
     top: 0;
 }
@@ -678,10 +693,6 @@ section:nth-of-type(2) {
 .profile-wrapper {
     width: 60%;
     margin: 0 auto;
-}
-
-.page-wrapper {
-    margin-top: 2em;
 }
 
 
@@ -701,6 +712,7 @@ section:nth-of-type(2) {
 
 .logout-btn {
     border: none;
+    background-color: #009688;
     color: #fff;
     cursor: pointer;
     font-size: 1rem;
@@ -712,6 +724,22 @@ section:nth-of-type(2) {
 
 .logout-btn:hover {
     background-color: inherit;
+}
+
+.secondary-btn, .btn-flat:hover {
+    background-color: #ffb74d;
+}
+
+.secondary-btn:hover {
+    background-color: #ffcc80;
+}
+
+a.btn:hover {
+    color: #000;
+}
+
+.card .card-image .card-title {
+    color: #ffcc80;
 }
 
 .btn-long {
@@ -743,18 +771,44 @@ section:nth-of-type(2) {
     border: 1px solid white;
 }
 
-h1 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 3rem;
-    margin: 0.2em 0;
+.space-top {
+    margin-top: 2em;
 }
 
-h2 {
-    font-size: 2rem;
-    margin: 0.3em 0;
+.no-height {
+    height: 0;
 }
+
+.hide-overflow-x {
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Didact Gothic', sans-serif;
+    margin: 0.2em 0;
+    line-height: 1.5em;
+    letter-spacing: 2px;
+}
+
+/*h2 {*/
+    /*font-family: 'Rufina', serif;*/
+    /*font-size: 2rem;*/
+    /*margin: 0.3em 0;*/
+/*}*/
 
 p {
+    font-family: 'Sintony', sans-serif;
+    letter-spacing: 1px;
     font-size: 1rem;
     margin: 0.2em 0;
+}
+
+
+a:link, a:hover, a:visited, a:active {
+    font-family: 'Sintony', sans-serif;
+    color: #000;
+}
+
+a:active, a:hover {
+    color: #ffb74d;
 }
