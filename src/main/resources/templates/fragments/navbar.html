@@ -33,7 +33,7 @@
                 </ul>
                 <ul class="hide-on-small-only right">
                     <li><a href="/search" class="grey-text text-lighten-4">Search</a></li>
-                    <li><a href="/profile" class="grey-text text-lighten-4">My Profile</a></li>
+                    <li sec:authorize="isAuthenticated()"><a href="/profile" class="grey-text text-lighten-4">My Profile</a></li>
                     <li sec:authorize="!isAuthenticated()" ><a href="/login" class="grey-text text-lighten-4">Login</a></li>
                     <li sec:authorize="isAuthenticated()"><form th:action="@{/logout}" th:method="post">
                         <button class="logout-btn grey-text text-lighten-4">Logout</button>
