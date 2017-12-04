@@ -205,7 +205,7 @@ section:nth-of-type(2) {
 }
 
 .breadcrumb.active {
-    color: hotpink !important;
+    color: #ffb74d  !important;
 }
 
 .mp-section-content {
@@ -734,6 +734,7 @@ section:nth-of-type(2) {
     background-color: #ffcc80;
 }
 
+
 a.btn:hover {
     color: #000;
 }
@@ -775,6 +776,22 @@ a.btn:hover {
     margin-top: 2em;
 }
 
+.space-left {
+    margin-left: 2em;
+}
+
+.link.space-left {
+    margin-left: 1.7em;
+}
+
+.link i {
+    margin-right: 1.3em;
+}
+
+.side-nav a:hover {
+    color: #009688;
+}
+
 .no-height {
     height: 0;
 }
@@ -804,9 +821,16 @@ p {
 }
 
 
-a:link, a:hover, a:visited, a:active {
+a:link, a:hover, a:visited, a:active, .link {
     font-family: 'Sintony', sans-serif;
     color: #000;
+    letter-spacing: 1px;
+    font-size: 1rem;
+}
+
+.link {
+    border: transparent;
+    background: none;
 }
 
 a:active, a:hover {
