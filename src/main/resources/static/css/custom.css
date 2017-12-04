@@ -825,7 +825,7 @@ a:link, a:hover, a:visited, a:active, .link {
     font-family: 'Sintony', sans-serif;
     color: #000;
     letter-spacing: 1px;
-    font-size: 1rem;
+    /*font-size: 1rem;*/
 }
 
 .link {
