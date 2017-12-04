@@ -74,7 +74,7 @@
                         </div>
                         <div id="looks">
                             <!-- look cards here -->
-                            <div th:each="look : ${user.lookList}">
+                            <div class="center-block" th:each="look : ${user.lookList}">
                                 <div th:replace="fragments/look-list :: look-card"></div>
                             </div>
                         </div>

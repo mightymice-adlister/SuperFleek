@@ -31,7 +31,7 @@
 
     <!-- link to product page -->
     <div class="card-action">
-    <button class="btn btn-flat btn-long" th:href="@{/look/{id}(id=${look.id})}">View more</button>
+    <a class="btn btn-flat btn-long black-text" th:href="@{/look/{id}(id=${look.id})}">View more</a>
         <span sec:authorize="isAuthenticated()">
             <form class="make-profile-pic-input" th:if="${look.user.id}==${#authentication.principal.id}" th:action="@{/look/{id}/makeprofilepic(id=${look.id})}" th:method="post">
                 <input class="btn btn-flat btn-long" type="submit" value="Make avatar" hidden="hidden"/>
@@ -65,6 +65,7 @@
 <ul>
     <li th:fragment="wishlist-card" class="collection-item avatar">
 
+
         <a th:href="@{/product/{id}(id=${makeup.id})}">
 
             <img th:src="${makeup.thumbnailUrl}" th:alt="${makeup.name}" class="circle" />
@@ -77,6 +78,7 @@
 
         <a th:href="@{/product/{id}(id=${makeup.id})}"
            class="secondary-content"><i class="material-icons">send</i></a>
+
     </li>
 </ul>
 
