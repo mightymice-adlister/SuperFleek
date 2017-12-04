@@ -54,6 +54,31 @@ public class Makeup {
     private String thumbnailUrl;
 
     public Makeup() {
+
+
+    }
+
+    public String getReviewCalculation(){
+        int positive = 0;
+        int negative = 0;
+        for(Review review: reviews ){
+            if (review.getRating()>0){
+                positive+=1;
+            }
+            if (review.getRating()<0){
+                negative+=1;
+            }
+        }
+        if (positive>negative){
+            return "Mostly Positive Reviews";
+        }else if (negative>positive){
+            return "Mostly Negative Reviews";
+        }else if (negative == 0 && positive ==0){
+            return "No Ratings Available";
+        }else{
+            return "Mixed Reviews";
+        }
+
     }
 
     public Long getId() {
@@ -150,5 +175,14 @@ public class Makeup {
 
     public void setThumbnailUrl(String thumbnailUrl) {
         this.thumbnailUrl = thumbnailUrl;
+    }
+
+
+    public int getNumberOfReviews(){
+        int numberOfReviews = 0;
+        for(Review review: reviews){
+            numberOfReviews++;
+        }
+        return numberOfReviews;
     }
 }

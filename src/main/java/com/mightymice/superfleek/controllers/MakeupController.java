@@ -54,15 +54,22 @@ public class MakeupController {
     @GetMapping("/product/{id}")
     public String productView(@PathVariable long id, Model viewModel){
         Makeup makeup = makeups.findOne(id);
-        User signedInUser = users.findByUsername(((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername());
-        MakeupList collection = signedInUser.getMakeupListByNameFromMakeupLists("Collection");
-        MakeupList wishList = signedInUser.getMakeupListByNameFromMakeupLists("Wish List");
+
+
+        if(!SecurityContextHolder.getContext().getAuthentication().getPrincipal().equals("anonymousUser")) {
+            User signedInUser = users.findByUsername(((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername());
+            if(signedInUser.getMakeupLists() !=null) {
+                MakeupList collection = signedInUser.getMakeupListByNameFromMakeupLists("Collection");
+                MakeupList wishList = signedInUser.getMakeupListByNameFromMakeupLists("Wish List");
+                viewModel.addAttribute("userCollection", collection);
+                viewModel.addAttribute("userWishList", wishList);
+            }
+        }
         viewModel.addAttribute("makeup", makeup);
         Review review = new Review();
         review.setRating(0);
         viewModel.addAttribute("review", review);
-        viewModel.addAttribute("userCollection", collection);
-        viewModel.addAttribute("userWishList", wishList);
+
 
         return "product";
     }
@@ -70,6 +77,7 @@ public class MakeupController {
 
     @PostMapping("/product/{id}")
     public String postReview(@ModelAttribute Review review, @ModelAttribute Makeup makeup, @PathVariable long id) {
+
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         review.setUser(user);
         review.setMakeup(makeups.findOne(id));
