@@ -52,10 +52,10 @@
                         </div>
                         <div sec:authorize="isAuthenticated()"  th:switch="${userWishList.hasMakeup(makeup)}">
                             <form class="no-height" th:case="false"  th:action="@{/product/{id}/add/Wish List(id=${makeup.id})}" th:method="post">
-                                <button class="btn btn-long">Add To Wish List</button>
+                                <button class="btn btn-long waves-effect waves-orange secondary-btn">Add To Wish List</button>
                             </form>
                             <form class="no-height" th:case="true"  th:action="@{/product/{id}/remove/Wish List(id=${makeup.id})}" th:method="post">
-                                <button class="btn btn-long">Remove From Wish List</button>
+                                <button class="btn btn-long waves-effect waves-orange secondary-btn">Remove From Wish List</button>
                             </form>
                         </div>
                     </div>

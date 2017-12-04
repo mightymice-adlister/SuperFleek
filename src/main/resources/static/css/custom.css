@@ -736,6 +736,10 @@ section:nth-of-type(2) {
 }
 
 .secondary-btn, .btn-flat:hover {
+    background-color: #ffb74d;
+}
+
+.secondary-btn:hover {
     background-color: #ffcc80;
 }
 
