@@ -160,6 +160,11 @@ $(document).ready(function() {
     $('.edit-description').val($.trim((content)));
   });
 
+  // Make profile pic
+  $(".make-profile-link").click(function(event){
+    $(".make-profile-pic-input").submit();
+  });
+
 
 
 

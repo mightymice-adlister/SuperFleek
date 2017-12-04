@@ -19,7 +19,6 @@
     <div>
         <span th:if="${look.title}!=null" class="card-title" th:text="${look.title}"></span>
         <span th:if="${look.title}==null" class="card-title">My look</span>
-        <a th:href="@{/look/{id}(id=${look.id})}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
     </div>
 
     </div>
@@ -32,7 +31,12 @@
 
     <!-- link to product page -->
     <div class="card-action">
-    <a th:href="@{/look/{id}(id=${look.id})}">View more</a>
+    <a class="btn btn-flat btn-long" th:href="@{/look/{id}(id=${look.id})}">View more</a>
+        <span sec:authorize="isAuthenticated()">
+            <form class="make-profile-pic-input" th:if="${look.user.id}==${#authentication.principal.id}" th:action="@{/look/{id}/makeprofilepic(id=${look.id})}" th:method="post">
+                <input class="btn btn-flat btn-long" type="submit" value="Make avatar" hidden="hidden"/>
+            </form>
+        </span>
     </div>
     </div>
     </div>

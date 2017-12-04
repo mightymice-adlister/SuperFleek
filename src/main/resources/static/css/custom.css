@@ -371,7 +371,7 @@ section:nth-of-type(2) {
 }
 
 .profile-user-avatar {
-    height: 100%;
+    /*height: 100%;*/
     width: 100%;
     border-radius: 4px;
 }
@@ -379,8 +379,7 @@ section:nth-of-type(2) {
 .profile-info-container {
     display: flex;
     flex-flow: column;
-    justify-content: space-between;
-    /*height: 25vmax;*/
+    justify-content: center;
     margin: 0 auto;
 }
 
