@@ -50,8 +50,8 @@ main {
 }
 
 .welcome-links{
-    margin-top: 20vh;
-    right: 6vw;
+    position: relative;
+    right: 10%;
 }
 
 .mobile-h6{
@@ -723,7 +723,7 @@ section:nth-of-type(2) {
 }
 
 .logout-btn:hover {
-    background-color: inherit;
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .secondary-btn, .btn-flat:hover {
@@ -825,7 +825,7 @@ a:link, a:hover, a:visited, a:active, .link {
     font-family: 'Sintony', sans-serif;
     color: #000;
     letter-spacing: 1px;
-    font-size: 1rem;
+    /*font-size: 1rem;*/
 }
 
 .link {
