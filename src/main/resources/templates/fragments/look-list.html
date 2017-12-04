@@ -56,6 +56,26 @@
         </li>
     </ul>
 
+<!-- collection card -->
+
+<ul>
+    <li th:fragment="wishlist-card" class="collection-item avatar">
+
+        <a th:href="@{/product/{id}(id=${makeup.id})}">
+
+            <img th:src="${makeup.thumbnailUrl}" th:alt="${makeup.name}" class="circle" />
+
+            <span th:text="${makeup.name}" class="title">Title</span>
+
+            <p th:text="${makeup.brand.name}">Brand name</p>
+
+        </a>
+
+        <a th:href="@{/product/{id}(id=${makeup.id})}"
+           class="secondary-content"><i class="material-icons">send</i></a>
+    </li>
+</ul>
+
 
 </body>
 </html>
