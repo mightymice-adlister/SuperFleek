@@ -7,20 +7,20 @@
 <body>
 <div th:fragment="navbar">
     <div class="navbar-fixed">
-        <nav class="white">
+        <nav class="teal">
             <div class="nav-wrapper">
-                <a href="#" class="show-on-small hidden brand-logo left red-text">Superfleek</a>
-                <a href="#" class="hide-on-med-and-down brand-logo red-text">Superfleek</a>
+                <a href="#" class="show-on-small hidden brand-logo left grey-text text-lighten-4">Superfleek</a>
+                <a href="#" class="hide-on-med-and-down brand-logo grey-text text-lighten-4">Superfleek</a>
                 <a href="#" data-activates="mobile-demo"
-                   class="button-collapse red-text right"><i class="material-icons">menu</i></a>
+                   class="button-collapse grey-text text-lighten-4 right"><i class="material-icons">menu</i></a>
                 <ul class="nav-search">
                     <li>
                         <div class="row">
                             <div class="col s12">
                                 <div class="row" id="topbarsearch">
-                                    <div class="input-field col s6 s12 red-text">
+                                    <div class="input-field col s6 s12 grey-text lighten-4">
                                         <form th:action="@{/search}" th:method="get">
-                                            <i class="red-text material-icons prefix">search</i>
+                                            <i class="grey-text text-lighten-4 material-icons prefix">search</i>
                                             <input type="text" placeholder="search" class="autocomplete"
                                                    id="query" th:name="query"
                                                    th:value="${query}"/>
@@ -32,13 +32,13 @@
                     </li>
                 </ul>
                 <ul class="hide-on-small-only right">
-                    <li><a href="/search" class="red-text">Search</a></li>
-                    <li><a href="/profile" class="red-text">My Profile</a></li>
-                    <li sec:authorize="!isAuthenticated()" ><a href="/login" class="red-text">Login</a></li>
+                    <li><a href="/search" class="grey-text text-lighten-4">Search</a></li>
+                    <li><a href="/profile" class="grey-text text-lighten-4">My Profile</a></li>
+                    <li sec:authorize="!isAuthenticated()" ><a href="/login" class="grey-text text-lighten-4">Login</a></li>
                     <li sec:authorize="isAuthenticated()"><form th:action="@{/logout}" th:method="post">
-                        <button class="logout-btn red-text">Logout</button>
+                        <button class="logout-btn grey-text text-lighten-4">Logout</button>
                     </form></li>
-                    <li sec:authorize="!isAuthenticated()"><a href="/sign-up" class="red-text">Join</a></li>
+                    <li sec:authorize="!isAuthenticated()"><a href="/sign-up" class="grey-text text-lighten-4 teal">Join</a></li>
                 </ul>
             </div>
         </nav>

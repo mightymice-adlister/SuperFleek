@@ -51,9 +51,9 @@ main {
 
 .welcome-links{
     position: fixed;
-    top: 42vmax;
+    top: 90vmin;
     width: 27vmax;
-    right: 6vmax;
+    right: 8vmin;
     color: #FFF;
 }
 
@@ -127,7 +127,7 @@ main {
     color: #fff;
     cursor: pointer;
     display: inline-block;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Sintony', sans-serif;
     font-size: 3em;
     left: 32vw;
     letter-spacing: 0.2em;
@@ -444,9 +444,10 @@ section:nth-of-type(2) {
 /*}*/
 .tabs .tab a {
     color: #000!important;
+    font-size: 1.5em;
 }
 .tabs .indicator{
-    background-color:#000!important;
+    background-color:#009688!important;
 }
 
 .card-content #collection, .card-content #looks, .card-content #wishlist {
@@ -686,7 +687,7 @@ section:nth-of-type(2) {
     width: 100vw;
     z-index: -1;
     background-color: #000;
-    opacity: 0.5;
+    opacity: 0.7;
     position: absolute;
     top: 0;
 }
@@ -720,6 +721,7 @@ section:nth-of-type(2) {
 
 .logout-btn {
     border: none;
+    background-color: #009688;
     color: #fff;
     cursor: pointer;
     font-size: 1rem;
@@ -731,6 +733,14 @@ section:nth-of-type(2) {
 
 .logout-btn:hover {
     background-color: inherit;
+}
+
+.secondary-btn, .btn-flat:hover {
+    background-color: #ffcc80;
+}
+
+.card .card-image .card-title {
+    color: #ffcc80;
 }
 
 .btn-long {
@@ -770,18 +780,36 @@ section:nth-of-type(2) {
     height: 0;
 }
 
-h1 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 3rem;
-    margin: 0.2em 0;
+.hide-overflow-x {
+    overflow-x: hidden;
 }
 
-h2 {
-    font-size: 2rem;
-    margin: 0.3em 0;
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Didact Gothic', sans-serif;
+    margin: 0.2em 0;
+    line-height: 1.5em;
+    letter-spacing: 2px;
 }
+
+/*h2 {*/
+    /*font-family: 'Rufina', serif;*/
+    /*font-size: 2rem;*/
+    /*margin: 0.3em 0;*/
+/*}*/
 
 p {
+    font-family: 'Sintony', sans-serif;
+    letter-spacing: 1px;
     font-size: 1rem;
     margin: 0.2em 0;
+}
+
+
+a:link, a:hover, a:visited, a:active {
+    font-family: 'Sintony', sans-serif;
+    color: #000;
+}
+
+a:active, a:hover {
+    color: #ffb74d;
 }
