@@ -45,7 +45,13 @@ $(document).ready(function() {
             handleFilestack(response);
             $("#look-input").val(response.filesUploaded[0].url);
             console.log(response.filesUploaded[0].url);
-            $(".submit-look-pic").removeAttr("Hidden")
+          // Add new look
+          if($("#look-input").val() !== "") {
+            $(".add-look-pic").addClass("hidden");
+            $(".submit-look-pic").removeClass("hidden");
+          } else {
+            $(".add-look-pic").removeClass("hidden");
+          }
         });
     }
 //click event for opening the profile setup picture picker
@@ -56,6 +62,13 @@ $(document).ready(function() {
     var editTitleIsOpen= false;
     var editDescriptionIsOpen = false;
     var makeupSelectorIsShowing=false;
+
+    $('.master-edit').on("click", function(){
+        event.preventDefault();
+        $('.master-edit').attr("hidden", "hidden");
+        $('.made-edits').removeAttr("hidden");
+        $('.hide-makeup-select').removeAttr("hidden");
+    });
 
     function showEditTitle(event){
         event.preventDefault();
@@ -78,6 +91,7 @@ $(document).ready(function() {
     $("a.show-makeup-select").on("click", function(event){
         event.preventDefault();
         makeupSelectorIsShowing = true;
+        $(".master-edit").attr("hidden", "hidden");
         $(".makeup-select-div").removeAttr("hidden");
         $(".show-makeup-select").attr("hidden", "hidden");
         $(".made-edits").removeAttr("hidden");
@@ -124,7 +138,8 @@ $(document).ready(function() {
         if((!editTitleIsOpen)&&(!editDescriptionIsOpen)) {
             $(".made-edits").attr("hidden", "hidden");
         }
-        $(".hide-makeup-select").attr("hidden","hidden")
+        $(".hide-makeup-select").attr("hidden","hidden");
+        $(".master-edit").removeAttr("hidden");
     });
 //this creates empty labesl after checkboxes so that they render in materialize
     $('input[type=checkbox]').each(function() {
@@ -141,8 +156,23 @@ $(document).ready(function() {
         }
     );
 
+  $('.title-field').blur(function(){
+    var content = $('.title-field').text();
+    $('.edit-title').val($.trim((content)));
+  });
 
-    $('select').material_select();
+  $('.description-field').blur(function(){
+    var content = $('.description-field').text();
+    $('.edit-description').val($.trim((content)));
+  });
+
+  // Make profile pic
+  $(".make-profile-link").click(function(event){
+    $(".make-profile-pic-input").submit();
+  });
+
+
+
 
 
     // Add bio text to bio input
@@ -234,17 +264,5 @@ $(document).ready(function() {
     return noResults;
 
   }
-
-
-
-
-
-
-
-
-
-
 });
 
-
-// <p><a href="/product/${id}">${name}, ${brand.name} (${type.name})</a></p>

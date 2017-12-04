@@ -8,82 +8,95 @@
 <header>
     <nav th:replace="fragments/navbar :: navbar"></nav>
 </header>
-<div class="container">
-    <form th:action="@{/look/{id}/update(id=${look.id})}" th:method="post" th:object="${look}">
 
-    <div class="row">
-        <div class="col s10 offset-s1 m6 offset-m3">
-            <h2  th:text="${look.title}">Default Title</h2>
-            <span sec:authorize="isAuthenticated()">
-            <a th:if="${look.user.id} == ${#authentication.principal.id}" href="#" class="show-edit-title">Edit Title</a>
-            <input type="text" class="edit-title" name="edit-title" th:field="*{title}" hidden="hidden"/>
-            <a href="#" class="cancel-edit-title" hidden="hidden">Cancel Edit Title</a>
-                </span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col s10 offset-s1 m6 offset-m3">
-            <img th:src="${look.pictureFilePath}" alt=""/>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col s10 offset-s1 m6 offset-m3">
-            <p th:text="${look.description}"></p>
-            <span sec:authorize="isAuthenticated()">
-            <a th:if="${look.user.id} == ${#authentication.principal.id}" href="#" class="show-edit-description">Edit Description</a>
-            <input type="text" class="edit-description" name="edit-description" th:field="*{description}" hidden="hidden"/>
-            <a href="#" class="cancel-edit-description" hidden="hidden">Hide Edit Description</a>
-                </span>
-        </div>
-    </div>
+
+
+<main>
+    <div class="container valign-center">
+        <form th:action="@{/look/{id}/update(id=${look.id})}" th:method="post" th:object="${look}">
         <div class="row">
-            <div class="col s10 offset-s1 m6 offset-m3">
-                <p th:each="makeup:${look.makeups}">
-                    <a th:href="@{/product/{id}(id=${makeup.id})}" th:text="${makeup.name}">
+            <!-- Image-->
+            <div class="col s12 m6">
+                <img class="responsive-img" th:src="${look.pictureFilePath}" alt=""/>
+                <a sec:authorize="isAuthenticated()" th:if="${look.user.id} == ${#authentication.principal.id}" class="master-edit" href="#">
+                    <button class="btn btn-long">Edit</button>
+                </a>
+                <a class="made-edits" href="#" hidden="hidden">
+                    <input class="btn btn-long" type="submit" value="Submit"/>
+                </a>
+                <a class="hide-makeup-select" href="#" hidden="hidden">
+                    <button class="btn btn-long red">Cancel</button>
+                </a>
+
+                <!--<span sec:authorize="isAuthenticated()">-->
+                    <!--<a th:if="${look.user.id} == ${#authentication.principal.id}" href="#" class="show-edit-title">Edit Title</a>-->
+                    <!--<input type="text" class="edit-title" name="edit-title" th:field="*{title}" hidden="hidden"/>-->
+                    <!--<a href="#" class="cancel-edit-title" hidden="hidden">Cancel Edit Title</a>-->
+                <!--</span>-->
+            </div>
+
+            <div class="col s12 m6">
+                <div class="input-field" sec:authorize="isAuthenticated()">
+                    <a th:if="${look.user.id} == ${#authentication.principal.id}"
+                       class="show-makeup-select"
+                       href="#">
+                        <button class="btn btn-large btn-long center-align">Tag your look</button>
                     </a>
-                </p>
-
-                <!--this code is for using checkboxes for selecting makeups-->
-                <!--<div sec:authorize="isAuthenticated()" hidden="hidden">-->
-                    <!--<p th:each="makeup:${look.user.getCollectionFromMakeupList().makeups}">-->
-                    <!--<input th:field="*{makeups}" type="checkbox"   th:value="${makeup.id}" th:id="${makeup.id}"/><label th:text="${makeup.name}"></label>-->
-                    <!--</p>-->
-                <!--</div>-->
-            </div>
-        </div>
-    <div class="row">
-
-            <div class="input-field col s10 offset-s1 m6 offset-m3" sec:authorize="isAuthenticated()">
-                <a th:if="${look.user.id} == ${#authentication.principal.id}" class="show-makeup-select" href="#">Add/Edit Makeup Used</a>
-                <div class="makeup-select-div" hidden="hidden">
-                <select class="makeup-select" multiple="multiple" th:field="*{makeups}">
-                    <!--<option value="" disabled selected>Choose your option</option>-->
-                    <option th:each="makeup:${look.user.getCollectionFromMakeupList().makeups}" th:value="${makeup.id}" th:text="${makeup.name}">Option 1</option>
-                    <!--<option value="2">Option 2</option>-->
-                    <!--<option value="3">Option 3</option>-->
-                </select>
+                    <div class="makeup-select-div" hidden="hidden">
+                        <select class="makeup-select" multiple="multiple" th:field="*{makeups}">
+                            <option th:each="makeup:${look.user.getCollectionFromMakeupList().makeups}" th:value="${makeup.id}" th:text="${makeup.name}"></option>
+                        </select>
+                    </div>
                 </div>
-                <a class="hide-makeup-select" href="#" hidden="hidden">Cancel Makeup Edit</a>
+                <p class="space-top" th:each="makeup:${look.makeups}">
+                    <a th:href="@{/product/{id}(id=${makeup.id})}" th:text="'#' + ${makeup.name}"></a>
+                </p>
             </div>
+        </div> <!-- Image and Tag -->
 
-        </div>
-        <div class="row made-edits" hidden="hidden">
-            <div class="col s10 offset-s1 m6 offset-m3">
-                <input type="submit" value="Update Look"/>
+        <div class="row">
+            <div class="col s12 m6">
+                <div class="flex-container-row">
+                    <!-- Title -->
+                    <span sec:authorize="isAuthenticated()">
+                        <span th:if="${look.user.id} == ${#authentication.principal.id}"
+                              class="title-field center-align" contenteditable="true">
+                            <h3 th:if="${look.title != null || look.title != ''}" th:text="${look.title}"></h3>
+                            <h3 th:if="${look.title == null}">My look</h3>
+                        </span>
+                        <span th:unless="${look.user.id} == ${#authentication.principal.id}" class="center-align"
+                           contenteditable="false" th:text="${look.title}">
+                            Default Title
+                        </span>
+                    </span>
+                    <input type="text" class="edit-title" name="edit-title" th:field="*{title}" hidden="hidden"/>
+                </div> <!-- flex container -->
+
+
+                <!-- Description -->
+                <span sec:authorize="isAuthenticated()">
+                    <span th:if="${look.user.id} == ${#authentication.principal.id}">
+                        <p th:if="${look.description != null}" class="description-field center-align" contenteditable="true" th:text="${look.description}"></p>
+                        <p th:if="${look.description == null}" class="description-field center-align" contenteditable="true">Let's talk about my look</p>
+                    </span>
+                    <span th:unless="${look.user.id} == ${#authentication.principal.id}">
+                        <p th:if="${look.description != null}" class="center-align"
+                           contenteditable="false" th:text="${look.description}"></p>
+                        <p th:if="${look.description == null}" class="center-align"
+                           contenteditable="false" th:text="${look.description}">Let's talk about my look</p>
+                    </span>
+
+
+                </span>
+                <input type="text" class="edit-description" name="edit-description" th:field="*{description}"
+                       hidden="hidden"/>
             </div>
         </div>
-
-    </form>
-</div>
-
-
-
-
-
-
+        </form>
+    </div> <!-- container -->
+</main>
 
 <footer>
-    <div th:replace="fragments/footer :: menu-bottom"></div>
 </footer>
 <div th:replace="fragments/footer :: scripts"></div>
 </body>
