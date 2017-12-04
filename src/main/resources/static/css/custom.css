@@ -776,6 +776,18 @@ a.btn:hover {
     margin-top: 2em;
 }
 
+.space-left {
+    margin-left: 2em;
+}
+
+.link.space-left {
+    margin-left: 1.7em;
+}
+
+.link i {
+    margin-right: 1.3em;
+}
+
 .no-height {
     height: 0;
 }
@@ -805,9 +817,12 @@ p {
 }
 
 
-a:link, a:hover, a:visited, a:active {
+a:link, a:hover, a:visited, a:active, .link {
     font-family: 'Sintony', sans-serif;
     color: #000;
+    letter-spacing: 1px;
+    font-size: 1rem;
+    /*margin: 0.2em 0;*/
 }
 
 a:active, a:hover {

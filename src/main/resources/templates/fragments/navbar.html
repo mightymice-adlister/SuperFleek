@@ -44,10 +44,10 @@
         </nav>
     </div>
     <ul class="side-nav" id="mobile-demo">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">Javascript</a></li>
-        <li><a href="mobile.html">Mobile</a></li>
+        <li><a href="/profile"><i class="material-icons">account_box</i> My profile</a></li>
+        <li><a href="/search"><i class="material-icons">search</i>Search products</a></li>
+        <li><form th:action="@{/logout}"
+                  th:method="post"><button class="link space-left" th:href="@{/logout}"><i class="material-icons">power_settings_new</i>Logout</button></form></li>
     </ul>
 
 </div>
