@@ -256,5 +256,6 @@ $(document).ready(function() {
             </div>`;
     
     return noResults;
+}
 });
 
