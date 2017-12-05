@@ -115,17 +115,7 @@ main {
 }
 
 .signup-btn:hover{
-    color: #fff;
-    cursor: pointer;
-    display: inline-block;
-    font-family: 'Sintony', sans-serif;
-    font-size: 3em;
-    left: 32vw;
-    letter-spacing: 0.2em;
-    position: relative;
-    top: 5vh;
     transform: rotate(11deg);
-    z-index: 99;
 }
 
 .login-btn {
@@ -820,8 +810,6 @@ p {
 a:link, a:hover, a:visited, a:active, .link {
     font-family: 'Sintony', sans-serif;
     color: #000;
-    letter-spacing: 1px;
-    /*font-size: 1rem;*/
 }
 
 .link {
