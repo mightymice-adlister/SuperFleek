@@ -835,3 +835,11 @@ a:link, a:hover, a:visited, a:active, .link {
 a:active, a:hover {
     color: #ffb74d;
 }
+
+.main-icon {
+    display: inline-block;
+    height: 48px;
+    width: 48px;
+    position: relative;
+    top: 8px;
+}
