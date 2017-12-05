@@ -80,11 +80,8 @@ main {
 
 @media screen and (max-width:991px) {
     #index {
-        /*background: url('https://i.pinimg.com/originals/7f/b2/35/7fb23512240b8c7f8ea0771279fe344d.jpg') center center fixed;*/
-        /*background-size: cover;*/
-        background: url('https://www.paidmodelingjobs.com/wp-content/uploads/2016/04/Cosmetic-Brand-Commercial-Photo-Shoot-Models.jpg') center center fixed;
+        background: url('/imgs/index-bg-mobile.jpg') center center fixed;
         background-size: cover;
-
     }
 }
 
@@ -98,6 +95,11 @@ main {
 
 .login-form h6 {
     margin-top: 2em;
+}
+
+.login-img {
+    /*background: url('/imgs/vanity-bouquet-640.jpeg') center center fixed;*/
+    /*background-size: cover;*/
 }
 
 .signup-btn {
