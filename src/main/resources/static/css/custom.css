@@ -773,7 +773,7 @@ a.btn:hover {
 }
 
 .space-left {
-    margin-left: 2em;
+    margin-left: 2em !important;
 }
 
 .link.space-left {

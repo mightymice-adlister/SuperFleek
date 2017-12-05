@@ -24,9 +24,9 @@
                             </div>
                         </div>
                         <!-- User info col -->
-                        <div class="col s12 m6 l3">
+                        <div class="col s12 m6 l4">
                             <div class="profile-info-container center-align">
-                                <div class="row">
+                                <div class="row space-left">
                                     <div class="col s12">
                                         <h4 class="profile-username" th:text="'Welcome, ' + ${user.username}"></h4>
                                         <!-- edit profile button -->
@@ -40,7 +40,7 @@
                                 </div>
 
                                 <!-- Add a look button -->
-                                <div class="row">
+                                <div class="row space-left">
                                     <div class="col s12">
                                     <span sec:authorize="isAuthenticated()" th:if="${user.id}==${#authentication.principal.id}">
                                 <button class="add-look-pic waves-effect waves-light btn grey darken-4">Add A
