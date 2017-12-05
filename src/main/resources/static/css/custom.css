@@ -830,3 +830,7 @@ a:active, a:hover {
     position: relative;
     top: 8px;
 }
+
+.bring-to-front {
+    z-index: 99;
+}
