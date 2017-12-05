@@ -249,15 +249,12 @@ $(document).ready(function() {
 
   // Displays a no search results message when results div is empty
   function displayEmpty() {
-    {
       var noResults = `
             <div class="no-results">
             <h4>No results</h4>
             <h6>Try searching for a product</h6>
             </div>`;
-    }
+    
     return noResults;
-
-  }
 });
 
