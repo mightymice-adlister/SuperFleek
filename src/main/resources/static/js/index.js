@@ -210,9 +210,6 @@ $(document).ready(function() {
         var key = $("#filter").val();
         var value = $.trim($("#query").val());
 
-        // displayEmpty();
-
-
         results.innerHTML = ! value ? displayEmpty() : products
           .filter(product => {
             if(key == "brand" || key == "type") {
@@ -252,7 +249,7 @@ $(document).ready(function() {
 
   // Displays a no search results message when results div is empty
   function displayEmpty() {
-    if(document.querySelectorAll('.collection').length > 0) {
+    {
       var noResults = `
             <div class="no-results">
             <h4>No results</h4>

@@ -8,25 +8,23 @@
 
 <header>
     <nav class="show-on-small" th:replace="fragments/navbar :: navbar"></nav>
-
-    <!--<div class="navbar-fixed">-->
-        <!--<nav class="hidden show-on-medium-and-down">-->
-            <!--<div class="nav-wrapper red lighten-5 red-text">-->
-                <!--<form th:action="@{/search}" th:method="get">-->
-                    <!--<div class="input-field">-->
-                        <!--<input id="query2" type="search" th:name="query" th:value="${query}"-->
-                        <!--required="required" />-->
-                        <!--<label class="label-icon" for="query2"><i class="material-icons red-text">search</i></label>-->
-                        <!--<i class="material-icons">close</i>-->
-                    <!--</div>-->
-                <!--</form>-->
-            <!--</div>-->
-        <!--</nav>-->
-    <!--</div>-->
 </header>
 
 <main>
     <div class="container">
+        <nav>
+            <div class="nav-wrapper space-top grey darken-4">
+                <form th:action="@{/search}" th:method="get">
+                    <div class="input-field">
+                        <input placeholder="search" type="search" id="query" th:name="query"
+                               th:value="${query}" />
+                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                        <i class="material-icons">close</i>
+                    </div>
+                </form>
+            </div>
+        </nav>
+
         <div class="row">
             <div class="col s12 offset-m1 m10">
                 <div id="results">

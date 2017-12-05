@@ -44,18 +44,18 @@
                     <div class="btn-group">
                         <div sec:authorize="isAuthenticated()"  th:switch="${userCollection.hasMakeup(makeup)}">
                             <form class="no-height" th:case="false" th:action="@{/product/{id}/add/Collection(id=${makeup.id})}" th:method="post">
-                                <button class="btn left btn-long">Add To Collection</button>
+                                <button class="btn left btn-long grey darken-4">Add To Collection</button>
                             </form>
                             <form class="no-height" th:case="true" th:action="@{/product/{id}/remove/Collection(id=${makeup.id})}" th:method="post">
-                                <button class="btn left btn-long">Remove From Collection</button>
+                                <button class="btn left btn-long grey darken-4">Remove From Collection</button>
                             </form>
                         </div>
                         <div sec:authorize="isAuthenticated()"  th:switch="${userWishList.hasMakeup(makeup)}">
                             <form class="no-height" th:case="false"  th:action="@{/product/{id}/add/Wish List(id=${makeup.id})}" th:method="post">
-                                <button class="btn btn-long waves-effect waves-orange secondary-btn">Add To Wish List</button>
+                                <button class="btn btn-long waves-effect grey darken-4">Add To Wish List</button>
                             </form>
                             <form class="no-height" th:case="true"  th:action="@{/product/{id}/remove/Wish List(id=${makeup.id})}" th:method="post">
-                                <button class="btn btn-long waves-effect waves-orange secondary-btn">Remove From Wish List</button>
+                                <button class="btn btn-long waves-effect grey darken-4">Remove From Wish List</button>
                             </form>
                         </div>
                     </div>
@@ -81,28 +81,17 @@
                 <input th:field="*{rating}" th:type="radio" name="rating" value="-1" id="negative" /><label for="negative">Not for me</label>
                 <input th:field="*{title}" th:name="title" placeholder="Title"/>
                 <textarea th:name="body" th:field="*{body}" placeholder="Leave a review"></textarea>
-                <input class="btn" th:type="submit" th:value="Submit" />
+                <input class="btn grey darken-4" th:type="submit" th:value="Submit" />
             </form>
         </div><!-- review -->
             <ul class="collection">
-                <!--<li class="collection-item avatar">-->
-                    <!--<img src="https://source.unsplash.com/45x45/?model" alt="" class="circle" />-->
-                    <!--<span th:text="${review.title}" class="title"></span>-->
-                    <!--<p>@Pinkpony123 <br />-->
-                        <!--Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut tortor pretium viverra suspendisse potenti nullam ac tortor. Sit amet nulla facilisi morbi tempus iaculis urna id volutpat. Facilisi cras fermentum odio eu feugiat pretium nibh ipsum. Viverra ipsum nunc aliquet bibendum enim.-->
-                    <!--</p>-->
-                    <!--<a href="#!" class="secondary-content"><i class="material-icons green-text">thumb_up</i></a>-->
-                <!--</li>-->
                 <li class="collection-item avatar" th:each="review : ${makeup.reviews}">
                     <img th:src="${review.user.getProfilePicUrl()}" alt="" class="circle" />
                     <span th:text="${review.title}" class="title">This lipstick is lit!!!</span>
                     <p th:text="${'@'+review.user.username}"></p>
-                    <p th:text="${review.body}">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut tortor pretium viverra suspendisse potenti nullam ac tortor. Sit amet nulla facilisi morbi tempus iaculis urna id volutpat. Facilisi cras fermentum odio eu feugiat pretium nibh ipsum. Viverra ipsum nunc aliquet bibendum enim.
-                    </p>
+                    <p th:text="${review.body}"></p>
                     <a th:if="${review.rating} == 1" href="#!" class="secondary-content"><i class="material-icons green-text">thumb_up</i></a>
                     <a th:if="${review.rating} == -1" href="#!" class="secondary-content"><i class="material-icons red-text">thumb_down</i></a>
-
                 </li>
             </ul>
         </div>
