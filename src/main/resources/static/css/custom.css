@@ -80,11 +80,8 @@ main {
 
 @media screen and (max-width:991px) {
     #index {
-        /*background: url('https://i.pinimg.com/originals/7f/b2/35/7fb23512240b8c7f8ea0771279fe344d.jpg') center center fixed;*/
-        /*background-size: cover;*/
-        background: url('https://www.paidmodelingjobs.com/wp-content/uploads/2016/04/Cosmetic-Brand-Commercial-Photo-Shoot-Models.jpg') center center fixed;
+        background: url('/imgs/index-bg-mobile.jpg') center center fixed;
         background-size: cover;
-
     }
 }
 
@@ -98,6 +95,11 @@ main {
 
 .login-form h6 {
     margin-top: 2em;
+}
+
+.login-img {
+    /*background: url('/imgs/vanity-bouquet-640.jpeg') center center fixed;*/
+    /*background-size: cover;*/
 }
 
 .signup-btn {
@@ -115,17 +117,7 @@ main {
 }
 
 .signup-btn:hover{
-    color: #fff;
-    cursor: pointer;
-    display: inline-block;
-    font-family: 'Sintony', sans-serif;
-    font-size: 3em;
-    left: 32vw;
-    letter-spacing: 0.2em;
-    position: relative;
-    top: 5vh;
     transform: rotate(11deg);
-    z-index: 99;
 }
 
 .login-btn {
@@ -356,9 +348,9 @@ section:nth-of-type(2) {
 }
 
 .user-avatar-container {
-    height: 25vmin;
-    width: 25vmin;
-    margin-right: 25px;
+    /*height: 25vmin;*/
+    /*width: 25vmin;*/
+    /*margin-right: 25px;*/
 }
 
 .profile-user-avatar {
@@ -563,7 +555,7 @@ section:nth-of-type(2) {
 }
 
 #query {
-    width: 25vw;
+
 }
 .searchbar {
     border: 1px solid #ccc;
@@ -579,15 +571,12 @@ section:nth-of-type(2) {
 }
 
 .no-results {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-left: -15vmax;
-    margin-top: -15vmax;
     border: 5px dashed #ddd;
     border-radius: 20px;
-    height: 30vmax;
-    width: 30vmax;
+    height: 40vmax;
+    width: 40vmax;
+    vertical-align: middle;
+    margin: 3em auto;
 }
 
 .no-results h6 {
@@ -634,7 +623,7 @@ section:nth-of-type(2) {
 }
 /* label underline focus color */
 .input-field input[type=password]:focus {
-    border-bottom: 1px solid #000 !important;
+    border-bottom: 1px solid #fff !important;
     box-shadow: 0 1px 0 0 #000 !important;
 }
 /* valid color */
@@ -712,7 +701,6 @@ section:nth-of-type(2) {
 
 .logout-btn {
     border: none;
-    background-color: #009688;
     color: #fff;
     cursor: pointer;
     font-size: 1rem;
@@ -777,7 +765,7 @@ a.btn:hover {
 }
 
 .space-left {
-    margin-left: 2em;
+    margin-left: 2em !important;
 }
 
 .link.space-left {
@@ -824,8 +812,6 @@ p {
 a:link, a:hover, a:visited, a:active, .link {
     font-family: 'Sintony', sans-serif;
     color: #000;
-    letter-spacing: 1px;
-    /*font-size: 1rem;*/
 }
 
 .link {
@@ -835,4 +821,16 @@ a:link, a:hover, a:visited, a:active, .link {
 
 a:active, a:hover {
     color: #ffb74d;
+}
+
+.main-icon {
+    display: inline-block;
+    height: 48px;
+    width: 48px;
+    position: relative;
+    top: 8px;
+}
+
+.bring-to-front {
+    z-index: 99;
 }

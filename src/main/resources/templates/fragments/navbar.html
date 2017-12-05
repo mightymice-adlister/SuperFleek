@@ -7,38 +7,23 @@
 <body>
 <div th:fragment="navbar">
     <div class="navbar-fixed">
-        <nav class="teal">
+        <nav class="grey darken-4">
             <div class="nav-wrapper">
-                <a href="/" class="show-on-small hidden brand-logo left grey-text text-lighten-4">Superfleek</a>
-                <a href="/" class="hide-on-med-and-down brand-logo grey-text text-lighten-4">Superfleek</a>
+                <a href="/" class="show-on-small hidden brand-logo left grey-text text-lighten-4"><img
+                        class="main-icon" src="/imgs/Lipstick-PNG-Pic.ico" /> Superfleek</a>
+                <!--<a href="/" class="hide-on-med-and-down br and-logo grey-text text-lighten-4">Superfleek</a>-->
                 <a href="#" data-activates="mobile-demo"
                    class="button-collapse grey-text text-lighten-4 right"><i class="material-icons">menu</i></a>
-                <ul class="nav-search">
-                    <li>
-                        <div class="row">
-                            <div class="col s12">
-                                <div class="row" id="topbarsearch">
-                                    <div class="input-field col s6 s12 grey-text lighten-4">
-                                        <form th:action="@{/search}" th:method="get">
-                                            <i class="grey-text text-lighten-4 material-icons prefix">search</i>
-                                            <input type="text" placeholder="search" class="autocomplete grey-text text-lighten-4"
-                                                   id="query" th:name="query"
-                                                   th:value="${query}"/>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
                 <ul class="hide-on-small-only right">
                     <li><a href="/search" class="grey-text text-lighten-4">Search</a></li>
                     <li sec:authorize="isAuthenticated()"><a href="/profile" class="grey-text text-lighten-4">My Profile</a></li>
                     <li sec:authorize="!isAuthenticated()" ><a href="/login" class="grey-text text-lighten-4">Login</a></li>
                     <li sec:authorize="isAuthenticated()"><form th:action="@{/logout}" th:method="post">
-                        <button class="logout-btn grey-text text-lighten-4">Logout</button>
+                        <button class="logout-btn grey-text text-lighten-4 grey darken-4">Logout</button>
                     </form></li>
-                    <li sec:authorize="!isAuthenticated()"><a href="/sign-up" class="grey-text text-lighten-4 teal">Join</a></li>
+                    <li sec:authorize="!isAuthenticated()"><a href="/sign-up"
+                                                              class="grey-text text-lighten-4 grey grey darken-4">Join
+                    </a></li>
                 </ul>
             </div>
         </nav>
