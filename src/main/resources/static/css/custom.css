@@ -356,9 +356,9 @@ section:nth-of-type(2) {
 }
 
 .user-avatar-container {
-    height: 25vmin;
-    width: 25vmin;
-    margin-right: 25px;
+    /*height: 25vmin;*/
+    /*width: 25vmin;*/
+    /*margin-right: 25px;*/
 }
 
 .profile-user-avatar {
