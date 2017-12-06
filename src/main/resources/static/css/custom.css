@@ -458,6 +458,9 @@ section:nth-of-type(2) {
 /***********************/
 /*    Product View     */
 /***********************/
+.review-icon {
+    margin-top: 1em;
+}
 .menu-bottom {
     margin: -3px;
     width: 51%;

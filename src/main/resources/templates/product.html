@@ -73,8 +73,8 @@
                 <h6 class="review-number space-top"><span th:text="${makeup.getNumberOfReviews()}"></span> reviews</h6>
                 <h6 th:text="${makeup.getReviewCalculation()}" class="review-score space-top">Overwhelmingly
                     positive</h6>
-                <a th:if="${makeup.getReviewCalculation()} == 'Mostly Positive Reviews'" href="#!" class="secondary-content"><i class="material-icons green-text">thumb_up</i></a>
-                <a th:if="${makeup.getReviewCalculation()} == 'Mostly Negative Reviews'" href="#!" class="secondary-content"><i class="material-icons red-text">thumb_down</i></a>
+                <a th:if="${makeup.getReviewCalculation()} == 'Mostly Positive'" href="#!" class="secondary-content"><i class="material-icons green-text review-icon">thumb_up</i></a>
+                <a th:if="${makeup.getReviewCalculation()} == 'Mostly Negative'" href="#!" class="secondary-content"><i class="material-icons red-text review-icon">thumb_down</i></a>
             </div>
         <div sec:authorize="isAuthenticated()"><!-- form div -->
             <form class="form center-align space-top" th:action="@{/product/{id}(id=${makeup.id})}" th:method="post"
@@ -86,7 +86,7 @@
                 <input class="btn grey darken-4" th:type="submit" th:value="Submit" />
             </form>
         </div><!-- review -->
-            <ul class="collection">
+            <ul class="collection space-top">
                 <li class="collection-item avatar" th:each="review : ${makeup.reviews}">
                     <img th:src="${review.user.getProfilePicUrl()}" alt="" class="circle" />
                     <span th:text="${review.title}" class="title">This lipstick is lit!!!</span>
