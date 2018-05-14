@@ -48,11 +48,17 @@ main {
     background-color: #000;
     display: flex;
 }
+
+
 .view-sample-link, a:link{
     color: #80cbc4 !important;
     font-size: 2em;
     font-family: 'Didact Gothic', sans-serif;
     cursor: pointer;
+}
+.view-sample-mobile, a:link {
+    font-size: 1.5em;
+    width: 30vh;
 }
 
 .welcome{
@@ -152,6 +158,9 @@ main {
     height: 100%;
 }
 
+.login-mobile-wrapper {
+    text-align: center;
+}
 .login-mobile-wrapper img{
     height: 100%;
     width: 100%;
