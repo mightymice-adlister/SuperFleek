@@ -41,17 +41,31 @@ main {
     /*border: solid black 2px;*/
 }
 
+.view-sample {
+    justify-content: center;
+    align-items: center;
+    width: 30vw;
+    background-color: #000;
+    display: flex;
+}
+.view-sample-link, a:link{
+    color: #80cbc4 !important;
+    font-size: 2em;
+    font-family: 'Didact Gothic', sans-serif;
+    cursor: pointer;
+}
+
 .welcome{
     position: fixed;
     top: 42vh;
-    width: 27vmax;
+    width: 32vmax;
     right: 5vmax;
+    text-align: center;
     color: #FFF;
 }
 
 .welcome-links{
-    position: relative;
-    right: 10%;
+
 }
 
 .mobile-h6{
